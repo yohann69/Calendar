@@ -1,1 +1,130 @@
-@import url("https://unpkg.com/fluent-svelte/theme.css");
+:root{
+	/* Colors */
+	--default-color: white;
+	--hover-bg-color:#ffffff0f;
+	--toc-active-bg:#ffffff0b;
+	--toc-active-color:#ffffffc8;
+	--accent-color:#62cdfe;
+	--btn-bg:#ffffff10;
+	--btn-border:#ffffff09;
+
+
+
+	/* Other */
+	--control-radius: 4px;
+
+	--fds-font-family-fallback: "Segoe UI", system-ui, sans-serif;
+	--fds-font-family-text: "Segoe UI Variable Text", "Seoge UI Variable Static Text", var(--fds-font-family-fallback);
+	--fds-font-family-small: "Segoe UI Variable Small", "Seoge UI Variable Static Small", var(--fds-font-family-fallback);
+	--fds-font-family-display: "Segoe UI Variable Display", "Seoge UI Variable Static Display", var(--fds-font-family-fallback);
+}
+
+
+body{
+	scroll-behavior: smooth;
+	font-family: var(--fds-font-family-text);
+	background-color: #212121;
+	background-size: cover;
+	background-image: url(bloom-mica-dark.png);
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 100vh;
+	margin: 0;
+}
+
+
+/*--------------------------------------*/
+/*    -----  Table Of Content  -----    */
+/*--------------------------------------*/
+	
+	/*		TOC List		*/
+		.toc{
+			display: flex;
+			flex-direction: column;
+			max-width: 260px;
+		}
+
+	/*		TOC Element		*/
+		.toc-el{
+			display: flex;
+			align-items: center;
+			
+			block-size: 36px;
+			margin: 3px 5px;
+			outline: none;
+			padding-inline: 12px;
+			border-radius: var(--control-radius);
+			
+			position: relative;
+
+			color: var(--default-color);
+			text-decoration: none;
+
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+
+			transition: ease-in-out 100ms;
+		}
+		.toc-el:hover{
+			background-color: var(--hover-bg-color);
+		}
+		.toc-el:active{
+			background-color: var(--toc-active-bg);
+			color: var(--toc-active-color);
+		}
+		.toc-el>p{
+			margin-left: 10px;
+			margin-top: 14px;
+		}
+		.toc-el>svg{
+			fill: white;
+		}
+	
+	/*		TOC Selected Element		*/
+		.toc-active{
+			background-color: var(--hover-bg-color);
+		}
+		.toc-active::before{
+			content: '';
+			background-color: var(--accent-color);
+			position: absolute;
+			border-radius: var(--control-radius);
+			height: 16px;
+			width: 3px;
+			inset-inline-start: 0;
+		}
+
+/*--------------------------------------*/
+/*    -----     Other Stuff    -----    */
+/*--------------------------------------*/
+	
+	button{
+
+		border-radius: var(--control-radius);
+		background-color: var(--btn-bg);
+		padding: 11px 20px 11px 20px;
+		border: 0;
+		border-top: 1px solid var(--btn-border);
+		color: var(--default-color);
+		text-decoration: none;
+
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		transition: ease-in-out 100ms;
+	}
+	button:active{
+		background-color: var(--btn-border);
+	}
+
+
+
+
+/*--------------------------------------*/
+/*    -----  	  Forms	     -----      */
+/*--------------------------------------*/
+	
