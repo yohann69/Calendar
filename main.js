@@ -20,8 +20,9 @@ rl.question("Veuillez entrer votre numéro de ressource: ", function (noressourc
 	axios.get(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`)
 		.then(function (response) {
 			var calendar = response.data.split('\n');
-			var line0 = calendar[0];
-			if(line0 == 'BEGIN:VCALENDAR'){
+			var line0 = `${calendar[0]}`;
+			var line0off = `BEGIN:VCALENDAR`;
+			if(line0.match(/BEGIN\.VCALENDAR/i)){
 				console.log("Première ligne");
 			}else{
 				console.log("C'est pas un fichier calendar")
