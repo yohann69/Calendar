@@ -3,52 +3,47 @@
 					ADE Calendar
 			  ~ Written By @Yohann69 ~
 -----------------------v0.1---------------------*/
-const axios = require('axios').default;
-const fs = require('fs');
-const { listenerCount } = require('process');
-const readline = require("readline");
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
+
+document.addEventListener('keydown', function (e) {
+	if (e.key === 'Enter') {
+		calendarlogin()
+	}
+})
+
+async function calendarlogin() {
+	const noressource = document.getElementById("input-noressource").value;
+
+	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
+	let myText = await result.text();
+	let testcalendar = myText.split('\n');
+	
+	if (testcalendar[0] == "<!DOCTYPE html>") {
+		document.querySelector('.alert-critical').classList.remove('hidden');
+	} else {
+		document.querySelector('.alert-critical').classList.add('hidden');
+		document.querySelector('.titlelogin').innerHTML="No de ressource valide :)";
+		console.log("lets go (bon il reste encore beaucoup a coder mais ça avance :)");
+	}
+
+}
+
+function closecriticalalert(){
+	document.querySelector('.alert-critical').classList.add('hidden');
+}
+
+
+
+/* fs.writeFile(`${noressource}.txt`, response.data, function (err) {
+	if (err) throw err;
+	console.log('File is created successfully.');
 });
 
-
-
-
-rl.question("Veuillez entrer votre numéro de ressource: ", function (noressource) {
-
-	axios.get(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`)
-		.then(function (response) {
-			var calendar = response.data.split('\n');
-			var line0 = `${calendar[0]}`;
-			var line0off = `BEGIN:VCALENDAR`;
-			if(line0.match(/BEGIN\.VCALENDAR/i)){
-				console.log("Première ligne");
-			}else{
-				console.log("C'est pas un fichier calendar")
-			}
-			// handle success
-			// console.log(response.data);
-
-			/* fs.writeFile(`${noressource}.txt`, response.data, function (err) {
-				if (err) throw err;
-				console.log('File is created successfully.');
-			});
-
-			fs.readFile(`${noressource}.txt`, 'utf-8', (err, data) => {
-				if (err) throw err;
-				else{
-					data.split('\n');
-					if(data[0] == line.match('^BEGIN:VEVENT')){
-						console.log("Première ligne");
-					}
-				}
-			})*/
-
-		})
-		.catch(function (error) {
-			// handle error
-			console.log("✋ Le numéro de ressource est invalide")
-		});
-	rl.close();
-});
+fs.readFile(`${noressource}.txt`, 'utf-8', (err, data) => {
+	if (err) throw err;
+	else{
+		data.split('\n');
+		if(data[0] == line.match('^BEGIN:VEVENT')){
+			console.log("Première ligne");
+		}
+	}
+})*/

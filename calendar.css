@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    height: 470px;
+    max-width: 420px;
+    width: 80%;
+}
+.login>section{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.login img {
+    max-width: 65px;
+}
+
+.login button{
+    width: 70%;
+}
+.login form {
+    width: 130px;
+}
+.login input{
+    width: 100%;
+    max-width: 115px;
+}
+.login>p:hover {
+    color: #d4d4d4;
+}
+.login>p {
+    margin: 0%;
+    color: #d4d4d466;
+    font-size: 90%;
+}
+.alert{
+    
+}
