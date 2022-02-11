@@ -3,6 +3,9 @@
 					ADE Calendar
 			  ~ Written By @Yohann69 ~
 -----------------------v0.1---------------------*/
+console.log("Bienvenue sur Fluent ADE");
+console.log("Le code source est accessible publiquement ici: https://github.com/yohann69/Calendar");
+console.log("Toutes contributions sont les bienvenues");
 
 document.addEventListener('keydown', function (e) {
 	if (e.key === 'Enter') {
@@ -20,7 +23,25 @@ async function calendarlogin() {
 	if (testcalendar[0].includes("BEGIN") && testcalendar[0].includes("VCALENDAR") ) {
 		document.querySelector('.alert-critical').classList.add('hidden');
 		document.querySelector('.titlelogin').innerHTML = "N° de ressource valide! <br>Connexion en cours";
-		console.log("lets go (bon il reste encore beaucoup a coder mais ça avance :)");
+
+		console.log("Taille du fichier ics: " + testcalendar.length);
+		let i = 0;
+		while(i != testcalendar.length){
+			if(testcalendar[i].includes("BEGIN") && testcalendar[i].includes("VEVENT")){
+				console.log(' --------------------  DEBUT EVENEMENT ------------------')
+				while((testcalendar[i].includes("END" && testcalendar[i].includes("VEVENT")))===null){
+					console.log("Youpi je suis dans la boucle while" + testcalendar[i])
+					i++
+				}
+				//console.log(' --------------------  FIN EVENEMENT ------------------')
+			}
+			i++
+		}
+		/*
+		for(let i=0; i<testcalendar.length; i++){
+			console.log(i)
+		}*/
+
 	} else {
 		document.querySelector('.alert-critical').classList.remove('hidden');
 	}
