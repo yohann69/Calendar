@@ -30,7 +30,12 @@ async function calendarlogin() {
 function closecriticalalert(){
 	document.querySelector('.alert-critical').classList.add('hidden');
 }
-
+function showloginhelp(){
+	document.querySelector('.help-ressource-nb').classList.remove('hidden');
+}
+function hideloginhelp(){
+	document.querySelector('.help-ressource-nb').classList.add('hidden');
+}
 
 
 /* fs.writeFile(`${noressource}.txt`, response.data, function (err) {
