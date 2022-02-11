@@ -16,24 +16,23 @@ async function calendarlogin() {
 	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
 	let myText = await result.text();
 	let testcalendar = myText.split('\n');
-	
-	if (testcalendar[0] == "<!DOCTYPE html>") {
-		document.querySelector('.alert-critical').classList.remove('hidden');
-	} else {
-		document.querySelector('.alert-critical').classList.add('hidden');
-		document.querySelector('.titlelogin').innerHTML="No de ressource valide :)";
-		console.log("lets go (bon il reste encore beaucoup a coder mais ça avance :)");
-	}
 
+	if (testcalendar[0].includes("BEGIN") && testcalendar[0].includes("VCALENDAR") ) {
+		document.querySelector('.alert-critical').classList.add('hidden');
+		document.querySelector('.titlelogin').innerHTML = "N° de ressource valide! <br>Connexion en cours";
+		console.log("lets go (bon il reste encore beaucoup a coder mais ça avance :)");
+	} else {
+		document.querySelector('.alert-critical').classList.remove('hidden');
+	}
 }
 
-function closecriticalalert(){
+function closecriticalalert() {
 	document.querySelector('.alert-critical').classList.add('hidden');
 }
-function showloginhelp(){
+function showloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.remove('hidden');
 }
-function hideloginhelp(){
+function hideloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.add('hidden');
 }
 
