@@ -1,13 +1,14 @@
 <h1 align="center">🗓️ ADE Calendrier 🕝<br></h1> 
 <!--Add a screenshot-->
-<br />
+
+
+![v0.13 Render](https://i.imgur.com/NGZ1QbW.png)
 
 
 
 ## 📜 To do:
 🏁 Started - Create a nice UI (with the w11 design codes) for the login page<br />
 🏁 Started - Make the website responsive<br />
-🏁 Started - Display a help section in the login page<br />
 ⬛ Decipher the ICS file to be able to interpret it and display it in the calendar<br />
 ⬛ Create a nice UI (with the w11 design codes) for the calendar page<br />
 ⬛ Automatically add colors for the different lessons<br />
@@ -23,6 +24,7 @@
 ✅ Create a login page<br />
 ✅ Check wether the user input match with a valide ade ressource number<br />
 ✅ Deploy the website on the internet<br />
+✅ Display a help section in the login page<br />
 ✅ ...
 <br />
 
