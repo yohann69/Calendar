@@ -1,92 +1,30 @@
-body {
+.timetable{
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.login {
-    height: 470px;
-    max-width: 420px;
-    width: 80%;
-}
-
-.login>section>section:first-child {
-    margin-top: 40px;
-}
-
-.login>section>section:last-child {
-    margin-bottom: 35px;
-}
-
-.login>section {
-    text-align: center;
+    align-items: flex-end;
     height: 100%;
+}
+
+.timetable>section{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.login img {
-    max-width: 65px;
-}
-
-.login button {
-    margin-top: 45px;
-    width: 70%;
-}
-
-.login form {
-    width: 130px;
-}
-
-.login input {
+    flex-direction: row;
+    
     width: 100%;
-    max-width: 115px;
-}
-
-.login>p:hover {
-    color: #d4d4d4;
-}
-
-.login>p {
-    margin: 0%;
-    color: #d4d4d466;
-    font-size: 90%;
+    height: 93%;
 }
 
 
-/* Help ressource number*/
 
-.help-ressource-nb {
-    position: fixed;
-    max-width: 90%;
-    width: 55em;
-    z-index: 66666;
-}
 
-.help-ressource-nb img {
-    max-width: 90%;
-}
 
-.help-ressource-nb>section {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2em;
+
+
+.calendar {
+    width: 100%;
+    border-radius: 0;
+    border-top-left-radius: 7px;
 }
-.help-ressource-nb ol{
-    max-width: 40em;
-    margin-bottom: 2em;
-}
-.close-help{
-    position: absolute;
-    right: 7px;
-}
-.help-ressource-nb h2 {
-    margin-top: 1.4em;
-}
-.help-ressource-nb img {
-    border-radius: 4px;
+.options {
+    width: 20em;
+    padding: 12px;
+    border: 1px solid #00000000;
 }

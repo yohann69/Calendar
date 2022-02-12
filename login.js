@@ -24,16 +24,17 @@ async function calendarlogin() {
 		document.querySelector('.alert-critical').classList.add('hidden');
 		document.querySelector('.titlelogin').innerHTML = "N° de ressource valide! <br>Connexion en cours";
 
+		window.location.replace(`/calendar.html?${noressource}`); 
 		console.log("Taille du fichier ics: " + testcalendar.length);
 		let i = 0;
 		while(i != testcalendar.length){
 			if(testcalendar[i].includes("BEGIN") && testcalendar[i].includes("VEVENT")){
-				console.log(' --------------------  DEBUT EVENEMENT ------------------')
-				while((testcalendar[i].includes("END" && testcalendar[i].includes("VEVENT")))===null){
-					console.log("Youpi je suis dans la boucle while" + testcalendar[i])
+				console.log(' --------------------  DEBUT EVENEMENT ------------------ ')
+				while((testcalendar[i].includes("END") && testcalendar[i].includes("VEVENT"))===false){
+					console.log(testcalendar[i])
 					i++
 				}
-				//console.log(' --------------------  FIN EVENEMENT ------------------')
+				console.log(' --------------------  FIN EVENEMENT ------------------ ')
 			}
 			i++
 		}
