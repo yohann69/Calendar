@@ -20,11 +20,15 @@
 
 .calendar {
     width: 100%;
-    border-radius: 0;
-    border-top-left-radius: 7px;
+    border-radius: 0 !important;
+    border-top-left-radius: 9px !important;
 }
-.options {
-    width: 350px;
+.options { 
+    min-width: 280px;
     padding: 12px;
     border: 1px solid #00000000;
+}
+.center{
+    display: flex;
+    justify-content: center;
 }

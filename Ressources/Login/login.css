@@ -1,8 +1,3 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .login {
     height: 470px;
@@ -89,4 +84,12 @@ body {
 }
 .help-ressource-nb img {
     border-radius: 4px;
+}
+
+.logincenter{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

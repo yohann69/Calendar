@@ -31,3 +31,4 @@
 ## ❤️ Infos & Credits :
 Website made by ❤️ in France by [Yohann](https://github.com/yohann69)<br/>
 Hosted thanks to cloudflare pages
+Thanks to [Tropix126](https://github.com/Tropix126/fluent-svelte) for [Fluent Svelte](https://fluent-svelte.vercel.app/)

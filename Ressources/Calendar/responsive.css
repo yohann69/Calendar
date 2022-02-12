@@ -1,0 +1,8 @@
+@media only screen and (max-width: 1300px){
+    .options{
+        display: none;
+    }
+    .calendar{
+        border-top-right-radius: 9px !important;
+    }
+}

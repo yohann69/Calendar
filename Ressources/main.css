@@ -29,7 +29,7 @@ body {
     font-family: var(--fds-font-family-text);
     background-color: #212121;
     background-size: cover;
-    background-image: url(Ressources/img/bloom-mica-dark.png);
+    background-image: url(img/bloom-mica-dark.png);
     background-repeat: no-repeat;
     background-position: top;
     height: 100vh;

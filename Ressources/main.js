@@ -23,26 +23,32 @@ async function calendarlogin() {
 	if (testcalendar[0].includes("BEGIN") && testcalendar[0].includes("VCALENDAR") ) {
 		document.querySelector('.alert-critical').classList.add('hidden');
 		document.querySelector('.titlelogin').innerHTML = "N° de ressource valide! <br>Connexion en cours";
-
-		window.location.replace(`/calendar.html?${noressource}`); 
+		
+		window.history.pushState( {} , '', `?ressource=${noressource}` ); //Modifie l'url sans recharger
+		//window.location.replace(`/calendar.html?ressource=${noressource}`); 	// Modifie l'url en rechargant la page
+		
 		console.log("Taille du fichier ics: " + testcalendar.length);
+
+		// Edit the webpage (remove the login and switch to the calendar)
+		document.querySelector('.logincenter').classList.add('timetable');
+		document.querySelector('.timetable').classList.remove('logincenter');
+		document.querySelector('.timetable').classList.remove('card');
+		
+
+		document.querySelector('.timetable').innerHTML = "<section><section class=\"options\"></section><section class=\"card calendar\"></section></section>"
+		// Analyze the ics
 		let i = 0;
 		while(i != testcalendar.length){
 			if(testcalendar[i].includes("BEGIN") && testcalendar[i].includes("VEVENT")){
 				console.log(' --------------------  DEBUT EVENEMENT ------------------ ')
 				while((testcalendar[i].includes("END") && testcalendar[i].includes("VEVENT"))===false){
-					console.log(testcalendar[i])
-					i++
+					//console.log(testcalendar[i])
+					i++;
 				}
 				console.log(' --------------------  FIN EVENEMENT ------------------ ')
 			}
-			i++
+			i++;
 		}
-		/*
-		for(let i=0; i<testcalendar.length; i++){
-			console.log(i)
-		}*/
-
 	} else {
 		document.querySelector('.alert-critical').classList.remove('hidden');
 	}
@@ -57,6 +63,12 @@ function showloginhelp() {
 function hideloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.add('hidden');
 }
+
+
+
+
+
+
 
 
 /* fs.writeFile(`${noressource}.txt`, response.data, function (err) {

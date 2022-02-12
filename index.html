@@ -5,15 +5,17 @@
     <meta charset="UTF-8" />
     <title>UGA - Calendar</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/Ressources/main.css">
     <link rel="stylesheet" href="/Ressources/Login/login.css">
-    <script src="/Ressources/Login/login.js"></script>
+    <link rel="stylesheet" href="/Ressources/Calendar/calendar.css">
+    <link rel="stylesheet" href="/Ressources/Calendar/responsive.css">
+    <script src="/Ressources/main.js"></script>
     <meta name="author" content="Yohann">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
-<body>
+<body id="body">
 
     <!------------------------------------------------------------->
     <!--		    	  	  Help section				   		 -->
@@ -65,18 +67,20 @@
     <!------------------------------------------------------------->
     <!--		      	  Main Login interface 		   		 	 -->
     <!------------------------------------------------------------->
-    <section class="card login">
-        <section>
+    <section class="logincenter">
+        <section class="card login">
             <section>
-                <img src="Ressources/img/calendaricon.png" alt="Icone Calendrier">
-                <h2 class="titlelogin">Veuillez entrer votre numéro de ressource</h2>
+                <section>
+                    <img src="Ressources/img/calendaricon.png" alt="Icone Calendrier">
+                    <h2 class="titlelogin">Veuillez entrer votre numéro de ressource</h2>
+                </section>
+                <section>
+                    <input type="number" id="input-noressource" step="1" min="0" placeholder="N° de ressource">
+                    <button onclick="calendarlogin();">Accéder à l'EDT</button>
+                </section>
             </section>
-            <section>
-                <input type="number" id="input-noressource" step="1" min="0" placeholder="N° de ressource">
-                <button onclick="calendarlogin();">Accéder à l'EDT</button>
-            </section>
+            <p onclick="showloginhelp();">Comment trouver mon numéro de ressource ?</p>
         </section>
-        <p onclick="showloginhelp();">Comment trouver mon numéro de ressource ?</p>
     </section>
 
 
