@@ -9,7 +9,7 @@
 ## 📜 To do:
 🏁 Started - Create a nice UI (with the w11 design codes) for the login page<br />
 🏁 Started - Make the website responsive<br />
-⬛ Decipher the ICS file to be able to interpret it and display it in the calendar<br />
+🏁 Started - Decipher the ICS file to be able to interpret it and display it in the calendar<br />
 ⬛ Create a nice UI (with the w11 design codes) for the calendar page<br />
 ⬛ Automatically add colors for the different lessons<br />
 ⬛ Add an adaptative light/dark mode<br />
@@ -29,5 +29,5 @@
 <br />
 
 ## ❤️ Infos & Credits :
-Website made by ❤️ in France <br/>
+Website made by ❤️ in France by [Yohann](https://github.com/yohann69)<br/>
 Hosted thanks to cloudflare pages
