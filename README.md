@@ -10,7 +10,7 @@
 🏁 Started - Create a nice UI (with the w11 design codes) for the login page<br />
 🏁 Started - Make the website responsive<br />
 🏁 Started - Decipher the ICS file to be able to interpret it and display it in the calendar<br />
-⬛ Create a nice UI (with the w11 design codes) for the calendar page<br />
+🏁 Started - Create a nice UI (with the w11 design codes) for the calendar page<br />
 ⬛ Automatically add colors for the different lessons<br />
 ⬛ Add an adaptative light/dark mode<br />
 ⬛ Correct all language errors<br />
