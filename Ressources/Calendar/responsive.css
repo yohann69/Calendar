@@ -3,12 +3,13 @@
         display: none;
         position: absolute;
         z-index: 1;
-        width: 85%;
+        width: 90%;
         background-color: #ffffff0d;
         align-items: center;
         border-radius: 8px;
         backdrop-filter: blur(60px) saturate(125%);
         -webkit-backdrop-filter: blur(60px) saturate(125%);
+        border: 1px solid rgba(0, 0, 0, 0.6);
     
     }
     .calendar{
