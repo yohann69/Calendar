@@ -61,7 +61,7 @@ async function calendarlogin() {
 function showcredits(){
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.credits').classList.add('toc-active')
-	document.querySelector('.calendar').innerHTML="<details class=\"card\"><summary>Epcot Center</summary><p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p></details><details class=\"card\"><summary>Epcot Center</summary><p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p></details>"
+	document.querySelector('.calendar').innerHTML="<section class=\"headcredits\"><img src=\"Ressources/img/calendaricon.png\" alt=\"Icone Calendrier\" width=\"100px\"><section><h1 class=\"appnametitle\">UGA Calendar</h1><p>v0.5</p></section></section><details class=\"card\"><summary>A propos de ce site</summary><p>Ce site a été créé par <a href=\"https://github.com/yohann69/\">Yohann</a> dans le but d'avoir une alternative à ADE qui fonctionne aussi bien sur téléphone que sur ordinateur</p></details><details class=\"card\"><summary>Crédits</summary><p><ul><li>Code source: <a href=\"https://github.com/yohann69/Calendar\">GitHub</a> - Toutes contributions sout les bienvenues</li><li>Site web hébergé par <a href=\"https://pages.cloudflare.com/\">CloudFlare Pages</a></li><li>Copyright © 2022 <a href=\"https://github.com/yohann69/\">Yohann</a></li></ul></p></details>"
 }
 function showcalendar(){
 	document.querySelector('.toc-active').classList.remove('toc-active');

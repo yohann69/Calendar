@@ -62,6 +62,7 @@
 /*          INFOS        */
 details{
     width: 90%;
+    max-width: 800px;
     margin-bottom: 15px;
 }
 details p{
@@ -73,4 +74,19 @@ summary{
     border-radius: 8px;
     color: white;
     background-color: #ffffff0d;
+}
+.headcredits {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 200px;
+}
+.appnametitle {
+    font-size: 150%;
+}
+.headcredits section * {
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
