@@ -31,7 +31,7 @@
     border-radius: 0 !important;
     border-top-left-radius: 9px !important;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .options { 
     min-width: 280px;
@@ -90,3 +90,9 @@ summary{
     display: flex;
     justify-content: center;
 }
+.expanders {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}   

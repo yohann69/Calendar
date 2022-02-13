@@ -11,6 +11,7 @@
     }
     .calendar{
         border-top-right-radius: 9px !important;
+        justify-content: space-evenly;
     }
     .timetable header {
         width: 90%;
