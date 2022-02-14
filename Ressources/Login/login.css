@@ -58,6 +58,7 @@
     max-width: 90%;
     width: 55em;
     z-index: 66666;
+    max-height: 90%;
 }
 
 .help-ressource-nb img {
