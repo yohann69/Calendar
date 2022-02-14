@@ -55,9 +55,8 @@ async function calendarlogin() {
 			i++;
 		}
 		console.log("Tous les évènements ont bien été enregistrés. Maintenant, lets go les trier")
-
-		console.log(eventlist);
-
+		eventlist.sort();
+	
 	} else {
 		document.querySelector('.alert-critical').classList.remove('hidden');
 	}
