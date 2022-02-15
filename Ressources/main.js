@@ -54,10 +54,12 @@ async function calendarlogin() {
 				i = i + 2; // Skip useless ics data
 				templist = []; // Set the temp array empty
 				while ((testcalendar[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
-					if (testcalendar[i].includes("UID:")) {
-						i = i + 4 // Skip useless ics data
-					} else {
+					if (testcalendar[i].includes("DTSTART:") || testcalendar[i].includes("DTEND:") || testcalendar[i].includes("SUMMARY:") || testcalendar[i].includes("LOCATION:") || testcalendar[i].includes("DESCRIPTION:")) {
+						
 						templist.push(testcalendar[i]); // Add the event details to the temp array
+						i++
+					} else {
+						//i = i + 4 // Skip useless ics data
 						i++;
 					}
 				}
@@ -66,7 +68,7 @@ async function calendarlogin() {
 			i++;
 		}
 		eventlist.sort(); // Sort the main array in the chronological order
-		// console.log(eventlist)
+		console.log(eventlist)
 		console.log("✅ Tous les évènements ont bien été enregistrés et triés")
 
 
@@ -96,7 +98,7 @@ function showcalendar() {
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.calendarmenu').classList.add('toc-active');
 	// document.querySelector('.calendar').style.flexDirection = "row";
-	document.querySelector('.calendar').innerHTML = "<section class=\"daytitles\"><section class=\"daysheader\"><section>Lundi</section><section>Mardi</section><section>Mercredi</section><section>Jeudi</section><section>Vendredi</section><section class=\"sam\">Samedi</section></section></section><section class=\"calendarcontent\"><section class=\"hours\"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class=\"days\"><section></section><section></section><section></section><section></section><section></section><section></section></section></section>"
+	document.querySelector('.calendar').innerHTML = "<section class=\"daytitles\"><section class=\"daysheader\"><section>Lundi</section><section>Mardi</section><section>Mercredi</section><section>Jeudi</section><section>Vendredi</section><section class=\"sam\">Samedi</section></section></section><section class=\"calendarcontent\"><section class=\"hours\"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class=\"days\"><section></section><section></section><section></section><section><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article><article class=\"card onehour\"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class=\"nomprof\">CHARENSOL SYLVAIN</p><p class=\"horaires\">9h00 - 10h00</p></article></section><section></section><section></section></section></section>"
 }
 
 let hamburgernb = 0

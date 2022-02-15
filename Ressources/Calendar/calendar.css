@@ -137,7 +137,7 @@ summary button {
 }
 .hours {
     align-items: center;
-    width: 60px;
+    width: 60px;  
     backdrop-filter: blur(60px) saturate(125%);
     -webkit-backdrop-filter: blur(60px) saturate(125%);
     background-color: #ffffff0d;
@@ -210,4 +210,24 @@ summary button {
     background-color: #ffffff0d;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+}
+article {
+    padding: 5px !important;
+    padding-top: 0px !important;
+    display: flex;
+    padding-bottom: 0px !important;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+article * {
+    margin: 0;
+    font-size: 75%;
+}
+.horaires {
+    font-size: 60%;
+}
+.nomprof {
+    font-size: 50%;
 }
