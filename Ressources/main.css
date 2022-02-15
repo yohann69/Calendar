@@ -242,7 +242,7 @@ li {
 		    backdrop-filter: blur(60px) saturate(125%);
 			-webkit-backdrop-filter: blur(60px) saturate(125%);
 		    background-color: #ffffff0d;
-		    border: 1px solid #00000099;
+		    border: 1px solid #00000099 !important;
 		    border-radius: var(--card-radius);
 		    padding: 12px;
 		    display: flex;

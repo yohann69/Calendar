@@ -1,6 +1,15 @@
 :root{
     --border-color: #00000096;
     --border-radius: 6px;
+
+
+    --red:#ff000040;
+    --orange: #ff8c005c;
+    --yellow:#ffda006e;
+    --blue:#00ffff66;
+    --green:#32cd326e;
+    --pink:#ff56b159;
+
 }
 
 *{
@@ -211,6 +220,11 @@ summary button {
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
+
+
+
+
+/* Lesson display*/
 article {
     padding: 5px !important;
     padding-top: 0px !important;
@@ -225,9 +239,35 @@ article * {
     margin: 0;
     font-size: 75%;
 }
-.horaires {
+.nomprof {
     font-size: 60%;
 }
-.nomprof {
-    font-size: 50%;
+
+.onehour,.onehourandhalf,.halfhour,.twohours{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ffffff00;
+}
+.onehour {
+    height: 8.92%;
+}
+.onehourandhalf {
+    height: 13.47%;
+}
+.halfhour {
+    height: 4.378%;
+}
+.twohours {
+    height: 18.02%;
+}
+article h4 {
+    color: floralwhite;
+}
+article p {
+    color: #ffffffc8;
+}
+article h3{
+    color: white;
 }
