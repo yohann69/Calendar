@@ -143,6 +143,7 @@ summary button {
     background-color: #38383866;
     height: 100%;
     display: flex;
+    overflow: hidden;
 }
 .hours {
     align-items: center;
@@ -163,7 +164,7 @@ summary button {
     width: 16.66666%;
 }
 .daytitles {
-    height: 40px;
+    height: 5%;
     width: 100%;
     display: flex;
 }
@@ -177,7 +178,7 @@ summary button {
 }
 .calendarcontent {
     width: 100%;
-    height: 100%;
+    height: 95%;
     display: flex;
     border: 1px solid var(--border-color);
     border-top-left-radius: var(--border-radius);
@@ -248,19 +249,18 @@ article * {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid #ffffff00;
 }
 .onehour {
-    height: 8.92%;
+    height: calc(100% / 11);
 }
 .onehourandhalf {
-    height: 13.47%;
+    height: calc(100%/7.33);
 }
 .halfhour {
-    height: 4.378%;
+    height: calc(100% / 22);
 }
 .twohours {
-    height: 18.02%;
+    height: calc(100% / 5.5);
 }
 article h4 {
     color: floralwhite;
@@ -270,4 +270,17 @@ article p {
 }
 article h3{
     color: white;
+}
+
+
+.event {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(60px) saturate(125%);
+    -webkit-backdrop-filter: blur(60px) saturate(125%);
+    background-color: #ffffff0d;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00000099;
 }
