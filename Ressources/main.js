@@ -77,6 +77,13 @@ async function calendarlogin() {
 		let datesemiformated = todaydateunformatted.toISOString(); // 2022-02-14T20:44:56.443Z     => .toISOString(); converts the date to an ICS like date format
 		let date = `${datesemiformated.slice(0,4)}` + `${datesemiformated.slice(5,7)}` + `${datesemiformated.slice(8,13)}` + `${datesemiformated.slice(14,16)}` + `00Z`
 
+		/*		~ Display the today events ~		*/
+		//DTSTART:20220216T070000Z
+		i=0;
+		while(eventlist[i][0].slice(12,16) == date.slice(4,8)){
+			console.log(eventlist[i])
+			i++
+		}
 
 
 	} else {
