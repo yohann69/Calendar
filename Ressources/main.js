@@ -5,13 +5,11 @@
 -----------------------v0.1---------------------*/
 console.log("Bienvenue sur Fluent ADE");
 console.log("Le code source est accessible publiquement ici: https://github.com/yohann69/Calendar");
-console.log("Toutes contributions sont les bienvenues");
+console.log("Toutes contributions sont les bienvenues. Enjoy!");
+console.log("PS: le code n'est pas peaufiné. Il y a des trucs pas beaux, pas optimisés, incorrects... mais il a prour première vocation d'être fonctionnel. Au cours des MAJ, je ferais en sorte que le code soit le meilleur possible.");
 
-document.addEventListener('keydown', function (e) {
-	if (e.key === 'Enter') {
-		calendarlogin()
-	}
-})
+
+
 
 /*------------------------------------------------------------
 		   ~ Automatically select the input at login ~
@@ -21,9 +19,15 @@ input.focus();
 input.select();
 
 
-if((window.location.href).includes("?ressource=")){
-	console.log("Unfortunately, you cannot directely access the calendar by using a direct url yet. This will be implemented in the future versions :)")
+if ((window.location.href).includes("?ressource=")) {
+	console.log("Unfortunately, you cannot directely access the calendar by using a direct url yet. This will be implemented in the future versions :)");
 	//calendarlogin((window.location.search).slice(11,500))
+} else{
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Enter') {
+			calendarlogin();
+		}
+	})
 }
 
 
@@ -101,33 +105,33 @@ function showcredits() {
 
 
 /*This isn't optimized yet but I hope this will disappear in the upcoming versions*/
-async function tempshowcalendar(){
-	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${(window.location.search).slice(11,500)}.ics`);
+async function tempshowcalendar() {
+	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${(window.location.search).slice(11, 500)}.ics`);
 	let myText = await result.text();
 	let testcalendar = myText.split('\n');
 	let eventlist = [];
 	let templist = [];
 	let i = 0;
-		while (i != testcalendar.length) {
-			if (testcalendar[i].includes("BEGIN:VEVENT")) { // At the beginning of an event
-				i = i + 2; // Skip useless ics data
-				templist = []; // Set the temp array empty
-				while ((testcalendar[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
-					if (testcalendar[i].includes("DTSTART:") || testcalendar[i].includes("DTEND:") || testcalendar[i].includes("SUMMARY:") || testcalendar[i].includes("LOCATION:") || testcalendar[i].includes("DESCRIPTION:")) {
+	while (i != testcalendar.length) {
+		if (testcalendar[i].includes("BEGIN:VEVENT")) { // At the beginning of an event
+			i = i + 2; // Skip useless ics data
+			templist = []; // Set the temp array empty
+			while ((testcalendar[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
+				if (testcalendar[i].includes("DTSTART:") || testcalendar[i].includes("DTEND:") || testcalendar[i].includes("SUMMARY:") || testcalendar[i].includes("LOCATION:") || testcalendar[i].includes("DESCRIPTION:")) {
 
-						templist.push(testcalendar[i]); // Add the event details to the temp array
-						i++
-					} else {
-						//i = i + 4 // Skip useless ics data
-						i++;
-					}
+					templist.push(testcalendar[i]); // Add the event details to the temp array
+					i++
+				} else {
+					//i = i + 4 // Skip useless ics data
+					i++;
 				}
-				eventlist.push(templist); // When the event is finished, add the temparray to the main array
 			}
-			i++;
+			eventlist.push(templist); // When the event is finished, add the temparray to the main array
 		}
-		eventlist.sort(); // Sort the main array in the chronological order
-		console.log("✅ Tous les évènements ont bien été enregistrés et triés")
+		i++;
+	}
+	eventlist.sort(); // Sort the main array in the chronological order
+	console.log("✅ Tous les évènements ont bien été enregistrés et triés")
 	showcalendar(eventlist);
 }
 
@@ -148,7 +152,7 @@ function showcalendar(y) {
 function displayevents(z) {
 	let eventlist = z;
 	//console.log(eventlist);
-	
+
 
 	/*		~ Get the actual date & Time ~		*/
 	let todaydateunformatted = new Date();
@@ -162,68 +166,88 @@ function displayevents(z) {
 	let i
 	i = 0;
 
-	
+
 
 	/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
-	if(eventlist[0][0].slice(12,16) == date.slice(4,8)){
+	if (eventlist[0][0].slice(12, 16) == date.slice(4, 8)) {
 		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
+
+
+
+		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
+			//if()
+			/*
+			console.log("o : " + eventlist[i][0].slice(17, 21))
+			console.log("i : " + eventlist[i][1].slice(15, 19))
+			console.log(eventlist[i][1].slice(15, 19) - eventlist[i][0].slice(17, 21))
+			*/
+
+
+			/* GEt event duration (thanks stackoverflow :) )*/
+
+			/*var startTime=moment(`${eventlist[i][0].slice(17, 19)}:${eventlist[i][0].slice(19, 21)}`, "HH:mm");
+			var endTime=moment("16:07", "HH:mm");
+			var duration = moment.duration(endTime.diff(startTime));
+			var hours = parseInt(duration.asHours());
+			var minutes = parseInt(duration.asMinutes())-hours*60;    
+			var result = endTime.diff(startTime, 'hours') + endTime.diff(startTime, 'minutes');*/
+
+
+			console.log(eventlist[i])
+			document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event onehourandhalf"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
+			addspaces(eventlist[i][0].slice(15, 19), eventlist[i + 1][0].slice(17, 21), semiday);
+			i++
+
+
+			// <section class="Thu"><article class="event halfhour"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event onehour"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event onehourandhalf"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event twohours"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article></section>
+		}
 	}
-
-
-
-
-
-	while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
-		//if()
-		/*
-		console.log("o : " + eventlist[i][0].slice(17, 21))
-		console.log("i : " + eventlist[i][1].slice(15, 19))
-		console.log(eventlist[i][1].slice(15, 19) - eventlist[i][0].slice(17, 21))
-		*/
-
-
-		/* GEt event duration (thanks stackoverflow :)  )*/
-
-		/*var startTime=moment(`${eventlist[i][0].slice(17, 19)}:${eventlist[i][0].slice(19, 21)}`, "HH:mm");
-		var endTime=moment("16:07", "HH:mm");
-		var duration = moment.duration(endTime.diff(startTime));
-		var hours = parseInt(duration.asHours());
-		var minutes = parseInt(duration.asMinutes())-hours*60;    
-		var result = endTime.diff(startTime, 'hours') + endTime.diff(startTime, 'minutes');*/
-		console.log(eventlist[i])
-		document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event onehourandhalf"><h3>${eventlist[i][2].slice(8,500)}</h3><h4>${eventlist[i][3].slice(9,500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
-
-		i++
-	}
-
-	// <section class="Thu"><article class="event halfhour"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event onehour"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event onehourandhalf"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article><article class="event twohours"><h3>Communication et fonctionnement bas niveau</h3><h4>B117</h4><p class="nomprof">CHARENSOL SYLVAIN</p></article></section>
 
 }
 
 
 
-	/*
-	 * x is end of the previous course
-	 * y is the beginning of the following one
-	 * z is the day of the week where the space will be added
-	 */
-	 function addspaces(x, y, z){
-		while((y - x) > 0){
-			if(y[2] == "3"){
-				y = y - 30;
-				document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
-				console.log(y);
-			} else{
-				y = y - 70;
-				document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
-				console.log(y);
-			}
+/*
+ * x is end of the previous course
+ * y is the beginning of the following one
+ * z is the day of the week where the space will be added
+ */
+function addspaces(x, y, z) {
+	while ((y - x) > 0) {
+		if (y[2] == "3") {
+			y = y - 30;
+			document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
+			console.log(y);
+		} else {
+			y = y - 70;
+			document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
 			console.log(y);
 		}
+		console.log(y);
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*------------------------------------------------------------
-				   	   ~ HamburgerButton ~
+							 ~ HamburgerButton ~
 ------------------------------------------------------------*/
 let hamburgernb = 0
 function showoptions() {
@@ -239,7 +263,7 @@ function showoptions() {
 
 
 /*------------------------------------------------------------
-				    ~ Other small scripts ~
+					~ Other small scripts ~
 ------------------------------------------------------------*/
 function deconnexion() {
 	window.location.replace(`/`);	// Modifie l'url en rechargant la page
