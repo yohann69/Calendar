@@ -161,11 +161,38 @@ function displayevents(z) {
 	console.log(semiday.slice(0, 3));
 	let i
 	i = 0;
+
+	
+
+	/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
+	if(eventlist[0][0].slice(12,16) == date.slice(4,8)){
+		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
+	}
+
+
+
+
+
 	while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
-		/*if((eventlist[i][0].slice(17, 21) - 700) = 130){
-			document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="onehourandhalf"><article>`
-		}*/
-		//console.log(eventlist[i])
+		//if()
+		/*
+		console.log("o : " + eventlist[i][0].slice(17, 21))
+		console.log("i : " + eventlist[i][1].slice(15, 19))
+		console.log(eventlist[i][1].slice(15, 19) - eventlist[i][0].slice(17, 21))
+		*/
+
+
+		/* GEt event duration (thanks stackoverflow :)  )*/
+
+		/*var startTime=moment(`${eventlist[i][0].slice(17, 19)}:${eventlist[i][0].slice(19, 21)}`, "HH:mm");
+		var endTime=moment("16:07", "HH:mm");
+		var duration = moment.duration(endTime.diff(startTime));
+		var hours = parseInt(duration.asHours());
+		var minutes = parseInt(duration.asMinutes())-hours*60;    
+		var result = endTime.diff(startTime, 'hours') + endTime.diff(startTime, 'minutes');*/
+		console.log(eventlist[i])
+		document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event onehourandhalf"><h3>${eventlist[i][2].slice(8,500)}</h3><h4>${eventlist[i][3].slice(9,500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
+
 		i++
 	}
 
@@ -175,6 +202,25 @@ function displayevents(z) {
 
 
 
+	/*
+	 * x is end of the previous course
+	 * y is the beginning of the following one
+	 * z is the day of the week where the space will be added
+	 */
+	 function addspaces(x, y, z){
+		while((y - x) > 0){
+			if(y[2] == "3"){
+				y = y - 30;
+				document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
+				console.log(y);
+			} else{
+				y = y - 70;
+				document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
+				console.log(y);
+			}
+			console.log(y);
+		}
+	}
 
 /*------------------------------------------------------------
 				   	   ~ HamburgerButton ~
