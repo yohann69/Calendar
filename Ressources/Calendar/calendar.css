@@ -37,7 +37,9 @@
 
 
 
-
+.toc{
+    min-width: 220px;
+}
 
 .calendar {
     width: 100%;
@@ -48,7 +50,7 @@
     justify-content: space-evenly;
 }
 .options { 
-    min-width: 280px;
+    min-width: 220px;
     padding: 12px;
     display: flex;
     border: 1px solid #00000000;
@@ -257,7 +259,8 @@ article * {
     height: calc(100%/7.33);
 }
 .halfhour {
-    height: calc(100% / 22);
+    height: calc(100% / 22);    
+    font-size: 70%;
 }
 .twohours {
     height: calc(100% / 5.5);
