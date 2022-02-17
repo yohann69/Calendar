@@ -22,7 +22,7 @@ input.select();
 if ((window.location.href).includes("?ressource=")) {
 	console.log("Unfortunately, you cannot directely access the calendar by using a direct url yet. This will be implemented in the future versions :)");
 	//calendarlogin((window.location.search).slice(11,500))
-} else{
+} else {
 	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Enter') {
 			calendarlogin();
@@ -71,11 +71,9 @@ async function calendarlogin() {
 				templist = []; // Set the temp array empty
 				while ((testcalendar[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
 					if (testcalendar[i].includes("DTSTART:") || testcalendar[i].includes("DTEND:") || testcalendar[i].includes("SUMMARY:") || testcalendar[i].includes("LOCATION:") || testcalendar[i].includes("DESCRIPTION:")) {
-
 						templist.push(testcalendar[i]); // Add the event details to the temp array
 						i++
 					} else {
-						//i = i + 4 // Skip useless ics data
 						i++;
 					}
 				}
@@ -175,26 +173,36 @@ function displayevents(z) {
 
 
 		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
-			//if()
-			/*
-			console.log("o : " + eventlist[i][0].slice(17, 21))
-			console.log("i : " + eventlist[i][1].slice(15, 19))
-			console.log(eventlist[i][1].slice(15, 19) - eventlist[i][0].slice(17, 21))
-			*/
 
 
-			/* GEt event duration (thanks stackoverflow :) )*/
+			/* Get event duration */
+			let eventstart = eventlist[i][0].slice(17, 21);
+			let eventend = eventlist[i][1].slice(15, 19);
+			let eventduration = 0;
+			while ((eventend - eventstart) > 0) {
+				if (eventend[2] == "3") {
+					eventend = eventend - 30;
+					eventduration += 30;
+				} else {
+					eventend = eventend - 70;
+					eventduration += 30;
+				}
+			}
 
-			/*var startTime=moment(`${eventlist[i][0].slice(17, 19)}:${eventlist[i][0].slice(19, 21)}`, "HH:mm");
-			var endTime=moment("16:07", "HH:mm");
-			var duration = moment.duration(endTime.diff(startTime));
-			var hours = parseInt(duration.asHours());
-			var minutes = parseInt(duration.asMinutes())-hours*60;    
-			var result = endTime.diff(startTime, 'hours') + endTime.diff(startTime, 'minutes');*/
+			let classduration;
+			if(eventduration == 30){
+				classduration = "halfhour";
+			}else if(eventduration == 60){
+				classduration = "onehour";
+			}else if(eventduration == 90){
+				classduration = "onehourandhalf";
+			}else if(eventduration == 120){
+				classduration = "twohours";
+			}
 
 
 			console.log(eventlist[i])
-			document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event onehourandhalf"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
+			document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
 			addspaces(eventlist[i][0].slice(15, 19), eventlist[i + 1][0].slice(17, 21), semiday);
 			i++
 
