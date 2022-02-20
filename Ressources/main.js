@@ -10,7 +10,6 @@ console.log("PS: le code n'est pas peaufiné. Il y a des trucs pas beaux, pas op
 
 
 
-
 /*------------------------------------------------------------
 		   ~ Automatically select the input at login ~
 ------------------------------------------------------------*/
@@ -139,7 +138,7 @@ function showcalendar(y) {
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.calendarmenu').classList.add('toc-active');
 	// document.querySelector('.calendar').style.flexDirection = "row";
-	document.querySelector('.calendar').innerHTML = `<section class="daytitles"><section class="daysheader"><section class="lun">Lundi</section><section class="mar">Mardi</section><section class="mer">Mercredi</section><section class="jeu">Jeudi</section><section class="ven">Vendredi</section><section class="sam">Samedi</section></section></section><section class="calendarcontent"><section class="hours"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class="days"><section class="Mon"></section><section class="Tue"></section><section class="Wed"></section><section class="Thu"></section><section class="Fri"></section><section class="Sat"></section></section></section>`;
+	document.querySelector('.calendar').innerHTML = `<section class="daytitles"><section class="empty"></section><section class="daysheader"><section class="lun">Lundi</section><section class="mar">Mardi</section><section class="mer">Mercredi</section><section class="jeu">Jeudi</section><section class="ven">Vendredi</section><section class="sam">Samedi</section></section></section><section class="calendarcontent"><section class="hours"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class="days"><section class="Mon"></section><section class="Tue"></section><section class="Wed"></section><section class="Thu"></section><section class="Fri"></section><section class="Sat"></section></section></section>`;
 	displayevents(eventlist);
 }
 

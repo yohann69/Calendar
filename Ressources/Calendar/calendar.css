@@ -177,6 +177,10 @@ summary button {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+.empty {
+    width: 60px;
 }
 .calendarcontent {
     width: 100%;
@@ -216,7 +220,6 @@ summary button {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-left: 58px;
     backdrop-filter: blur(60px) saturate(125%);
     -webkit-backdrop-filter: blur(60px) saturate(125%);
     background-color: #ffffff0d;
