@@ -290,3 +290,35 @@ article h3{
     -webkit-box-sizing: border-box;
     border: 1px solid #00000099;
 }
+
+
+table td {
+    margin: 0;
+    text-align: center;
+    width: 30px;
+    height: 28px;
+    border-radius: 100px;
+    font-size: 90%;
+    color: whitesmoke;
+}
+table td:hover {
+    background-color: #d1f4ff3d;
+    transition: ease-in-out 100ms;
+    border: 1px solid var(--accent-color);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+th {
+    width: 30px;
+    font-size: 12px;
+    color: white;
+    font-weight: 400;
+}
+h4 {
+    margin: 0;
+    color: white;
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
