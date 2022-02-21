@@ -14,7 +14,6 @@
 ⬛ Add an adaptative light/dark mode<br />
 ⬛ Correct all language errors<br />
 ⬛ Add a notification system to inform student what, where and when the next lesson will be<br />
-⬛ Keep in the cookies/cache the ressource number to avoid the user to enter it again and again (✅ so add a logout button too)<br />
 ⬛ Create a desktop/mobile app<br />
 ⬛ ...
 <br />
@@ -25,6 +24,7 @@
 ✅ Check wether the user input match with a valide ade ressource number<br />
 ✅ Deploy the website on the internet<br />
 ✅ Display a help section in the login page<br />
+✅ Auto-Login to the website using the ressource number kept in the URL (✅ so add a logout button too)<br />
 ✅ ...
 <br />
 
