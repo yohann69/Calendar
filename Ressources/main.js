@@ -237,14 +237,14 @@ function displayevents(z) {
 	/*		~ Display the today events ~		*/
 
 	let i
-	i = 0;
-
-	/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
-	if (eventlist[0][0].slice(12, 16) == date.slice(4, 8)) {
+	i = 3;
+	console.log(eventlist[0][0].slice(12, 16))
+	if (eventlist[3][0].slice(12, 16) === '0301') {  //date.slice(4, 8)
+		/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
 		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
 
 
-		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
+		while (eventlist[i][0].slice(12, 16) == '0301') { //date.slice(4, 8)
 			/* Get event duration */
 			let eventstart = eventlist[i][0].slice(17, 21);
 			let eventend = eventlist[i][1].slice(15, 19);
@@ -280,8 +280,15 @@ function displayevents(z) {
 
 
 			console.log(eventlist[i])
-			document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
-			addspaces(eventlist[i][0].slice(15, 19), eventlist[i + 1][0].slice(17, 21), semiday);
+			console.log("End Event1: " + eventlist[i][1].slice(15, 19));
+			console.log("Start Event2: " + eventlist[i + 1][0].slice(17, 21));
+			
+			if(eventduration == 30){
+				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
+			}else{
+				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
+			}
+			addspaces(eventlist[i][1].slice(15, 19), eventlist[i + 1][0].slice(17, 21), semiday);
 			i++
 
 		}
@@ -349,10 +356,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
+				Mer[i].style.display = "block";
+				Jeu[i].style.display = "block";
+				Ven[i].style.display = "block";
+				Sam[i].style.display = "block";
 			}
 		}
 	}
@@ -367,10 +374,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
+				Lun[i].style.display = "block";
+				Jeu[i].style.display = "block";
+				Ven[i].style.display = "block";
+				Sam[i].style.display = "block";
 			}
 		}
 	}
@@ -385,10 +392,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
+				Lun[i].style.display = "block";
+				Mar[i].style.display = "block";
+				Ven[i].style.display = "block";
+				Sam[i].style.display = "block";
 			}
 		}
 	}
@@ -403,10 +410,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Sam[i].style.display = "flex";
+				Lun[i].style.display = "block";
+				Mar[i].style.display = "block";
+				Mer[i].style.display = "block";
+				Sam[i].style.display = "block";
 			}
 		}
 	}
@@ -421,10 +428,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
+				Lun[i].style.display = "block";
+				Mar[i].style.display = "block";
+				Mer[i].style.display = "block";
+				Jeu[i].style.display = "block";
 			}
 		}
 	}
@@ -439,10 +446,10 @@ window.addEventListener('resize', function responsive() {
 		}
 		if (viewport_width >= 1000) {
 			for (let i = 0; i < Lun.length; i++) {
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
+				Mar[i].style.display = "block";
+				Mer[i].style.display = "block";
+				Jeu[i].style.display = "block";
+				Ven[i].style.display = "block";
 			}
 		}
 	}

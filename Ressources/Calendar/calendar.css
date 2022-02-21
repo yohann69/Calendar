@@ -264,12 +264,22 @@ article * {
 .halfhour {
     height: calc(100% / 22);    
     font-size: 70%;
+    
+    display: flex !important;
+    flex-direction: row !important;
 }
 .twohours {
     height: calc(100% / 5.5);
 }
+
+
+
+.halfhour section {
+    font-size: 120%;
+}
 article h4 {
     color: floralwhite;
+    margin: 0;
 }
 article p {
     color: #ffffffc8;
