@@ -21,6 +21,12 @@ if ((window.location.href).includes("?ressource=")) {
 	console.log("Unfortunately, you cannot directely access the calendar by using a direct url yet. This will be implemented in the future versions :)");
 	console.log("-------------------------------------------------------------------------------------------------------------------------------------");
 	//calendarlogin((window.location.search).slice(11,500))
+	let inputnumber = document.getElementById("input-noressource")
+	if(inputnumber){
+		inputnumber.value= `${(window.location.search).slice(11,500)}`;
+		document.getElementById("loginbtn").click();
+	}
+
 } 
 
 document.addEventListener('keydown', function (e) {
