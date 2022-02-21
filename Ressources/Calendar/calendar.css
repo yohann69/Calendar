@@ -163,7 +163,7 @@ summary button {
 }
 .days section {
     border-right: 1px solid var(--border-color);
-    width: 16.66666%;
+    width: 100%;
 }
 .daytitles {
     height: 5%;
@@ -309,6 +309,14 @@ table td:hover {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+table td:active {
+    background-color: #a2bec73d;
+    transition: ease-in-out 100ms;
+    border: 1px solid var(--accent-active);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 th {
     width: 30px;
     font-size: 12px;
@@ -321,4 +329,19 @@ h4 {
     font-weight: 100;
     margin-top: 10px;
     margin-bottom: 5px;
+}
+.smallcalendar {
+    background-color: #ffffff08;
+    padding: 7px;
+    border-radius: 7px;
+    margin: auto 5px;
+}
+.smallcalendar button {
+    padding: 3px 15px;
+}
+.smallcalendar>section {
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
 }
