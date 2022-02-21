@@ -322,7 +322,7 @@ function addspaces(x, y, z) {
 /*------------------------------------------------------------
 						~ Responsive ~
 ------------------------------------------------------------*/
-
+// This is terrible for the moment. It was just a test please ignore this I will improve it later.
 window.addEventListener('resize', function responsive() {
 	var viewport_width = window.innerWidth;
 	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
