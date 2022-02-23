@@ -64,7 +64,9 @@ li {
     text-align: left;
     padding-inline-start: 1em;
 }
-
+*{
+	transition: ease-in-out 100ms;
+}
 
 /*--------------------------------------*/
 /*    -----  Table Of Content  -----    */
