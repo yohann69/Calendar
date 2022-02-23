@@ -241,13 +241,6 @@ article {
     text-align: center;
 }
 
-article * {
-    margin: 0;
-    font-size: 75%;
-}
-.nomprof {
-    font-size: 60%;
-}
 
 .onehour,.onehourandhalf,.halfhour,.twohours{
     border-radius: 5px;
@@ -277,15 +270,28 @@ article * {
 .halfhour section {
     font-size: 120%;
 }
-article h4 {
+
+/* Events Elements*/
+article * {
+    margin: 0;
+    font-size: 75%;
+}
+.nomprof {
+    font-size: 50%;
+}
+article h4 { /* Location */
     color: floralwhite;
     margin: 0;
+    font-size: 70%;
 }
-article p {
+article p { /* Horaires */
     color: #ffffffc8;
+    font-size: 60%;
 }
-article h3{
+article h3 { /* Title*/
     color: white;
+    font-weight: 500;
+    font-size: 65%;
 }
 
 
@@ -306,23 +312,21 @@ table td {
     margin: 0;
     text-align: center;
     width: 30px;
-    height: 28px;
+    height: 25px;
     border-radius: 100px;
     font-size: 90%;
     color: whitesmoke;
 }
-table td:hover {
+table td:hover,.today {
     background-color: #d1f4ff3d;
-    transition: ease-in-out 100ms;
     border: 1px solid var(--accent-color);
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 table td:active {
     background-color: #a2bec73d;
-    transition: ease-in-out 100ms;
     border: 1px solid var(--accent-active);
+}
+table td:hover,table td:active,.today{
+    transition: ease-in-out 100ms;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -354,4 +358,7 @@ h4 {
     height: 30px;
     justify-content: space-between;
     align-items: center;
+}
+.halfhour h3,.halfhour section {
+    width: 50%;
 }
