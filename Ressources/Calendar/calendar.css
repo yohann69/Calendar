@@ -161,7 +161,7 @@ summary button {
     flex-direction: column;
     justify-content: space-between;
 }
-.days section {
+.days>section {
     border-right: 1px solid var(--border-color);
     width: 100%;    
     display: flex;

@@ -301,149 +301,8 @@ function displayevents(z) {
 	}
 
 
+	responsive();
 
-
-
-	var viewport_width = window.innerWidth;
-	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-	const d = new Date();
-	let today = days[d.getDay()];
-
-
-	let Lun = document.querySelectorAll(`.Lun`)
-	let Mar = document.querySelectorAll(`.Mar`)
-	let Mer = document.querySelectorAll(`.Mer`)
-	let Jeu = document.querySelectorAll(`.Jeu`)
-	let Ven = document.querySelectorAll(`.Ven`)
-	let Sam = document.querySelectorAll(`.Sam`)
-
-
-	console.log(Lun)
-	if (days[d.getDay()] == "Lun" || days[d.getDay()] == "Dim") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Mar[i].style.setProperty("display", "none", "important");
-				Mer[i].style.setProperty("display", "none", "important");
-				Jeu[i].style.setProperty("display", "none", "important");
-				Ven[i].style.setProperty("display", "none", "important");
-				Sam[i].style.setProperty("display", "none", "important");
-								
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
-			}
-		}
-	}
-	if (days[d.getDay()] == "Mar") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.setProperty("display", "none", "important");
-				Mer[i].style.setProperty("display", "none", "important");
-				Jeu[i].style.setProperty("display", "none", "important");
-				Ven[i].style.setProperty("display", "none", "important");
-				Sam[i].style.setProperty("display", "none", "important");
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
-			}
-		}
-	}
-	if (days[d.getDay()] == "Mer") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.setProperty("display", "none", "important");
-				Mar[i].style.setProperty("display", "none", "important");
-				Jeu[i].style.setProperty("display", "none", "important");
-				Ven[i].style.setProperty("display", "none", "important");
-				Sam[i].style.setProperty("display", "none", "important");
-
-				Mer[i].style.setProperty("border-right", "0", "important");
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
-
-				Mer[i].style.setProperty("border-right", "1px", "solid", "var(--border-color)");
-			}
-		}
-	}
-	if (days[d.getDay()] == "Jeu") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.setProperty("display", "none", "important");
-				Mar[i].style.setProperty("display", "none", "important");
-				Mer[i].style.setProperty("display", "none", "important");
-				Ven[i].style.setProperty("display", "none", "important");
-				Sam[i].style.setProperty("display", "none", "important");
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-				Sam[i].style.display = "flex";
-			}
-		}
-	}
-	if (days[d.getDay()] == "Ven") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.setProperty("display", "none", "important");
-				Mar[i].style.setProperty("display", "none", "important");
-				Mer[i].style.setProperty("display", "none", "important");
-				Jeu[i].style.setProperty("display", "none", "important");
-				Sam[i].style.setProperty("display", "none", "important");
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Sam[i].style.display = "flex";
-			}
-		}
-	}
-	if (days[d.getDay()] == "Sam") {
-		if (viewport_width <= 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.setProperty("display", "none", "important");
-				Mar[i].style.setProperty("display", "none", "important");
-				Mer[i].style.setProperty("display", "none", "important");
-				Jeu[i].style.setProperty("display", "none", "important");
-				Ven[i].style.setProperty("display", "none", "important");
-			}
-		}
-		if (viewport_width > 420) {
-			for (let i = 0; i < Lun.length; i++) {
-				Lun[i].style.display = "flex";
-				Mar[i].style.display = "flex";
-				Mer[i].style.display = "flex";
-				Jeu[i].style.display = "flex";
-				Ven[i].style.display = "flex";
-			}
-		}
-	}
 
 
 }
@@ -483,27 +342,220 @@ function addspaces(x, y, z) {
 ------------------------------------------------------------*/
 // This is terrible for the moment. It was just a test please ignore this I will improve it later.
 
-/*
-window.addEventListener('resize', function responsive() {
+
+
+
+function responsive(){
+	
+
 	var viewport_width = window.innerWidth;
 	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 	const d = new Date();
-	let today = days[d.getDay()];
 
 
-	let Lun = this.document.querySelectorAll(`.Lun`)
-	let Mar = this.document.querySelectorAll(`.Mar`)
-	let Mer = this.document.querySelectorAll(`.Mer`)
-	let Jeu = this.document.querySelectorAll(`.Jeu`)
-	let Ven = this.document.querySelectorAll(`.Ven`)
-	let Sam = this.document.querySelectorAll(`.Sam`)
+	let Lun = document.querySelectorAll(`.Lun`)
+	let Mar = document.querySelectorAll(`.Mar`)
+	let Mer = document.querySelectorAll(`.Mer`)
+	let Jeu = document.querySelectorAll(`.Jeu`)
+	let Ven = document.querySelectorAll(`.Ven`)
+	let Sam = document.querySelectorAll(`.Sam`)
 
-	
-	
 
-});
+	if (days[d.getDay()] == "Lun" || days[d.getDay()] == "Dim") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Ven[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Mar[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Lun[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Mar[i].style.setProperty("display", "none", "important");
+				Mer[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.setProperty("display", "none", "important");
+				Ven[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
 
-*/
+				Lun[i].style.setProperty("border-right", "0");
+								
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Mar[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+			}
+		}
+	}
+	if (days[d.getDay()] == "Mar") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Mar[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mer[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.setProperty("display", "none", "important");
+				Ven[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+
+				Mar[i].style.setProperty("border-right", "0");
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+			}
+		}
+	}
+	if (days[d.getDay()] == "Mer") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+				Mer[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.setProperty("display", "none", "important");
+				Ven[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+
+				Mer[i].style.setProperty("border-right", "0");
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.display = "flex";
+				Mar[i].style.display = "flex";
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+			}
+		}
+	}
+	if (days[d.getDay()] == "Jeu") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+				Jeu[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Mer[i].style.setProperty("display", "none", "important");
+				Ven[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+				
+				Jeu[i].style.setProperty("border-right", "0");
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.display = "flex";
+				Mar[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+			}
+		}
+	}
+	if (days[d.getDay()] == "Ven") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+				Ven[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Mer[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.setProperty("display", "none", "important");
+				Sam[i].style.setProperty("display", "none", "important");
+				
+				Ven[i].style.setProperty("border-right", "0");
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.display = "flex";
+				Mar[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Jeu[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+			}
+		}
+	}
+	if (days[d.getDay()] == "Sam") {
+		if (viewport_width <= 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+				Sam[i].style.display = "flex";
+				Sam[i].style.setProperty("border-right", "1px solid var(--border-color)","important");
+			}
+		}
+		if (viewport_width <= 420) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.setProperty("display", "none", "important");
+				Mar[i].style.setProperty("display", "none", "important");
+				Mer[i].style.setProperty("display", "none", "important");
+				Jeu[i].style.setProperty("display", "none", "important");
+				Ven[i].style.setProperty("display", "none", "important");
+				
+				Sam[i].style.setProperty("border-right", "0");
+			}
+		}
+		if (viewport_width > 800) {
+			for (let i = 0; i < Lun.length; i++) {
+				Lun[i].style.display = "flex";
+				Mar[i].style.display = "flex";
+				Mer[i].style.display = "flex";
+				Jeu[i].style.display = "flex";
+				Ven[i].style.display = "flex";
+			}
+		}
+	}
+}
+
 
 
 
