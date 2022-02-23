@@ -290,7 +290,7 @@ function displayevents(z) {
 			console.log("Start Event2: " + eventlist[i + 1][0].slice(17, 21));
 
 			if (eventduration == 30) {
-				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
+				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${eventlist[i][0].slice(17, 19)}h${eventlist[i][0].slice(19, 21)} - ${eventlist[i][1].slice(15, 17)}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
 			} else {
 				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${eventlist[i][0].slice(17, 19)}h${eventlist[i][0].slice(19, 21)} - ${eventlist[i][1].slice(15, 17)}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
 			}
@@ -327,6 +327,7 @@ function displayevents(z) {
 				Jeu[i].style.setProperty("display", "none", "important");
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
+								
 			}
 		}
 		if (viewport_width > 420) {
@@ -367,6 +368,8 @@ function displayevents(z) {
 				Jeu[i].style.setProperty("display", "none", "important");
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
+
+				Mer[i].style.setProperty("border-right", "0", "important");
 			}
 		}
 		if (viewport_width > 420) {
@@ -376,6 +379,8 @@ function displayevents(z) {
 				Jeu[i].style.display = "flex";
 				Ven[i].style.display = "flex";
 				Sam[i].style.display = "flex";
+
+				Mer[i].style.setProperty("border-right", "1px", "solid", "var(--border-color)");
 			}
 		}
 	}

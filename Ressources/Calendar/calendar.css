@@ -163,7 +163,9 @@ summary button {
 }
 .days section {
     border-right: 1px solid var(--border-color);
-    width: 100%;
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
 }
 .daytitles {
     height: 5%;
