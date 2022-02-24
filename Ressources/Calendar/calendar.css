@@ -89,7 +89,7 @@ summary{
     padding: 7px;
     border-radius: 8px;
     color: var(--default-color);
-    background-color: #ffffff0d;
+    background-color: var(--hover-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;

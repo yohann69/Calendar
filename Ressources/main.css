@@ -213,7 +213,7 @@ li {
 		    background-color: var(--button-default-bg);
 		    padding: 11px 20px 11px 20px;
 		    border: 0;
-		    border-top: 1px solid var(--default-border-color);
+		    /*border-top: 1px solid var(--default-border-color);*/
 		    color: var(--default-color);
 		    text-decoration: none;
 		    -webkit-user-select: none;
