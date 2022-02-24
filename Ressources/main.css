@@ -1,20 +1,8 @@
 :root {
     /* Colors */
-    --default-color: #ffffffde;
-    --text-secondary: #ffffffc8;
-    --hover-bg-color: #ffffff0f;
-    --toc-active-bg: #ffffff0b;
-    --toc-active-color: #ffffffc8;
-    --accent-color: #62cdfe;
+    --text-active: #ffffffc8;
     --accent-hover: #62cdfee6;
-    --accent-active: #53add7;
-    --btn-bg: #ffffff10;
-    --btn-hover: #ffffff21;
-    --btn-border: #ffffff09;
-    --critical-alert-bg: #452827;
-    --close-hover: #ffffff0b;
-    --input-border: 1px solid #ffffff45;
-    --input-border-focus: 1px solid var(--accent-color);
+    --input-border-focus: 2px solid var(--accent-color);
     /* Other */
     --control-radius: 4px;
     --card-radius: 8px;
@@ -24,12 +12,86 @@
     --fds-font-family-display: "Segoe UI Variable Display", "Seoge UI Variable Static Display", var(--fds-font-family-fallback);
 }
 
+@media (prefers-color-scheme: light) {
+	:root {
+		/* Texts */
+		--default-color: #000000de;
+		--text-secondary: #000000c8;
+		--text-tertiary: #0000005c;
+		--text-four: #040404c8;
+		--text-tertiary-hover: #000000c7;
+		
+		/* Accent */
+		--accent-color: #005fb8;
+		--accent-active: #0014c4;
+		--critical-alert-bg: #ff5c568f;
+		--red-accent: #ff5364;
+		
+		/* Colors */
+		--bg-color: white;
+		--bg-picture: url(img/bloom-mica-light.png);
+		
+		
+		--default-border-color: #00000011;
+		--hover-bg-color: #ffffffd9;
+		--second-bg-color: #ffffff75;
+		--third-bg-color: #38383824;
+		--svg-color: var(--default-color);
+		
+		/* Buttons */
+		--button-default-bg: #ffffffb3;
+		--button-hover-bg: white;
+		--button-active-bg: #dadada80;
+		
+		/* Input */
+		--input-default-bg: #ffffffb3;
+		--input-focus-bg: white;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Texts */
+		--default-color: #ffffffde;
+		--text-secondary: #ffffffc8;
+		--text-tertiary: #d4d4d466;
+		--text-four: #ffffffc8;
+		--text-tertiary-hover: #d4d4d4;
+		
+		/* Accent */
+		--accent-color: #62cdfe;
+		--accent-active: #53add7;
+		--critical-alert-bg: #452827;
+		--red-accent: #ff99a3;
+		
+		/* Colors */
+		--bg-color:#212121;
+		--bg-picture: url(img/bloom-mica-dark.png);
+		
+		
+		--default-border-color: #00000087;
+		--hover-bg-color: #ffffff0f;
+		--second-bg-color: #ffffff08;
+		--third-bg-color: #38383866;
+		--svg-color: white;
+		
+		/* Buttons */
+		--button-default-bg: #ffffff10;
+		--button-hover-bg: #ffffff21;
+		--button-active-bg: #fafafa41;
+		
+		
+		/* Input */
+		--input-default-bg: #ffffff10;
+		--input-focus-bg: #1f1f1fb3;
+	}
+}
+
 body {
     scroll-behavior: smooth;
     font-family: var(--fds-font-family-text);
-    background-color: #212121;
+    background-color: var(--bg-color);
+    background-image: var(--bg-picture);
     background-size: cover;
-    background-image: url(img/bloom-mica-dark.png);
     background-repeat: no-repeat;
     background-position: top;
     height: 100vh;
@@ -108,8 +170,8 @@ li {
 		}
 
 		.toc-el:active {
-		    background-color: var(--toc-active-bg);
-		    color: var(--toc-active-color);
+		    background-color: var(--button-active-bg);
+		    color: var(--text-active);
 		}
 
 		.toc-el>p {
@@ -118,7 +180,7 @@ li {
 		}
 
 		.toc-el>svg {
-		    fill: white;
+		    fill: var(--svg-color);
 		}
 
 
@@ -148,10 +210,10 @@ li {
 
 		button {
 		    border-radius: var(--control-radius);
-		    background-color: var(--btn-bg);
+		    background-color: var(--button-default-bg);
 		    padding: 11px 20px 11px 20px;
 		    border: 0;
-		    border-top: 1px solid var(--btn-border);
+		    border-top: 1px solid var(--default-border-color);
 		    color: var(--default-color);
 		    text-decoration: none;
 		    -webkit-user-select: none;
@@ -162,12 +224,12 @@ li {
 		}
 
 		button:hover {
-		    background-color: var(--btn-hover);
+		    background-color: var(--button-hover-bg);
 		}
 
 		button:active {
-		    background-color: var(--toc-active-bg);
-		    color: var(--toc-active-color);
+		    background-color: var(--button-active-bg);
+		    color: var(--text-secondary);
 		}
 
 
@@ -206,21 +268,24 @@ li {
 		    color: var(--default-color);
 		}
 
+		input{
+		    background-color: var(--input-default-bg);
+		}
+
 		input[type="text"],
 		input[type="number"] {
-		    background-color: #ffffff12;
 		    border-radius: var(--control-radius);
-		    border: 1px solid #ffffff12;
+		    border: 1px solid var(--default-border-color);
 		    color: var(--default-color);
 		    min-block-size: 30px;
 		    padding-inline: 10px;
 		    outline: none;
-		    border-bottom: var(--input-border);
+		    border-bottom: 2px solid var(--default-border-color);
 		}
 
 		input[type="text"]:focus,
 		input[type="number"]:focus {
-		    background-color: #1f1f1fb3;
+		    background-color: var(--input-focus-bg);
 		    border-bottom: var(--input-border-focus);
 		}
 
@@ -244,7 +309,7 @@ li {
 		    backdrop-filter: blur(60px) saturate(125%);
 			-webkit-backdrop-filter: blur(60px) saturate(125%);
 		    background-color: #ffffff0d;
-		    border: 1px solid #00000099 !important;
+		    border: 1px solid var(--default-border-color) !important;
 		    border-radius: var(--card-radius);
 		    padding: 12px;
 		    display: flex;
@@ -294,24 +359,24 @@ li {
 		.critical-icon {
 		    width: 10px;
 		    fill: currentColor;
-		    background-color: #ff99a3;
+		    background-color: var(--red-accent);
 		    padding: 4px;
 		    border-radius: 100px;
 		    margin-right: 13px;
 		}
 		
 		.close:hover {
-		    background-color: #ffffff0f;
+		    background-color: var(--hover-bg-color);
 		}
 		
 		.close {
 		    padding: 14px;
 		    margin: 0px 4px 0px 13px;
 		    border-radius: var(--control-radius);
-		    color: white;
+		    color: var(--default-color);
 		}
 		
 		.close:active {
-		    background-color: var(--close-hover);
+		    background-color: var(--hover-bg-color);
 		    color: var(--text-secondary);
 		}

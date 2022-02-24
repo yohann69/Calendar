@@ -88,7 +88,7 @@ summary{
     margin: -12px;
     padding: 7px;
     border-radius: 8px;
-    color: white;
+    color: var(--default-color);
     background-color: #ffffff0d;
     display: flex;
     justify-content: space-between;
@@ -142,7 +142,7 @@ summary button {
 /* Inside the calendar */
 .calendar .days {
     width: 100%;
-    background-color: #38383866;
+    background-color: var(--third-bg-color);
     height: 100%;
     display: flex;
     overflow: hidden;
@@ -174,7 +174,7 @@ summary button {
 }
 .daytitles .daysheader section {
     border-right: 1px solid var(--border-color);
-    color: white;
+    color: var(--default-color);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -282,16 +282,16 @@ article * {
     font-size: 50%;
 }
 article h4 { /* Location */
-    color: floralwhite;
+    color: var(--text-secondary);
     margin: 0;
     font-size: 70%;
 }
 article p { /* Horaires */
-    color: #ffffffc8;
+    color: var(--text-four);
     font-size: 60%;
 }
 article h3 { /* Title*/
-    color: white;
+    color: var(--default-color);
     font-weight: 500;
     font-size: 65%;
 }
@@ -317,7 +317,7 @@ table td {
     height: 25px;
     border-radius: 100px;
     font-size: 90%;
-    color: whitesmoke;
+    color: var(--text-secondary);
 }
 table td:hover,.today {
     background-color: #d1f4ff3d;
@@ -336,18 +336,18 @@ table td:hover,table td:active,.today{
 th {
     width: 30px;
     font-size: 12px;
-    color: white;
+    color: var(--default-color);
     font-weight: 400;
 }
 h4 {
     margin: 0;
-    color: white;
+    color: var(--default-color);
     font-weight: 100;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 .smallcalendar {
-    background-color: #ffffff08;
+    background-color: var(--second-bg-color);
     padding: 7px;
     border-radius: 7px;
     margin: auto 5px;
@@ -363,4 +363,11 @@ h4 {
 }
 .halfhour h3,.halfhour section {
     width: 50%;
+}
+
+
+
+
+.hamburger *{
+    stroke: var(--svg-color);
 }
