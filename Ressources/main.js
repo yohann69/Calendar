@@ -31,14 +31,29 @@ document.addEventListener('keydown', function (e) {
 /*------------------------------------------------------------
 		~ Automatically login to the website via url ~
 ------------------------------------------------------------*/
-if ((window.location.href).includes("?ressource=")) {
-	let inputnumber = document.getElementById("input-noressource")
-	if (inputnumber) {
-		inputnumber.value = `${(window.location.search).slice(11, 500)}`;
-		document.getElementById("loginbtn").click();
+if ((window.location.href).includes("?")) {
+	let urlparameters = (window.location.href).split("?");
+	console.log(urlparameters)
+
+	for (let i = 0; i<urlparameters.length; i++){
+		if(urlparameters[i].includes("ressource=")){
+			let inputnumber = document.getElementById("input-noressource")
+			if (inputnumber) {
+				console.log((urlparameters[1]).slice(10, 500))
+				inputnumber.value = `${(urlparameters[1]).slice(10, 500)}`;
+				document.getElementById("loginbtn").click();
+			}
+		}
+		
+		if (urlparameters[i].includes("theme=1")) {
+			document.body.style.backgroundImage="url(https://about.netflix.com/images/backgrounds/background-texture-s.jpg)"
+		}if (urlparameters[i].includes("theme=2")) {
+			document.body.style.backgroundImage="url(Ressources/img/bg2.jpg)"
+		}if (urlparameters[i].includes("theme=3")) {
+			document.body.style.backgroundImage="url(Ressources/img/bg3.jpg)"
+		}
 	}
 }
-
 
 
 
@@ -560,7 +575,10 @@ function responsive() {
 /*------------------------------------------------------------
 					~ HamburgerButton ~
 ------------------------------------------------------------*/
-let hamburgernb = 0
+let hamburgernb = 0;
+if (window.innerWidth > 1300) {
+	hamburgernb = 1
+}
 function showoptions() {
 	if (hamburgernb == 0) {
 		hamburgernb = 1
