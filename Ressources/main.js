@@ -33,13 +33,11 @@ document.addEventListener('keydown', function (e) {
 ------------------------------------------------------------*/
 if ((window.location.href).includes("?")) {
 	let urlparameters = (window.location.href).split("?");
-	console.log(urlparameters)
 
 	for (let i = 0; i<urlparameters.length; i++){
 		if(urlparameters[i].includes("ressource=")){
 			let inputnumber = document.getElementById("input-noressource")
 			if (inputnumber) {
-				console.log((urlparameters[1]).slice(10, 500))
 				inputnumber.value = `${(urlparameters[1]).slice(10, 500)}`;
 				document.getElementById("loginbtn").click();
 			}
@@ -118,12 +116,14 @@ async function calendarlogin() {
 			detailmonth.push(myMonth.dates[mnb].toString().slice(0, 15))
 			mnb++
 		}
-		console.log(myMonth.dates[0].getFullYear())
+		//console.log(myMonth.dates[0].getFullYear())
+		let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+		console.log(monthact)
 		let getprev = 0;
 		while (detailmonth.length > getprev) {
-			if (detailmonth[getprev].slice(4, 7) === "Feb") {
+			if (detailmonth[getprev].slice(4, 7) === monthlist[monthact]) {
 				//document.querySelector('.scweeks').innerHTML += "<td></td>"
-				//console.log(detailmonth[getprev]);
+				console.log(detailmonth[getprev]);
 			}
 			getprev++;
 		}
