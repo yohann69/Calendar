@@ -288,10 +288,9 @@ function displayevents(z) {
 	let eventlist = z;
 
 	/*		~ Get the actual date & Time ~		*/
-	let todaydateunformatted = new Date();
-	let datesemiformated = todaydateunformatted.toISOString(); // 2022-02-14T20:44:56.443Z     => .toISOString(); converts the date to an ICS like date format
+	let datesemiformated = d.toISOString(); // 2022-02-14T20:44:56.443Z     => .toISOString(); converts the date to an ICS like date format
 	let date = `${datesemiformated.slice(0, 4)}` + `${datesemiformated.slice(5, 7)}` + `${datesemiformated.slice(8, 13)}` + `${datesemiformated.slice(14, 16)}` + `00Z`
-	let semiday = todaydateunformatted.toString();
+	let semiday = d.toString();
 
 	/*		~ Display the today events ~		*/
 	let i = 9;
@@ -392,7 +391,6 @@ function responsive() {
 
 	var viewport_width = window.innerWidth;
 	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-	const d = new Date();
 
 
 	let Lun = document.querySelectorAll(`.Lun`)
