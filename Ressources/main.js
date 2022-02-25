@@ -165,8 +165,8 @@ function displaysmallcalendar(yearact, monthact){
 					document.querySelector(`.weeknb0`).innerHTML += `<td></td>`
 					addweekspace++;
 				}
-				executed = 1;
 			}
+			executed = 1;
 			document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
 			
 			if(detailmonth[getprev].slice(0, 3) == "Sun"){
