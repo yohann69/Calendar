@@ -150,13 +150,23 @@ function displaysmallcalendar(yearact, monthact){
 		mnb++
 	}
 	let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+	let weeklist = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 	let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
 	let getprev = 0;
 	let weeknb = 0;
 	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]}`
+	let addweekspace = 0;
+	let executed = 0;
 	while (detailmonth.length > getprev) {
 		if (detailmonth[getprev].slice(4, 7) === monthlist[monthact]) {
+			if(detailmonth[getprev].slice(0,3) != "Mon" && executed == 0){
+				while(detailmonth[getprev].slice(0, 3) != weeklist[addweekspace]){
+					document.querySelector(`.weeknb0`).innerHTML += `<td></td>`
+					addweekspace++;
+				}
+			}
+			executed = 1;
 			document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
 			
 			if(detailmonth[getprev].slice(0, 3) == "Sun"){
