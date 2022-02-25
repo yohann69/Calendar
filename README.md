@@ -7,9 +7,9 @@
 
 
 ## 📜 To do:
-🏁 Started - Make the website responsive<br />
-🏁 Started - Decipher the ICS file to be able to interpret it and display it in the calendar<br />
 🏁 Started - Create a nice UI (with the w11 design codes) for the calendar page<br />
+🏁 Started - Display all courses of the week in the calendar<br />
+⬛ Add the possibility to change the displayed week to another one<br />
 ⬛ Automatically add colors for the different lessons<br />
 ⬛ Correct all language errors<br />
 ⬛ Add a notification system to inform the student what, where and when the next lesson will be<br />
@@ -25,6 +25,8 @@
 ✅ Display a help section on the login page<br />
 ✅ Auto-Login to the website using the ressource number kept in the URL (✅ so add a logout button too)<br />
 ✅ Add an adaptative light/dark mode<br />
+✅ Decipher the ICS file to be able to interpret it and display it in the calendar<br />
+✅ Make the website responsive<br />
 ✅ ...
 <br />
 
