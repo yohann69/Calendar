@@ -303,14 +303,14 @@ function displayevents(z) {
 	let semiday = d.toString();
 
 	/*		~ Display the today events ~		*/
-	let i = 9;
+	let i = 0;
 	//console.log(eventlist[0][0].slice(12, 16))
-	if (eventlist[9][0].slice(12, 16) == '0302') {  //date.slice(4, 8)
+	if (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {  //
 		/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
 		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
 
 
-		while (eventlist[i][0].slice(12, 16) == '0302') { //date.slice(4, 8)
+		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) { 
 			/* Get event duration */
 			let eventstart = eventlist[i][0].slice(17, 21);
 			let eventend = eventlist[i][1].slice(15, 19);
