@@ -334,9 +334,9 @@ function displayevents(z) {
 				classduration = "onehourandhalf";
 			} else if (eventduration == 120) {
 				classduration = "twohours";
-			} else if (eventduration == 150) {
+			} else if (eventduration == 180) { //150
 				classduration = "twohoursandhalf";
-			} else if (eventduration == 180) {
+			} else if (eventduration == 150) { //180
 				classduration = "threehours";
 			} else if (eventduration == 210) {
 				classduration = "threehoursandhalf";

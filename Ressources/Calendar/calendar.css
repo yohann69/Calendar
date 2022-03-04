@@ -244,7 +244,7 @@ article {
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours{
+.onehour,.onehourandhalf,.halfhour,.twohours,.threehours{
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -266,7 +266,9 @@ article {
 .twohours {
     height: calc(100% / 5.5);
 }
-
+.threehours{
+    height: calc(100% / 3.66);
+}
 
 
 .halfhour section {
