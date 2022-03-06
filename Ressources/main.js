@@ -132,7 +132,6 @@ function nextmonth() {
 	} else {
 		monthact++;
 	}
-	console.log(monthact)
 	displaysmallcalendar(yearact, monthact)
 }
 function previousmonth() {
@@ -142,7 +141,6 @@ function previousmonth() {
 	} else {
 		monthact = monthact - 1;
 	}
-	console.log(monthact)
 	displaysmallcalendar(yearact, monthact)
 }
 
@@ -197,7 +195,6 @@ function displaysmallcalendar(yearact, monthact) {
 		getprev++;
 	}
 	let tr = document.querySelectorAll("tr");
-	console.log(tr)
 }
 
 
@@ -368,7 +365,6 @@ function displayevents(z) {
 
 			console.log(eventlist[i])
 			let heurefin = parseInt(eventlist[i][0].slice(17, 19)) + 1
-			console.log(heurefin)
 			if (eventduration == 30) {
 				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${eventlist[i][0].slice(17, 19)}h${eventlist[i][0].slice(19, 21)} - ${eventlist[i][1].slice(15, 17)}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
 			} else {
