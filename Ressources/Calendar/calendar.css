@@ -335,6 +335,14 @@ table td:hover,table td:active,.today{
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+.selectedweek {
+    background-color: #d1f4ff3d;
+    border: 1px solid var(--accent-color);
+}
+.empty:hover{
+    background-color: inherit;
+    border: none;
+}
 th {
     width: 30px;
     font-size: 12px;

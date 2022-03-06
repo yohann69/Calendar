@@ -59,10 +59,16 @@ if ((window.location.href).includes("?")) {
 					~ Main script ~
 ------------------------------------------------------------*/
 
+
+
+
+
+
 const d = new Date();
 let monthact = d.getMonth();
 let yearact = d.getFullYear();
 let dateact = d.toISOString();
+let tr= []
 
 async function calendarlogin() {
 	const noressource = document.getElementById("input-noressource").value;
@@ -164,7 +170,7 @@ function displaysmallcalendar(yearact, monthact) {
 		if (detailmonth[getprev].slice(4, 7) === monthlist[monthact]) {
 			if (detailmonth[getprev].slice(0, 3) != "Mon" && executed == 0) {
 				while (detailmonth[getprev].slice(0, 3) != weeklist[addweekspace]) {
-					document.querySelector(`.weeknb0`).innerHTML += `<td></td>`
+					document.querySelector(`.weeknb0`).innerHTML += `<td class="empty"></td>`
 					addweekspace++;
 				}
 			}
@@ -190,6 +196,8 @@ function displaysmallcalendar(yearact, monthact) {
 		}
 		getprev++;
 	}
+	let tr = document.querySelectorAll("tr");
+	console.log(tr)
 }
 
 
@@ -655,4 +663,12 @@ function showloginhelp() {
 }
 function hideloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.add('hidden');
+}
+function testfunction(){
+	console.log("cliqué")
+	document.querySelector('.selectedweek').classList.remove("selectedweek")
+	document.querySelector(`tr[i]`).classList.add("selectedweek")
+}
+for(let i=0; i<tr.length;i++){
+	tr[i].addEventListener('click', testfunction)
 }
