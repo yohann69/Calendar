@@ -34,21 +34,21 @@ document.addEventListener('keydown', function (e) {
 if ((window.location.href).includes("?")) {
 	let urlparameters = (window.location.href).split("?");
 
-	for (let i = 0; i<urlparameters.length; i++){
-		if(urlparameters[i].includes("ressource=")){
+	for (let i = 0; i < urlparameters.length; i++) {
+		if (urlparameters[i].includes("ressource=")) {
 			let inputnumber = document.getElementById("input-noressource")
 			if (inputnumber) {
 				inputnumber.value = `${(urlparameters[1]).slice(10, 500)}`;
 				document.getElementById("loginbtn").click();
 			}
 		}
-		
+		/* Adding some hidden themes */
 		if (urlparameters[i].includes("theme=1")) {
-			document.body.style.backgroundImage="url(https://about.netflix.com/images/backgrounds/background-texture-s.jpg)"
-		}if (urlparameters[i].includes("theme=2")) {
-			document.body.style.backgroundImage="url(Ressources/img/bg2.jpg)"
-		}if (urlparameters[i].includes("theme=3")) {
-			document.body.style.backgroundImage="url(Ressources/img/bg3.jpg)"
+			document.body.style.backgroundImage = "url(https://about.netflix.com/images/backgrounds/background-texture-s.jpg)"
+		} if (urlparameters[i].includes("theme=2")) {
+			document.body.style.backgroundImage = "url(Ressources/img/bg2.jpg)"
+		} if (urlparameters[i].includes("theme=3")) {
+			document.body.style.backgroundImage = "url(Ressources/img/bg3.jpg)"
 		}
 	}
 }
@@ -62,6 +62,7 @@ if ((window.location.href).includes("?")) {
 const d = new Date();
 let monthact = d.getMonth();
 let yearact = d.getFullYear();
+let dateact = d.toISOString();
 
 async function calendarlogin() {
 	const noressource = document.getElementById("input-noressource").value;
@@ -107,7 +108,7 @@ async function calendarlogin() {
 		}
 		eventlist.sort(); // Sort the main array in the chronological order
 		showcalendar(eventlist);
-
+		console.log(eventlist)
 
 		/*		~ Call the fat function above with the actual month and year (to display it) ~		*/
 		displaysmallcalendar(yearact, monthact);
@@ -118,22 +119,22 @@ async function calendarlogin() {
 	}
 }
 
-function nextmonth(){
-	if(monthact==11){
+function nextmonth() {
+	if (monthact == 11) {
 		monthact = 0;
-		yearact ++;
-	}else{
+		yearact++;
+	} else {
 		monthact++;
 	}
 	console.log(monthact)
 	displaysmallcalendar(yearact, monthact)
 }
-function previousmonth(){
-	if(monthact==0){
+function previousmonth() {
+	if (monthact == 0) {
 		monthact = 11;
 		yearact = yearact - 1;
-	}else{
-		monthact = monthact-1;
+	} else {
+		monthact = monthact - 1;
 	}
 	console.log(monthact)
 	displaysmallcalendar(yearact, monthact)
@@ -141,7 +142,7 @@ function previousmonth(){
 
 
 
-function displaysmallcalendar(yearact, monthact){
+function displaysmallcalendar(yearact, monthact) {
 	const myMonth = new MonthInformation(yearact, monthact)
 	let detailmonth = []
 	let mnb = 0;
@@ -154,22 +155,35 @@ function displaysmallcalendar(yearact, monthact){
 	let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
 	let getprev = 0;
 	let weeknb = 0;
+
 	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}"></tr>`
-	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]}`
+	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
 	let addweekspace = 0;
 	let executed = 0;
 	while (detailmonth.length > getprev) {
 		if (detailmonth[getprev].slice(4, 7) === monthlist[monthact]) {
-			if(detailmonth[getprev].slice(0,3) != "Mon" && executed == 0){
-				while(detailmonth[getprev].slice(0, 3) != weeklist[addweekspace]){
+			if (detailmonth[getprev].slice(0, 3) != "Mon" && executed == 0) {
+				while (detailmonth[getprev].slice(0, 3) != weeklist[addweekspace]) {
 					document.querySelector(`.weeknb0`).innerHTML += `<td></td>`
 					addweekspace++;
 				}
 			}
+
+			let temporaire = `${monthact + 1}`
+
+			if (Array.from(temporaire).length == 1) {
+				temporaire = `${"0" + temporaire}`
+			}
+			let temptoday = `${detailmonth[getprev].slice(11, 15)}-${temporaire}-${detailmonth[getprev].slice(8, 10)}`
+
 			executed = 1;
-			document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
-			
-			if(detailmonth[getprev].slice(0, 3) == "Sun"){
+			if (dateact.slice(0, 10) == temptoday) {
+				document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td class="today">${detailmonth[getprev].slice(8, 10)}</td>`
+			} else {
+				document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
+			}
+
+			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
 				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"></tr>`
 			}
@@ -304,13 +318,12 @@ function displayevents(z) {
 
 	/*		~ Display the today events ~		*/
 	let i = 0;
-	//console.log(eventlist[0][0].slice(12, 16))
 	if (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {  //
-		/* Add some white space at the begenning of the day if the lessons doesn't start at 8''*/
+		/* Add some white space at the begenning of the day if the lessons doesn't start at 8'00'*/
 		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
 
 
-		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) { 
+		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
 			/* Get event duration */
 			let eventstart = eventlist[i][0].slice(17, 21);
 			let eventend = eventlist[i][1].slice(15, 19);
@@ -346,9 +359,8 @@ function displayevents(z) {
 
 
 			console.log(eventlist[i])
-			//console.log("End Event1: " + eventlist[i][1].slice(15, 19));
-			//console.log("Start Event2: " + eventlist[i + 1][0].slice(17, 21));
-
+			let heurefin = parseInt(eventlist[i][0].slice(17, 19)) + 1
+			console.log(heurefin)
 			if (eventduration == 30) {
 				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration}"><h3>${eventlist[i][2].slice(8, 500)}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${eventlist[i][0].slice(17, 19)}h${eventlist[i][0].slice(19, 21)} - ${eventlist[i][1].slice(15, 17)}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
 			} else {
