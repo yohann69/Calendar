@@ -71,6 +71,7 @@ let dateact = d.toISOString();
 let tr= []
 
 async function calendarlogin() {
+	document.querySelector('.titlelogin').innerHTML = "Connexion... <br/>Veuillez patienter"
 	const noressource = document.getElementById("input-noressource").value;
 	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
 	let myText = await result.text();
