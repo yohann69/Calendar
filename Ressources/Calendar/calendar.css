@@ -1,16 +1,28 @@
 :root{
     --border-color: #00000096;
     --border-radius: 6px;
-
-
-    --red:#ff000040;
-    --orange: #ff8c005c;
-    --yellow:#ffda006e;
-    --blue:#00ffff66;
-    --green:#32cd326e;
-    --pink:#ff56b159;
-
 }
+
+
+@media (prefers-color-scheme: light) {
+	:root {
+
+	}
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+        --white: #ffffff4d;
+        --red:#ff000040;
+        --orange: #ff8c005c;
+        --yellow:#ffda006e;
+        --yellowpipi:#fade418c;
+        --blue:#00ffff66;
+        --green:#32cd326e;
+        --pink:#ff56b159;
+	}
+}
+
+
 
 *{
 
@@ -287,6 +299,7 @@ article h4 { /* Location */
     color: var(--text-secondary);
     margin: 0;
     font-size: 70%;
+    font-weight: 600;
 }
 article p { /* Horaires */
     color: var(--text-four);
@@ -380,4 +393,34 @@ h4 {
 
 .hamburger *{
     stroke: var(--svg-color);
+}
+
+
+
+
+
+/* Events color */
+.white{
+    background-color: var(--white);
+}
+.red{
+    background-color: var(--red);
+}
+.orange{
+    background-color: var(--orange);
+}
+.yellow{
+    background-color: var(--yellow);
+}
+.blue{
+    background-color: var(--blue);
+}
+.green{
+    background-color: var(--green);
+}
+.pink{
+    background-color: var(--pink);
+}
+.yellowpipi{
+    background-color: var(--yellowpipi);
 }
