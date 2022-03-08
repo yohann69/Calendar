@@ -384,14 +384,14 @@ function displayevents(z) {
 			if(eventname.includes("Droit des contrats")){
 				colorevent = "yellow";
 			}
-			if(eventname.includes("DS")){
-				colorevent = "white";
+			if(eventname.includes("POO")){
+				colorevent = "blue";
 			}
-			if(eventname.includes("DS")){
-				colorevent = "white";
+			if(eventname.includes("base de données")){
+				colorevent = "red";
 			}
-			if(eventname.includes("DS")){
-				colorevent = "white";
+			if(eventname.includes("Stat. descr.")){
+				colorevent = "greensapin";
 			}
 			if(eventname.includes("DS")){
 				colorevent = "white";

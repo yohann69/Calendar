@@ -6,19 +6,29 @@
 
 @media (prefers-color-scheme: light) {
 	:root {
-
+        --white: #ffffffba;
+        --red:#f32f2fba;
+        --orange: #ff9933ba; /*#ff8c005c;*/
+        --yellowpipi:#ffff99ba;
+        --blue:#00ffffba;
+        --green:#33ff33ba;
+        --greensapin:#a4ffc7db;
 	}
 }
 @media (prefers-color-scheme: dark) {
 	:root {
         --white: #ffffff4d;
         --red:#ff000040;
-        --orange: #ff8c005c;
-        --yellow:#ffda006e;
-        --yellowpipi:#fade418c;
+        --orange: #ff8c004d; /*#ff8c005c;*/
+        --yellowpipi:#fade416e;
         --blue:#00ffff66;
         --green:#32cd326e;
+        --greensapin:#00ffa75c;
+        
+        
+        
         --pink:#ff56b159;
+        --yellow:#ffda006e;
 	}
 }
 
@@ -423,4 +433,7 @@ h4 {
 }
 .yellowpipi{
     background-color: var(--yellowpipi);
+}
+.greensapin{
+    background-color: var(--greensapin);
 }
