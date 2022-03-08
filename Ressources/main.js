@@ -68,7 +68,12 @@ const d = new Date();
 let monthact = d.getMonth();
 let yearact = d.getFullYear();
 let dateact = d.toISOString();
-let tr= []
+let detailmonth = []
+let tr = []
+let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+let weeklist = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
+
 
 async function calendarlogin() {
 	document.querySelector('.titlelogin').innerHTML = "Connexion... <br/>Veuillez patienter"
@@ -149,15 +154,11 @@ function previousmonth() {
 
 function displaysmallcalendar(yearact, monthact) {
 	const myMonth = new MonthInformation(yearact, monthact)
-	let detailmonth = []
 	let mnb = 0;
 	while (mnb < myMonth.dates.length) {
 		detailmonth.push(myMonth.dates[mnb].toString().slice(0, 15))
 		mnb++
 	}
-	let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-	let weeklist = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-	let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
 	let getprev = 0;
 	let weeknb = 0;
 
@@ -320,14 +321,29 @@ function displayevents(z) {
 	let datesemiformated = d.toISOString(); // 2022-02-14T20:44:56.443Z     => .toISOString(); converts the date to an ICS like date format
 	let date = `${datesemiformated.slice(0, 4)}` + `${datesemiformated.slice(5, 7)}` + `${datesemiformated.slice(8, 13)}` + `${datesemiformated.slice(14, 16)}` + `00Z`
 	let semiday = d.toString();
-	
+
 	/*		~ Display the week events ~		*/
 	let i = 0;
+	console.log(detailmonth)
+	let currentday = semiday.slice(0, 3) /* Name of the currentday */
+	
+	
+	/* Why did I've done that ???? */
+	let j=0
+	while(monthlist[j] != semiday.slice(4,7)){
+		j++
+	}
+	console.log(j + monthlist[j])
+	console.log(monthlist[semiday.slice(4, 7)])
+	console.log("Gmail: " + date)
+	
+	/* Why did I've done that (end) */
+	
+	
 	let maxdate = 311
 	//while (eventlist[i][0].slice(12, 16) <= maxdate) {  
 		/* Add some white space at the begenning of the day if the lessons doesn't start at 8'00'*/
-		addspaces(700, eventlist[i][0].slice(17, 21), semiday);
-
+		addspaces(700, eventlist[i][0].slice(17, 21), currentday);
 		while (eventlist[i][0].slice(12, 16) == date.slice(4, 8)) {
 			/* Get event duration */
 			let colorevent = "defaultcolor"
@@ -364,51 +380,42 @@ function displayevents(z) {
 			}
 
 
-			console.log(eventlist[i])
 			let heuredebut = parseInt(eventlist[i][0].slice(17, 19)) + 1
 			let heurefin = parseInt(eventlist[i][1].slice(15, 17)) + 1
 			let eventname = eventlist[i][2].slice(8, 500)
-			console.log("EvName: " + eventname + "    type: " + typeof(eventname))
-			if(eventname.includes("DS")){
+			if (eventname.includes("DS")) {
 				colorevent = "white";
 			}
-			if(eventname.includes("Graphes")){
+			if (eventname.includes("Graphes")) {
 				colorevent = "green";
 			}
-			if(eventname.includes("bas niveau")){
+			if (eventname.includes("bas niveau")) {
 				colorevent = "orange";
 			}
-			if(eventname.includes("Gestion de projet")){
+			if (eventname.includes("Gestion de projet")) {
 				colorevent = "yellowpipi";
 			}
-			if(eventname.includes("Droit des contrats")){
+			if (eventname.includes("Droit des contrats")) {
 				colorevent = "yellow";
 			}
-			if(eventname.includes("POO")){
+			if (eventname.includes("POO")) {
 				colorevent = "blue";
 			}
-			if(eventname.includes("base de données")){
+			if (eventname.includes("base de données")) {
 				colorevent = "red";
 			}
-			if(eventname.includes("Stat. descr.")){
+			if (eventname.includes("Stat. descr.")) {
 				colorevent = "greensapin";
 			}
-			if(eventname.includes("DS")){
-				colorevent = "white";
-			}
-			if(eventname.includes("DS")){
-				colorevent = "white";
-			}
-			
 
 
-
+			console.log(semiday.slice(0, 3))
 			if (eventduration == 30) {
-				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist[i][0].slice(19, 21)} - ${heurefin}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
+				document.querySelector(`.${currentday}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><section><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist[i][0].slice(19, 21)} - ${heurefin}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></section></article>`
 			} else {
-				document.querySelector(`.${semiday.slice(0, 3)}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist[i][0].slice(19, 21)} - ${heurefin}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
+				document.querySelector(`.${currentday}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><h4>${eventlist[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist[i][0].slice(19, 21)} - ${heurefin}h${eventlist[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist[i][4].split('\\n')[3]}</p></article>`
 			}
-			addspaces(eventlist[i][1].slice(15, 19), eventlist[i + 1][0].slice(17, 21), semiday);
+			addspaces(eventlist[i][1].slice(15, 19), eventlist[i + 1][0].slice(17, 21), currentday);
 			i++
 		}
 		i++
@@ -427,10 +434,10 @@ function addspaces(x, y, z) {
 	while ((y - x) > 0) {
 		if (y[2] == "3") {
 			y = y - 30;
-			document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
+			document.querySelector(`.${z}`).innerHTML += `<article class="halfhour"><article>`
 		} else {
 			y = y - 70;
-			document.querySelector(`.${z.slice(0, 3)}`).innerHTML += `<article class="halfhour"><article>`
+			document.querySelector(`.${z}`).innerHTML += `<article class="halfhour"><article>`
 		}
 	}
 }
@@ -699,11 +706,11 @@ function showloginhelp() {
 function hideloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.add('hidden');
 }
-function testfunction(){
+function testfunction() {
 	console.log("cliqué")
 	document.querySelector('.selectedweek').classList.remove("selectedweek")
 	document.querySelector(`tr[i]`).classList.add("selectedweek")
 }
-for(let i=0; i<tr.length;i++){
+for (let i = 0; i < tr.length; i++) {
 	tr[i].addEventListener('click', testfunction)
 }
