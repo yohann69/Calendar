@@ -80,6 +80,7 @@ async function calendarlogin() {
 	const noressource = document.getElementById("input-noressource").value;
 	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
 	let myText = await result.text();
+	console.log(myText)
 	let testcalendar = myText.split('\n');
 
 	/*------------------------------------------------------------
@@ -409,6 +410,9 @@ function displayevents(z) {
 			}
 			if (eventname.includes("IHM")) {
 				colorevent = "violet";
+			}
+			if(eventname.includes("Méthodes numériques")){
+				colorevent = "applegreen"
 			}
 
 
