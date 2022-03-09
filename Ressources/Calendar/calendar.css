@@ -24,7 +24,7 @@
         --blue:#00ffff66;
         --green:#32cd326e;
         --greensapin:#00ffa75c;
-        
+        --violet:#e776ff63;
         
         
         --pink:#ff56b159;
@@ -436,4 +436,7 @@ h4 {
 }
 .greensapin{
     background-color: var(--greensapin);
+}
+.violet{
+    background-color: var(--violet);
 }

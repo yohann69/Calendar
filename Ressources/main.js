@@ -407,6 +407,9 @@ function displayevents(z) {
 			if (eventname.includes("Stat. descr.")) {
 				colorevent = "greensapin";
 			}
+			if (eventname.includes("IHM")) {
+				colorevent = "violet";
+			}
 
 
 			console.log(semiday.slice(0, 3))
