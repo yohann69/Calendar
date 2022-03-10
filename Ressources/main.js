@@ -31,25 +31,11 @@ document.addEventListener('keydown', function (e) {
 /*------------------------------------------------------------
 		~ Automatically login to the website via url ~
 ------------------------------------------------------------*/
-if ((window.location.href).includes("?")) {
-	let urlparameters = (window.location.href).split("?");
-
-	for (let i = 0; i < urlparameters.length; i++) {
-		if (urlparameters[i].includes("ressource=")) {
-			let inputnumber = document.getElementById("input-noressource")
-			if (inputnumber) {
-				inputnumber.value = `${(urlparameters[1]).slice(10, 500)}`;
-				document.getElementById("loginbtn").click();
-			}
-		}
-		/* Adding some hidden themes */
-		if (urlparameters[i].includes("theme=1")) {
-			document.body.style.backgroundImage = "url(https://about.netflix.com/images/backgrounds/background-texture-s.jpg)"
-		} if (urlparameters[i].includes("theme=2")) {
-			document.body.style.backgroundImage = "url(Ressources/img/bg2.jpg)"
-		} if (urlparameters[i].includes("theme=3")) {
-			document.body.style.backgroundImage = "url(Ressources/img/bg3.jpg)"
-		}
+if (window.location.href.includes("ressource=")) {
+	let inputnumber = document.getElementById("input-noressource")
+	if (inputnumber) {
+		inputnumber.value = `${((window.location.href).split("="))[1]}`;
+		document.getElementById("loginbtn").click();
 	}
 }
 
@@ -77,11 +63,12 @@ let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juill
 
 async function calendarlogin() {
 	document.querySelector('.titlelogin').innerHTML = "Connexion... <br/>Veuillez patienter"
+
 	const noressource = document.getElementById("input-noressource").value;
+
 	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
-	let myText = await result.text();
-	console.log(myText)
-	let testcalendar = myText.split('\n');
+	let testcalendar = (await result.text()).split('\n');
+
 
 	/*------------------------------------------------------------
 		~ Check wether the ressource number is valid or not ~
@@ -120,8 +107,42 @@ async function calendarlogin() {
 			i++;
 		}
 		eventlist.sort(); // Sort the main array in the chronological order
-		showcalendar(eventlist);
-		console.log(eventlist)
+
+		let eventlist3d = [];
+		eventlist3d.push([]);
+		let day = 0;
+		let event = 0;
+		let searchevent = 0;
+
+		let previouselement = eventlist[0][0].slice(8,16)
+		eventlist.forEach(element => {
+			if(element[0].slice(8,16) == previouselement){
+				eventlist3d[day][event] = {}
+				eventlist3d[day][event].start = eventlist[searchevent][0].slice(8,21)
+				eventlist3d[day][event].end = eventlist[searchevent][1].slice(6,19)
+				eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8,200)
+				eventlist3d[day][event].location = eventlist[searchevent][3].slice(9,13)
+				eventlist3d[day][event].description = eventlist[searchevent][4].slice(19,200)
+				event++;
+				searchevent++;
+			}
+			else{
+				day ++;
+				eventlist3d.push([]);
+				event=0;
+				previouselement=element[0].slice(8,16)
+				eventlist3d[day][event] = {}
+				eventlist3d[day][event].start = eventlist[searchevent][0].slice(8,21)
+				eventlist3d[day][event].end = eventlist[searchevent][1].slice(6,19)
+				eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8,200)
+				eventlist3d[day][event].location = eventlist[searchevent][3].slice(9,13)
+				eventlist3d[day][event].description = eventlist[searchevent][4].slice(19,200)
+				event++;
+				searchevent++;
+			}
+		});
+		console.log(eventlist3d)
+		showcalendar(eventlist3d);
 
 		/*		~ Call the fat function above with the actual month and year (to display it) ~		*/
 		displaysmallcalendar(yearact, monthact);
@@ -325,7 +346,7 @@ function displayevents(z) {
 
 	/*		~ Display the week events ~		*/
 	let i = 0;
-	console.log(detailmonth)
+	
 	let currentday = semiday.slice(0, 3) /* Name of the currentday */
 	
 	
@@ -334,9 +355,6 @@ function displayevents(z) {
 	while(monthlist[j] != semiday.slice(4,7)){
 		j++
 	}
-	console.log(j + monthlist[j])
-	console.log(monthlist[semiday.slice(4, 7)])
-	console.log("Gmail: " + date)
 	
 	/* Why did I've done that (end) */
 	
