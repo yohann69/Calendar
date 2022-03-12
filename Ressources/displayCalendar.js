@@ -199,7 +199,7 @@ function showcalendar() {
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.calendarmenu').classList.add('toc-active');
 	document.querySelector('.calendar').innerHTML = `<section class="daytitles"><section class="empty"></section><section class="daysheader"><section class="Lun">Lundi</section><section class="Mar">Mardi</section><section class="Mer">Mercredi</section><section class="Jeu">Jeudi</section><section class="Ven">Vendredi</section><section class="Sam">Samedi</section></section></section><section class="calendarcontent"><section class="hours"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class="days"><section class="Mon Lun"></section><section class="Tue Mar"></section><section class="Wed Mer"></section><section class="Thu Jeu"></section><section class="Fri Ven"></section><section class="Sat Sam"></section></section></section>`;
-	displayevents();
+	displayweek();
 	if (window.innerWidth <= 1300) {
 		document.querySelector('.options').style.display = "none";
 		hamburgernb = 0
@@ -230,21 +230,37 @@ function showcredits() {
 				 ~ Display calendar events (is called by showcalendar) ~
 ----------------------------------------------------------------------------------*/
 
-function displayevents() {
-	let previousevent = new Date("2022-03-16T07:00:00Z")
-	eventlist3d[2].forEach(element => {
-		addspaces(Math.abs(previousevent - element.start), "Mon")
 
+function displayweek(weektodysplay){
+	let i = 1
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth()+1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2,'0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+}
+
+/**
+ * 
+ * @param {string} dateoftheday the date of the day to display in the following 
+ * @param {int} eventlist3dIndex 
+ */
+function displayday(dateoftheday, eventlist3dIndex) {
+	
+	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
+	
+	eventlist3d[eventlist3dIndex].forEach(element => {
+		let dayName = weeklist[element.start.getDay() - 1]
+
+		addspaces(Math.abs(previousevent - element.start), dayName)
+		
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
 		let lessonduration = "onehour"
-		if (eventduration === 5400000) lessonduration = "onehourandhalf";
-		if (eventduration === 7200000) lessonduration = "twohours";
+		if (eventduration === 5400000) 	lessonduration = "onehourandhalf";
+		if (eventduration === 7200000) 	lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
+		if (eventduration === 14400000)	lessonduration = "fourhours";
 
 		if (eventduration === 1800000) {
-			document.querySelector(`.Mon`).innerHTML += `<article class="event halfhour ${colorevent}">
+			document.querySelector(`.${dayName}`).innerHTML += `<article class="event halfhour ${colorevent}">
 															<h3>${element.summary}</h3>
 															<section>
 																<h4>${element.location}</h4>
@@ -253,7 +269,7 @@ function displayevents() {
 															</section>
 														</article>`
 		} else {
-			document.querySelector(`.Mon`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
+			document.querySelector(`.${dayName}`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
 													 		<h3>${element.summary}</h3>
 													 		<h4>${element.location}</h4>
 													 		<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
@@ -274,9 +290,11 @@ function displayevents() {
  */
 function addspaces(x, y) {
 	if (x === 1800000) document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
+	else if (x === 3600000) document.querySelector(`.${y}`).innerHTML += `<article class="onehour"><article>`;
 	else if (x === 5400000) document.querySelector(`.${y}`).innerHTML += `<article class="onehourandhalf"><article>`;
 	else if (x === 7200000) document.querySelector(`.${y}`).innerHTML += `<article class="twohours"><article>`;
 	else if (x === 10800000) document.querySelector(`.${y}`).innerHTML += `<article class="threehours"><article>`;
+	else if (x === 14400000) document.querySelector(`.${y}`).innerHTML += `<article class="fourhours"><article>`;
 	else while (x > 0) {
 		x -= 1800000;
 		document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;

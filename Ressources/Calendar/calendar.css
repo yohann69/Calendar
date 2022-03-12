@@ -37,7 +37,7 @@
 
 
 *{
-
+	transition: ease-in-out 100ms !important;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -268,7 +268,7 @@ article {
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours,.threehours{
+.onehour,.onehourandhalf,.halfhour,.twohours,.threehours,.fourhours{
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
@@ -293,7 +293,9 @@ article {
 .threehours{
 	height: calc(100% / 3.66);
 }
-
+.fourhours {
+    height: calc(100% / 2.75 );
+}
 
 .halfhour section {
 	font-size: 120%;
@@ -305,12 +307,12 @@ article * {
 	font-size: 75%;
 }
 .nomprof {
-	font-size: 50%;
+	font-size: 65%;
 }
 article h4 { /* Location */
 	color: var(--text-secondary);
 	margin: 0;
-	font-size: 70%;
+	font-size: 75%;
 	font-weight: 600;
 }
 article p { /* Horaires */
@@ -320,7 +322,7 @@ article p { /* Horaires */
 article h3 { /* Title*/
 	color: var(--default-color);
 	font-weight: 500;
-	font-size: 65%;
+	font-size: 75%;
 }
 
 
