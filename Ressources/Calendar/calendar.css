@@ -30,6 +30,7 @@
 		--applegreen:#7fcd326e;
 		--pink:#ff56b159;
 		--yellow:#ffda006e;
+		--lightblue: #8dfffb66;
 	}
 }
 
@@ -443,4 +444,7 @@ h4 {
 }
 .applegreen{
 	background-color: var(--applegreen);
+}
+.lightblue{
+	background-color: var(--lightblue);
 }

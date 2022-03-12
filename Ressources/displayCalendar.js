@@ -11,75 +11,85 @@ let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juill
 
 let eventlist3d = [[]];
 
-function createEventTable(fechtedICS){
-		/*		~ Initialyze the arrays for the calendar data ~		*/
-		let eventlist = [];
-		let templist = [];
+function createEventTable(fechtedICS) {
+	/*		~ Initialyze the arrays for the calendar data ~		*/
+	let eventlist = [];
+	let templist = [];
 
-		/**
-         * Analyze the ics file and create a first list with all the events sorted in the chronological order
-         */
-		let i = 0;
-		while (i != fechtedICS.length) {
-			if (fechtedICS[i].includes("BEGIN:VEVENT")) { // At the beginning of an event
-				i = i + 2; // Skip useless ics data
-				templist = []; // Empty the temp array 
-				while ((fechtedICS[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
-					if (fechtedICS[i].includes("DTSTART:") || fechtedICS[i].includes("DTEND:") || fechtedICS[i].includes("SUMMARY:") || fechtedICS[i].includes("LOCATION:") || fechtedICS[i].includes("DESCRIPTION:")) {
-						templist.push(fechtedICS[i]); // Add the event details to the temp array
-						i++
-					} else {
-						i++;
-					}
-				}
-				eventlist.push(templist); // When the event is finished, add the temparray to the main array
+	/**
+	 * Analyze the ics file and create a first list with all the events sorted in the chronological order
+	 */
+	let i = 0;
+	while (i != fechtedICS.length) {
+		if (fechtedICS[i].includes("BEGIN:VEVENT")) { // At the beginning of an event
+			i = i + 2; // Skip useless ics data
+			templist = []; // Empty the temp array 
+			while ((fechtedICS[i].includes("END:VEVENT")) === false) { // As long as the event isn't finished
+				if (fechtedICS[i].includes("DTSTART:") || fechtedICS[i].includes("DTEND:") || fechtedICS[i].includes("SUMMARY:") || fechtedICS[i].includes("LOCATION:") || fechtedICS[i].includes("DESCRIPTION:")) {
+					templist.push(fechtedICS[i]); // Add the event details to the temp array
+					i++
+				} else i++;
 			}
-			i++;
+			eventlist.push(templist); // When the event is finished, add the temparray to the main array
 		}
-		eventlist.sort(); // Sort the main array in the chronological order
+		i++;
+	}
+	eventlist.sort(); // Sort the main array in the chronological order
 
-        /**
-         * Add all sorted events into a 3d array with the following structure:
-         * [ ~ MainArray Containing multiple
-         *      [ ~ NewDayArray Containing multiple
-         *          { ~ EventObject
-         *          }
-         *      ]
-         * ]
-         */
-		let day = 0;
-		let event = 0;
-		let searchevent = 0;
 
-		let previouselement = eventlist[0][0].slice(8, 16)
-		eventlist.forEach(element => {
-			if (element[0].slice(8, 16) == previouselement) {
-				eventlist3d[day][event] = {}
-				eventlist3d[day][event].start = eventlist[searchevent][0].slice(8, 21)
-				eventlist3d[day][event].end = eventlist[searchevent][1].slice(6, 19)
-				eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
-				eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
-				eventlist3d[day][event].description = eventlist[searchevent][4].slice(19, 200)
-				event++;
-				searchevent++;
-			}
-			else {
-				day++;
-				eventlist3d.push([]);
-				event = 0;
-				previouselement = element[0].slice(8, 16)
-				eventlist3d[day][event] = {}
-				eventlist3d[day][event].start = eventlist[searchevent][0].slice(8, 21)
-				eventlist3d[day][event].end = eventlist[searchevent][1].slice(6, 19)
-				eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
-				eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
-				eventlist3d[day][event].description = eventlist[searchevent][4].slice(19, 200)
-				event++;
-				searchevent++;
-			}
-		});
-		console.log(eventlist3d)
-		showcalendar();
+	let day = 0; // The 2nd Table number where the events pbjects will go
+	let event = 0; // Details of the event
+	let searchevent = 0;
+	let previouselement = eventlist[0][0].slice(8, 16)
+
+	/**
+	 * Add all sorted events into a 3d array with the following structure:
+	 * [ ~ MainArray Containing multiple
+	 *      [ ~ NewDayArray Containing multiple
+	 *          { ~ EventObject
+	 *          }
+	 *      ]
+	 * ]
+	 */
+	eventlist.forEach(element => {
+		if (element[0].slice(8, 16) == previouselement) {
+			let startdate = `${eventlist[searchevent][0].slice(8, 12)}-${eventlist[searchevent][0].slice(12, 14)}-${eventlist[searchevent][0].slice(14, 19)}:${eventlist[searchevent][0].slice(19, 21)}:${eventlist[searchevent][0].slice(21, 24)}`
+			let dateStartDate = new Date(startdate)
+			let enddate = `${eventlist[searchevent][1].slice(6, 10)}-${eventlist[searchevent][1].slice(10, 12)}-${eventlist[searchevent][1].slice(12, 17)}:${eventlist[searchevent][1].slice(17, 19)}:${eventlist[searchevent][1].slice(19, 22)}`
+			let dateEndDate = new Date(enddate)
+
+			eventlist3d[day][event] = {}
+			eventlist3d[day][event].start = dateStartDate
+			eventlist3d[day][event].end = dateEndDate
+			eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
+			eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
+			eventlist3d[day][event].description = eventlist[searchevent][4].slice(19, 200)
+			event++;
+			searchevent++;
+		}
+		else {
+			day++;
+			eventlist3d.push([]);
+			event = 0;
+			previouselement = element[0].slice(8, 16)
+
+			let startdate = `${eventlist[searchevent][0].slice(8, 12)}-${eventlist[searchevent][0].slice(12, 14)}-${eventlist[searchevent][0].slice(14, 19)}:${eventlist[searchevent][0].slice(19, 21)}:${eventlist[searchevent][0].slice(21, 24)}`
+			let dateStartDate = new Date(startdate)
+			let enddate = `${eventlist[searchevent][1].slice(6, 10)}-${eventlist[searchevent][1].slice(10, 12)}-${eventlist[searchevent][1].slice(12, 17)}:${eventlist[searchevent][1].slice(17, 19)}:${eventlist[searchevent][1].slice(19, 22)}`
+			let dateEndDate = new Date(enddate)
+
+			eventlist3d[day][event] = {}
+			eventlist3d[day][event].start = dateStartDate
+			eventlist3d[day][event].end = dateEndDate
+			eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
+			eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
+			eventlist3d[day][event].description = (eventlist[searchevent][4].slice(19, 200)).split('\\n')[1]
+			event++;
+			searchevent++;
+		}
+	});
+	console.log(eventlist3d)
+	showcalendar();
 }
 
 
@@ -220,75 +230,38 @@ function showcredits() {
 				 ~ Display calendar events (is called by showcalendar) ~
 ----------------------------------------------------------------------------------*/
 
-let colorevent = "defaultcolor"
 function displayevents() {
-	/*		~ Get the actual date & Time ~		*/
-	let datesemiformated = d.toISOString(); // 2022-02-14T20:44:56.443Z     => .toISOString(); converts the date to an ICS like date format
-	let date = `${datesemiformated.slice(0, 4)}` + `${datesemiformated.slice(5, 7)}` + `${datesemiformated.slice(8, 13)}` + `${datesemiformated.slice(14, 16)}` + `00Z`
-	let semiday = d.toString();
+	let previousevent = new Date("2022-03-16T07:00:00Z")
+	eventlist3d[2].forEach(element => {
+		addspaces(Math.abs(previousevent - element.start), "Mon")
 
-	/*		~ Display the week events ~		*/
-	let i = 0;
+		setColors(element.summary) // Get the event color based on the event name
 
-	let currentday = semiday.slice(0, 3) /* Name of the currentday */
+		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
+		let lessonduration = "onehour"
+		if (eventduration === 5400000) lessonduration = "onehourandhalf";
+		if (eventduration === 7200000) lessonduration = "twohours";
+		if (eventduration === 10800000) lessonduration = "threehours";
 
-
-	let maxdate = 311
-	//while (eventlist3d[i][0].slice(12, 16) <= maxdate) {  
-	/* Add some white space at the begenning of the day if the lessons doesn't start at 8'00'*/
-	addspaces(700, eventlist3d[i][0].slice(17, 21), currentday);
-	while (eventlist3d[i][0].slice(12, 16) == date.slice(4, 8)) {
-		/* Get event duration */
-		let eventstart = eventlist3d[i][0].slice(17, 21);
-		let eventend = eventlist3d[i][1].slice(15, 19);
-		let eventduration = 0;
-		while ((eventend - eventstart) > 0) {
-			if (eventend[2] == "3") {
-				eventend = eventend - 30;
-				eventduration += 30;
-			} else {
-				eventend = eventend - 70;
-				eventduration += 30;
-			}
-		}
-
-		let classduration;
-		if (eventduration == 30) {
-			classduration = "halfhour";
-		} else if (eventduration == 60) {
-			classduration = "onehour";
-		} else if (eventduration == 90) {
-			classduration = "onehourandhalf";
-		} else if (eventduration == 120) {
-			classduration = "twohours";
-		} else if (eventduration == 180) { //150
-			classduration = "twohoursandhalf";
-		} else if (eventduration == 150) { //180
-			classduration = "threehours";
-		} else if (eventduration == 210) {
-			classduration = "threehoursandhalf";
-		} else if (eventduration == 240) {
-			classduration = "fourhours";
-		}
-
-
-		let heuredebut = parseInt(eventlist3d[i][0].slice(17, 19)) + 1
-		let heurefin = parseInt(eventlist3d[i][1].slice(15, 17)) + 1
-		let eventname = eventlist3d[i][2].slice(8, 500)
-		
-        setColors(eventname);
-
-		console.log(semiday.slice(0, 3))
-		if (eventduration == 30) {
-			document.querySelector(`.${currentday}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><section><h4>${eventlist3d[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist3d[i][0].slice(19, 21)} - ${heurefin}h${eventlist3d[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist3d[i][4].split('\\n')[3]}</p></section></article>`
+		if (eventduration === 1800000) {
+			document.querySelector(`.Mon`).innerHTML += `<article class="event halfhour ${colorevent}">
+															<h3>${element.summary}</h3>
+															<section>
+																<h4>${element.location}</h4>
+																<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
+																<p class="nomprof">${element.description}</p>
+															</section>
+														</article>`
 		} else {
-			document.querySelector(`.${currentday}`).innerHTML += `<article class="event ${classduration} ${colorevent}"><h3>${eventname}</h3><h4>${eventlist3d[i][3].slice(9, 500)}</h4><p>${heuredebut}h${eventlist3d[i][0].slice(19, 21)} - ${heurefin}h${eventlist3d[i][1].slice(17, 19)}</p><p class="nomprof">${eventlist3d[i][4].split('\\n')[3]}</p></article>`
+			document.querySelector(`.Mon`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
+													 		<h3>${element.summary}</h3>
+													 		<h4>${element.location}</h4>
+													 		<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
+													 		<p class="nomprof">${element.description}</p>
+													 	</article>`
 		}
-		addspaces(eventlist3d[i][1].slice(15, 19), eventlist3d[i + 1][0].slice(17, 21), currentday);
-		i++
-	}
-	i++
-	//}
+		previousevent = element.end;
+	})
 	responsive();
 }
 
@@ -296,19 +269,17 @@ function displayevents() {
 
 /**
  * Function to add Spaces Between 2 lessons
- * @param {int} x end of the previous course 
- * @param {int} y the beginning of the following one
- * @param {string} z the day of the week where the space will be added
+ * @param {int} x the difference between the previous course and the next one
+ * @param {string} y the day of the week where the space will be added
  */
-function addspaces(x, y, z) {
-	while ((y - x) > 0) {
-		if (y[2] == "3") {
-			y = y - 30;
-			document.querySelector(`.${z}`).innerHTML += `<article class="halfhour"><article>`
-		} else {
-			y = y - 70;
-			document.querySelector(`.${z}`).innerHTML += `<article class="halfhour"><article>`
-		}
+function addspaces(x, y) {
+	if (x === 1800000) document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
+	else if (x === 5400000) document.querySelector(`.${y}`).innerHTML += `<article class="onehourandhalf"><article>`;
+	else if (x === 7200000) document.querySelector(`.${y}`).innerHTML += `<article class="twohours"><article>`;
+	else if (x === 10800000) document.querySelector(`.${y}`).innerHTML += `<article class="threehours"><article>`;
+	else while (x > 0) {
+		x -= 1800000;
+		document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
 	}
 }
 
