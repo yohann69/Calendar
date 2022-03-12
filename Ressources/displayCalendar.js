@@ -225,7 +225,15 @@ function showcredits() {
 
 
 function displayweek(weektodysplay) {
-	let i = 2
+	let i = 0
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+	i = 1
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+	i = 2
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+	i = 3
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+	i = 4
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
 }
 

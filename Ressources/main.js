@@ -112,7 +112,8 @@ async function calendarlogin() {
 /*------------------------------------------------------------
 						~ Responsive ~
 ------------------------------------------------------------*/
-// This is terrible (but working). I'll improve it later.
+// Before you say anything, I KNOW THIS IS TERRIBLE!
+// I'll improve this later (it works btw)
 let displayedDay;
 function responsive() {
 	let Lun = document.querySelectorAll(`.Lun`)
@@ -342,8 +343,6 @@ function responsive() {
 	}
 	console.log(displayedDay)
 }
-
-
 function nextday() {
 	let Lun = document.querySelectorAll(`.Lun`)
 	let Mar = document.querySelectorAll(`.Mar`)
