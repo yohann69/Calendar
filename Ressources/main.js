@@ -113,21 +113,34 @@ async function calendarlogin() {
 						~ Responsive ~
 ------------------------------------------------------------*/
 // This is terrible (but working). I'll improve it later.
+let displayedDay;
 function responsive() {
-
-
-	var viewport_width = window.innerWidth;
-	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-
-
 	let Lun = document.querySelectorAll(`.Lun`)
 	let Mar = document.querySelectorAll(`.Mar`)
 	let Mer = document.querySelectorAll(`.Mer`)
 	let Jeu = document.querySelectorAll(`.Jeu`)
 	let Ven = document.querySelectorAll(`.Ven`)
 	let Sam = document.querySelectorAll(`.Sam`)
+	var viewport_height = window.innerHeight;
+	if (viewport_height < 580) {
+		window.alert("Votre taille d'écran n'est pas supportée. Veuillez agrandir votre fenètre ou changer d'appareil. Veuillez nous excuser pour la gène occasionnée")
+	}
+
+	var viewport_width = window.innerWidth;
+	const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
 
 
+
+	let daysnavigatebutton = document.querySelectorAll('.daysheader button')
+	if (viewport_width <= 500) {
+		for (let i = 0; i < daysnavigatebutton.length; i++) {
+			daysnavigatebutton[i].classList.remove('hidden')
+		}
+	} else {
+		for (let i = 0; i < daysnavigatebutton.length; i++) {
+			daysnavigatebutton[i].classList.add('hidden')
+		}
+	}
 	if (days[d.getDay()] == "Lun" || days[d.getDay()] == "Dim") {
 		if (viewport_width <= 800) {
 			for (let i = 0; i < Lun.length; i++) {
@@ -147,6 +160,7 @@ function responsive() {
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Lun"
 				Lun[i].style.setProperty("border-right", "0");
 
 			}
@@ -180,6 +194,7 @@ function responsive() {
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Mar"
 				Mar[i].style.setProperty("border-right", "0");
 			}
 		}
@@ -212,6 +227,7 @@ function responsive() {
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Mer"
 				Mer[i].style.setProperty("border-right", "0");
 			}
 		}
@@ -244,6 +260,7 @@ function responsive() {
 				Ven[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Jeu"
 				Jeu[i].style.setProperty("border-right", "0");
 			}
 		}
@@ -276,6 +293,7 @@ function responsive() {
 				Jeu[i].style.setProperty("display", "none", "important");
 				Sam[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Ven"
 				Ven[i].style.setProperty("border-right", "0");
 			}
 		}
@@ -308,6 +326,7 @@ function responsive() {
 				Jeu[i].style.setProperty("display", "none", "important");
 				Ven[i].style.setProperty("display", "none", "important");
 
+				displayedDay = "Sam"
 				Sam[i].style.setProperty("border-right", "0");
 			}
 		}
@@ -321,10 +340,121 @@ function responsive() {
 			}
 		}
 	}
+	console.log(displayedDay)
 }
 
 
+function nextday() {
+	let Lun = document.querySelectorAll(`.Lun`)
+	let Mar = document.querySelectorAll(`.Mar`)
+	let Mer = document.querySelectorAll(`.Mer`)
+	let Jeu = document.querySelectorAll(`.Jeu`)
+	let Ven = document.querySelectorAll(`.Ven`)
+	let Sam = document.querySelectorAll(`.Sam`)
 
+
+	
+
+	if (displayedDay == "Sam") {
+		for (let i = 0; i < Lun.length; i++) {
+			Sam[i].style.setProperty("display", "none", "important");
+			Lun[i].style.setProperty("display", "flex");
+			displayedDay = "Lun"
+		}
+	}
+	else if (displayedDay == "Ven") {
+		for (let i = 0; i < Lun.length; i++) {
+			Ven[i].style.setProperty("display", "none", "important");
+			Sam[i].style.setProperty("display", "flex");
+			displayedDay = "Sam"
+		}
+	}
+	else if (displayedDay == "Jeu") {
+		for (let i = 0; i < Lun.length; i++) {
+			Jeu[i].style.setProperty("display", "none", "important");
+			Ven[i].style.setProperty("display", "flex");
+			displayedDay = "Ven"
+		}
+	}
+	else if (displayedDay == "Mer") {
+		for (let i = 0; i < Lun.length; i++) {
+			Mer[i].style.setProperty("display", "none", "important");
+			Jeu[i].style.setProperty("display", "flex");
+			displayedDay = "Jeu"
+		}
+	}
+	else if (displayedDay == "Mar") {
+		for (let i = 0; i < Mer.length; i++) {
+			Mar[i].style.setProperty("display", "none", "important");
+			Mer[i].style.setProperty("display", "flex");
+			displayedDay = "Mer"
+		}
+	}
+	else if (displayedDay == "Lun") {
+		for (let i = 0; i < Mar.length; i++) {
+			Lun[i].style.setProperty("display", "none", "important");
+			Mar[i].style.setProperty("display", "flex");
+			displayedDay = "Mar"
+		}
+	}
+	
+	
+	
+	
+
+}
+function previousday() {
+	let Lun = document.querySelectorAll(`.Lun`)
+	let Mar = document.querySelectorAll(`.Mar`)
+	let Mer = document.querySelectorAll(`.Mer`)
+	let Jeu = document.querySelectorAll(`.Jeu`)
+	let Ven = document.querySelectorAll(`.Ven`)
+	let Sam = document.querySelectorAll(`.Sam`)
+
+
+	if (displayedDay == "Lun") {
+		for (let i = 0; i < Lun.length; i++) {
+			Lun[i].style.setProperty("display", "none", "important");
+			Sam[i].style.setProperty("display", "flex");
+			displayedDay = "Sam"
+		}
+	}
+	else if (displayedDay == "Mar") {
+		for (let i = 0; i < Lun.length; i++) {
+			Mar[i].style.setProperty("display", "none", "important");
+			Lun[i].style.setProperty("display", "flex");
+			displayedDay = "Lun"
+		}
+	}
+	else if (displayedDay == "Mer") {
+		for (let i = 0; i < Lun.length; i++) {
+			Mer[i].style.setProperty("display", "none", "important");
+			Mar[i].style.setProperty("display", "flex");
+			displayedDay = "Mar"
+		}
+	}
+	else if (displayedDay == "Jeu") {
+		for (let i = 0; i < Lun.length; i++) {
+			Jeu[i].style.setProperty("display", "none", "important");
+			Mer[i].style.setProperty("display", "flex");
+			displayedDay = "Mer"
+		}
+	}
+	else if (displayedDay == "Ven") {
+		for (let i = 0; i < Lun.length; i++) {
+			Ven[i].style.setProperty("display", "none", "important");
+			Jeu[i].style.setProperty("display", "flex");
+			displayedDay = "Jeu"
+		}
+	}
+	else if (displayedDay == "Sam") {
+		for (let i = 0; i < Lun.length; i++) {
+			Sam[i].style.setProperty("display", "none", "important");
+			Ven[i].style.setProperty("display", "flex");
+			displayedDay = "Ven"
+		}
+	}
+}
 
 
 /*------------------------------------------------------------

@@ -408,7 +408,9 @@ h4 {
 .hamburger *{
 	stroke: var(--svg-color);
 }
-
+.daysheader button {
+    margin: 2px;
+}
 
 
 
