@@ -62,7 +62,7 @@ function createEventTable(fechtedICS) {
 			eventlist3d[day][event].start = dateStartDate
 			eventlist3d[day][event].end = dateEndDate
 			eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
-			eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
+			eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 100)
 			eventlist3d[day][event].description = eventlist[searchevent][4].slice(19, 200)
 			event++;
 			searchevent++;
@@ -83,7 +83,7 @@ function createEventTable(fechtedICS) {
 			eventlist3d[day][event].end = dateEndDate
 			eventlist3d[day][event].summary = eventlist[searchevent][2].slice(8, 200)
 			eventlist3d[day][event].location = eventlist[searchevent][3].slice(9, 13)
-			eventlist3d[day][event].description = (eventlist[searchevent][4].slice(19, 200)).split('\\n')[1]
+			eventlist3d[day][event].description = eventlist[searchevent][4].slice(19, 200)
 			event++;
 			searchevent++;
 		}
@@ -252,8 +252,21 @@ function displayday(dateoftheday, eventlist3dIndex) {
 	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
-		let dayName = weeklist[element.start.getDay() - 1]
 
+		let nomprof
+		if(element.description.split("\\n")[1].includes('(Exporté le:'))	nomprof = ""
+		else nomprof = element.description.split("\\n")[1]
+
+		let emplacement = ""
+		console.log(element.location)
+		if(String(element.location).split("\\,")[1]){
+			for(let i=0; i<(String(element.location).split("\\,")).length; i++){
+				emplacement += `${String(element.location).split("\\,")[i]}<br/>`
+			}
+		}else emplacement=element.location
+		
+		let dayName = weeklist[element.start.getDay() - 1]
+		
 		addspaces(Math.abs(previousevent - element.start), dayName)
 		setColors(element.summary) // Get the event color based on the event name
 
@@ -268,17 +281,17 @@ function displayday(dateoftheday, eventlist3dIndex) {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event halfhour ${colorevent}">
 																	<h3>${element.summary}</h3>
 																	<section>
-																		<h4>${element.location}</h4>
-																		<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
-																		<p class="nomprof">${element.description}</p>
+																		<h4>${emplacement}</h4>
+																		<p class="nomprof">${nomprof}</p>
+																		<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
 																	</section>
 																</article>`
 		} else {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
 													 				<h3>${element.summary}</h3>
-													 				<h4>${element.location}</h4>
-													 				<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
-													 				<p class="nomprof">${element.description}</p>
+													 				<h4>${emplacement}</h4>
+													 				<p class="nomprof">${nomprof}</p>
+													 				<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
 													 			</article>`
 		}
 		previousevent = element.end;

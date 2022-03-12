@@ -124,7 +124,7 @@ function responsive() {
 	let Sam = document.querySelectorAll(`.Sam`)
 	var viewport_height = window.innerHeight;
 	if (viewport_height < 580) {
-		window.alert("Votre taille d'écran n'est pas supportée. Veuillez agrandir votre fenètre ou changer d'appareil. Veuillez nous excuser pour la gène occasionnée")
+		console.log("Votre taille d'écran n'est pas supportée. Veuillez agrandir votre fenètre ou changer d'appareil. Veuillez nous excuser pour la gène occasionnée")
 	}
 
 	var viewport_width = window.innerWidth;
@@ -341,7 +341,6 @@ function responsive() {
 			}
 		}
 	}
-	console.log(displayedDay)
 }
 function nextday() {
 	let Lun = document.querySelectorAll(`.Lun`)
