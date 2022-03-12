@@ -145,6 +145,7 @@ function displaysmallcalendar(yearact, monthact) {
 
 
 
+
 /*------------------------------------------------------------
 					~ Small Calendar ~
 ------------------------------------------------------------*/
@@ -190,7 +191,6 @@ function MonthInformation(year, oneBasedMonth) {
 
 
 
-
 /*----------------------------------------------------------------------------------
 								   ~ Navbar Functions ~
 ----------------------------------------------------------------------------------*/
@@ -219,62 +219,59 @@ function showcredits() {
 
 
 
-
-
-
-
-
-
-
 /*----------------------------------------------------------------------------------
 				 ~ Display calendar events (is called by showcalendar) ~
 ----------------------------------------------------------------------------------*/
 
 
-function displayweek(weektodysplay){
-	let i = 1
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth()+1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2,'0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+function displayweek(weektodysplay) {
+	let i = 2
+	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
 }
 
+
+
+
+
 /**
- * 
+ * Display a specific day
+ * Function called by displayweek()
  * @param {string} dateoftheday the date of the day to display in the following 
  * @param {int} eventlist3dIndex 
  */
 function displayday(dateoftheday, eventlist3dIndex) {
-	
+
 	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
-	
+
 	eventlist3d[eventlist3dIndex].forEach(element => {
 		let dayName = weeklist[element.start.getDay() - 1]
 
 		addspaces(Math.abs(previousevent - element.start), dayName)
-		
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
 		let lessonduration = "onehour"
-		if (eventduration === 5400000) 	lessonduration = "onehourandhalf";
-		if (eventduration === 7200000) 	lessonduration = "twohours";
+		if (eventduration === 5400000) lessonduration = "onehourandhalf";
+		if (eventduration === 7200000) lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
-		if (eventduration === 14400000)	lessonduration = "fourhours";
+		if (eventduration === 14400000) lessonduration = "fourhours";
 
 		if (eventduration === 1800000) {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event halfhour ${colorevent}">
-															<h3>${element.summary}</h3>
-															<section>
-																<h4>${element.location}</h4>
-																<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
-																<p class="nomprof">${element.description}</p>
-															</section>
-														</article>`
+																	<h3>${element.summary}</h3>
+																	<section>
+																		<h4>${element.location}</h4>
+																		<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
+																		<p class="nomprof">${element.description}</p>
+																	</section>
+																</article>`
 		} else {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
-													 		<h3>${element.summary}</h3>
-													 		<h4>${element.location}</h4>
-													 		<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
-													 		<p class="nomprof">${element.description}</p>
-													 	</article>`
+													 				<h3>${element.summary}</h3>
+													 				<h4>${element.location}</h4>
+													 				<p>${element.start.getHours()}h${element.start.getMinutes()} - ${element.end.getHours()}h${element.end.getMinutes()}</p>
+													 				<p class="nomprof">${element.description}</p>
+													 			</article>`
 		}
 		previousevent = element.end;
 	})
@@ -283,8 +280,11 @@ function displayday(dateoftheday, eventlist3dIndex) {
 
 
 
+
+
 /**
- * Function to add Spaces Between 2 lessons
+ * Add Spaces Between 2 lessons
+ * Function called by displayday()
  * @param {int} x the difference between the previous course and the next one
  * @param {string} y the day of the week where the space will be added
  */
@@ -305,15 +305,12 @@ function addspaces(x, y) {
 
 
 
-
 /* Change Month In small Calendar */
 function nextmonth() {
 	if (monthact == 11) {
 		monthact = 0;
 		yearact++;
-	} else {
-		monthact++;
-	}
+	} else monthact++;
 	displaysmallcalendar(yearact, monthact)
 }
 
@@ -322,8 +319,6 @@ function previousmonth() {
 	if (monthact == 0) {
 		monthact = 11;
 		yearact = yearact - 1;
-	} else {
-		monthact = monthact - 1;
-	}
+	} else monthact = monthact - 1;
 	displaysmallcalendar(yearact, monthact)
 }
