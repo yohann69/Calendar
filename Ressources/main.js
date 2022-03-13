@@ -142,6 +142,13 @@ function responsive() {
 			daysnavigatebutton[i].classList.add('hidden')
 		}
 	}
+
+	if(viewport_width>500){
+	for(let i=0; i<document.querySelectorAll('.daytitles .daysheader section').length; i++){
+		document.querySelectorAll('.daytitles .daysheader section')[i].style.setProperty("border-right", "1px solid var(--border-color)", "important");
+	} 
+	}
+
 	if (days[d.getDay()] == "Lun" || days[d.getDay()] == "Dim") {
 		if (viewport_width <= 800) {
 			for (let i = 0; i < Lun.length; i++) {
