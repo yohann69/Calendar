@@ -174,6 +174,11 @@ summary button {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+    flex-direction: column;
+}
+.daytitles .daysheader section p{
+	margin: 0;
+	font-size: 60%;
 }
 .empty {
 	width: 60px;

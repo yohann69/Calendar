@@ -7,6 +7,7 @@
 
 let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 let weeklist = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+let weeklistfr = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
 let monthlistfr = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
 
 let eventlist3d = [[]];
@@ -206,6 +207,7 @@ function showcalendar(weektodysplay) {
 		document.querySelector('.options').style.display = "none";
 		hamburgernb = 0
 	}
+	responsive();
 }
 function showcredits() {
 	document.querySelector('.toc-active').classList.remove('toc-active');
@@ -247,6 +249,7 @@ function displayweek(weektodysplay) {
 function displayday(dateoftheday, eventlist3dIndex) {
 
 	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
+	let executed = false
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
 		let nomprof
@@ -261,7 +264,13 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		}else emplacement=element.location
 		
 		let dayName = weeklist[element.start.getDay() - 1]
-		
+		if(executed){
+
+		} else {
+			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${element.start.getMonth()}/${element.start.getFullYear()}</p>`
+			executed = true
+		}
+
 		addspaces(Math.abs(previousevent - element.start), dayName)
 		setColors(element.summary) // Get the event color based on the event name
 
