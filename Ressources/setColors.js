@@ -19,6 +19,7 @@ function setColors (eventname){
 	else if (eventname.includes("Stat. descr.")) 			colorevent = "greensapin";
 	else if (eventname.includes("IHM")) 					colorevent = "violet";
 	else if (eventname.includes("Méthodes numériques")) 	colorevent = "applegreen";
+	else if (eventname.includes("Anglais")) 				colorevent = "darkblue";
 
 
 	else colorevent = "defaultcolor"
