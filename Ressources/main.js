@@ -396,7 +396,9 @@ function nextday() {
 		}
 	}
 	
-	
+	for(let i=0; i<document.querySelectorAll('.daytitles .daysheader section').length; i++){
+		document.querySelectorAll('.daytitles .daysheader section')[i].style.setProperty("border-right", "0");
+	} 
 	
 	
 
@@ -491,4 +493,15 @@ function showloginhelp() {
 }
 function hideloginhelp() {
 	document.querySelector('.help-ressource-nb').classList.add('hidden');
+}
+
+
+
+
+
+
+
+
+function test(){
+	console.log('Ca marche')
 }

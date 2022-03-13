@@ -2,7 +2,7 @@
 /*------------------------------------------------
 					ADE Calendar
 			  ~ Written By @Yohann69 ~
------------------------v0.1---------------------*/
+-----------------------v0.2---------------------*/
 
 
 let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -35,7 +35,7 @@ function createEventTable(fechtedICS) {
 		i++;
 	}
 	eventlist.sort(); // Sort the main array in the chronological order
-
+	console.log(eventlist)
 
 	let day = 0; // The 2nd Table number where the events pbjects will go
 	let event = 0; // Details of the event
@@ -225,15 +225,15 @@ function showcredits() {
 
 
 function displayweek(weektodysplay) {
-	let i = 0
+	let i = 5
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i = 1
+	i ++
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i = 2
+	i ++
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i = 3
+	i ++
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i = 4
+	i ++
 	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
 }
 
@@ -258,7 +258,6 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		else nomprof = element.description.split("\\n")[1]
 
 		let emplacement = ""
-		console.log(element.location)
 		if(String(element.location).split("\\,")[1]){
 			for(let i=0; i<(String(element.location).split("\\,")).length; i++){
 				emplacement += `${String(element.location).split("\\,")[i]}<br/>`

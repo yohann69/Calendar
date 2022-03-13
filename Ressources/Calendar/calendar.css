@@ -4,40 +4,6 @@
 }
 
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--white: #ffffffba;
-		--red:#f32f2fba;
-		--orange: #ff9933ba; /*#ff8c005c;*/
-		--yellowpipi:#ffff99ba;
-		--blue:#00ffffba;
-		--green:#33ff33ba;
-		--greensapin:#a4ffc7db;
-		--violet: #9191ffbb;
-		--darkblue: #518bffbb;
-		--lightblue: #7dffffbd;
-		--applegreen:#a0ffa0b2;
-	}
-}
-@media (prefers-color-scheme: dark) {
-	:root {
-		--white: #ffffff4d;
-		--red:#ff000040;
-		--orange: #ff8c004d; /*#ff8c005c;*/
-		--yellowpipi:#fade416e;
-		--blue:#00beff66;
-		--green:#32cd326e;
-		--greensapin:#00ffa75c;
-		--violet:#b576ff63;
-		--darkblue:#5378d7a3;
-		--lightblue: #3afffb66;
-
-		--applegreen:#7fcd326e;
-		--pink:#ff56b159;
-		--yellow:#ffda006e;
-	}
-}
-
 
 
 *{
@@ -418,44 +384,3 @@ h4 {
 
 
 
-
-/* Events color */
-.white{
-	background-color: var(--white);
-}
-.red{
-	background-color: var(--red);
-}
-.orange{
-	background-color: var(--orange);
-}
-.yellow{
-	background-color: var(--yellow);
-}
-.blue{
-	background-color: var(--blue);
-}
-.green{
-	background-color: var(--green);
-}
-.pink{
-	background-color: var(--pink);
-}
-.yellowpipi{
-	background-color: var(--yellowpipi);
-}
-.greensapin{
-	background-color: var(--greensapin);
-}
-.violet{
-	background-color: var(--violet);
-}
-.applegreen{
-	background-color: var(--applegreen);
-}
-.lightblue{
-	background-color: var(--lightblue);
-}
-.darkblue{
-	background-color: var(--darkblue);
-}

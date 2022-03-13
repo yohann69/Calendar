@@ -6,6 +6,15 @@
 
 let colorevent = "defaultcolor"
 
+/**
+ * Assign automatically a color based on the lesson name
+ * Fuction called by displayday()
+ * @param {string} eventname name of the lesson
+ * 
+ * Note: This list of lessons name isn't complete. I'll 
+ * 		 add more lessons names during the updates.
+ */
+
 function setColors (eventname){
 
 	if (eventname.includes("DS"))                   		colorevent = "white";
@@ -20,6 +29,7 @@ function setColors (eventname){
 	else if (eventname.includes("IHM")) 					colorevent = "violet";
 	else if (eventname.includes("Méthodes numériques")) 	colorevent = "applegreen";
 	else if (eventname.includes("Anglais")) 				colorevent = "darkblue";
+	else if (eventname.includes("PPP")) 					colorevent = "deepviolet";
 
 
 	else colorevent = "defaultcolor"
