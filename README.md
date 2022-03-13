@@ -1,34 +1,47 @@
-<h1 align="center">🗓️ ADE Calendrier 🕝<br></h1> 
-<!--Add a screenshot-->
+<h1 align="center">
+  <img src="https://ade.pages.dev/Ressources/img/calendaricon.png" width="72" />
+  <br />
+  ADE Calendrier
+</h1>
 
+> A modern calendar for the [IUT of Valence](https://www.iut-valence.fr/) that uses the Windows 11 design codes and works for both computers and phones.
+
+<br/>
+<br/>
 
 ![v1 Render](https://ade.pages.dev/Ressources/img/Calendar_Preview.jpeg)
 
 
 
-## 📜 To do:
-🏁 Started - Add colors for the different lessons<br />
-⬛ ...
+<br/>
+<br/>
+
+
+## 🤖 Features
+```
+✅ Easy login access whtough the student ressource number
+✅ Auto login with the direct URL (ex: ade.pages.dev/?ressource=70 is the direct link to access the ressource n°70)
+✅ Automatically display all lessons of the current week
+✅ Ability to switch between weeks
+✅ Login help on the login page
+
+✅ Add an adaptative light/dark mode
+✅ Modern UI (with the w11 design codes)
+✅ Works as well on phones as on computers
+```
+
 <br />
 
-## ✔️ Done:
-✅ Create a login page<br />
-✅ Create a nice UI (with the w11 design codes) for the login page<br />
-✅ Check whether the user input match with a valid ade ressource number<br />
-✅ Deploy the website on the internet<br />
-✅ Display a help section on the login page<br />
-✅ Auto-Login to the website using the ressource number kept in the URL (✅ so add a logout button too)<br />
-✅ Add an adaptative light/dark mode<br />
-✅ Decipher the ICS file to be able to interpret it and display it in the calendar<br />
-✅ Make the website responsive<br />
-✅ Create a nice UI (with the w11 design codes) for the calendar page<br />
-✅ Display all courses of the week in the calendar<br />
-✅ Add the possibility to change the displayed week to another one<br />
-✅  Correct all language errors<br />
-✅ ...
+## ℹ️ Infos & Credits :
+<br/>
+
+![Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=yohann69&repo=Calendar&layout=compact&theme=radical)
+
+- Hosted thanks to [Cloudflare pages](https://www.pages.dev)<br/>
+<br />
+<br />
 <br />
 
-## ❤️ Infos & Credits :
-Website made by ❤️ in France by [Yohann](https://github.com/yohann69)<br/>
-Hosted thanks to Cloudflare pages<br/>
-Thanks to [Tropix126](https://github.com/Tropix126/fluent-svelte) for [Fluent Svelte](https://fluent-svelte.vercel.app/)
+<div align="center">
+  <em>Made with ❤️ in France by <a href="https://github.com/yohann69">Yohann</a></em>
+</div>
