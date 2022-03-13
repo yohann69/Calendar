@@ -6,7 +6,7 @@
 
 > A modern calendar for the [IUT of Valence](https://www.iut-valence.fr/) that uses the Windows 11 design codes and works for both computers and phones.
 
-<br/>
+
 <br/>
 
 ![v1 Render](https://ade.pages.dev/Ressources/img/Calendar_Preview.jpeg)
@@ -25,7 +25,7 @@
 ✅ Ability to switch between weeks
 ✅ Login help on the login page
 
-✅ Add an adaptative light/dark mode
+✅ Adaptative light/dark mode
 ✅ Modern UI (with the w11 design codes)
 ✅ Works as well on phones as on computers
 ```
