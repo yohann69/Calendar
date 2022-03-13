@@ -381,6 +381,8 @@ h4 {
 .daysheader button {
     margin: 2px;
 }
-
-
+code {
+    font-size: 130%;
+    user-select: text;
+}
 

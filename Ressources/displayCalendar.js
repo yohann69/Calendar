@@ -2,7 +2,7 @@
 /*------------------------------------------------
 					ADE Calendar
 			  ~ Written By @Yohann69 ~
------------------------v0.2---------------------*/
+-----------------------v1.0---------------------*/
 
 
 let monthlist = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -107,7 +107,7 @@ function displaysmallcalendar(yearact, monthact) {
 	let displayweek = weenknbstart.getWeek()
 
 	let weeknb = 0;
-	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek})"></tr>`
+	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
 	let addweekspace = 0;
 	let executed = 0;
@@ -137,7 +137,7 @@ function displaysmallcalendar(yearact, monthact) {
 			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
 				displayweek++;
-				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek})"></tr>`
+				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 			}
 		}
 		getprev++;
@@ -210,7 +210,7 @@ function showcalendar(weektodysplay) {
 function showcredits() {
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.credits').classList.add('toc-active');
-	document.querySelector('.calendar').innerHTML = `<section class="headcredits"><img src="Ressources/img/calendaricon.png" alt="Icone Calendrier" width="100px"><section><h1 class="appnametitle">UGA Calendar</h1><p>v0.7 - Alpha</p></section></section><section class="expanders"><details class="card" open=""><summary>A propos de ce site<button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="svelte-i0q990"><path fill="currentColor" d="M2.14645 4.64645C2.34171 4.45118 2.65829 4.45118 2.85355 4.64645L6 7.79289L9.14645 4.64645C9.34171 4.45118 9.65829 4.45118 9.85355 4.64645C10.0488 4.84171 10.0488 5.15829 9.85355 5.35355L6.35355 8.85355C6.15829 9.04882 5.84171 9.04882 5.64645 8.85355L2.14645 5.35355C1.95118 5.15829 1.95118 4.84171 2.14645 4.64645Z"></path></svg></button></summary><p>Ce site a été créé par <a href="https://github.com/yohann69/">Yohann</a> dans le but d'avoir une alternative à ADE qui fonctionne aussi bien sur téléphone que sur ordinateur</p></details><details class="card" open=""><summary>Crédits<button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="svelte-i0q990"><path fill="currentColor" d="M2.14645 4.64645C2.34171 4.45118 2.65829 4.45118 2.85355 4.64645L6 7.79289L9.14645 4.64645C9.34171 4.45118 9.65829 4.45118 9.85355 4.64645C10.0488 4.84171 10.0488 5.15829 9.85355 5.35355L6.35355 8.85355C6.15829 9.04882 5.84171 9.04882 5.64645 8.85355L2.14645 5.35355C1.95118 5.15829 1.95118 4.84171 2.14645 4.64645Z"></path></svg></button></summary><p></p><ul><li>Code source: <a href="https://github.com/yohann69/Calendar">GitHub</a> - Toutes contributions sout les bienvenues</li><li>Site web hébergé par <a href="https://pages.cloudflare.com/">CloudFlare Pages</a></li><li>Copyright © 2022 <a href="https://github.com/yohann69/">Yohann</a></li></ul><p></p></details></section>`
+	document.querySelector('.calendar').innerHTML = `<section class="headcredits"><img src="Ressources/img/calendaricon.png" alt="Icone Calendrier" width="100px"><section><h1 class="appnametitle">UGA Calendar</h1><p>v1.0</p></section></section><section class="expanders"><details class="card" open=""><summary>A propos de ce site<button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="svelte-i0q990"><path fill="currentColor" d="M2.14645 4.64645C2.34171 4.45118 2.65829 4.45118 2.85355 4.64645L6 7.79289L9.14645 4.64645C9.34171 4.45118 9.65829 4.45118 9.85355 4.64645C10.0488 4.84171 10.0488 5.15829 9.85355 5.35355L6.35355 8.85355C6.15829 9.04882 5.84171 9.04882 5.64645 8.85355L2.14645 5.35355C1.95118 5.15829 1.95118 4.84171 2.14645 4.64645Z"></path></svg></button></summary><p>Ce site a été créé par <a href="https://github.com/yohann69/">Yohann</a> dans le but d'avoir une alternative à ADE qui fonctionne aussi bien sur téléphone que sur ordinateur</p></details><details class="card" open=""><summary>Crédits<button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="svelte-i0q990"><path fill="currentColor" d="M2.14645 4.64645C2.34171 4.45118 2.65829 4.45118 2.85355 4.64645L6 7.79289L9.14645 4.64645C9.34171 4.45118 9.65829 4.45118 9.85355 4.64645C10.0488 4.84171 10.0488 5.15829 9.85355 5.35355L6.35355 8.85355C6.15829 9.04882 5.84171 9.04882 5.64645 8.85355L2.14645 5.35355C1.95118 5.15829 1.95118 4.84171 2.14645 4.64645Z"></path></svg></button></summary><p></p><ul><li>Code source: <a href="https://github.com/yohann69/Calendar">GitHub</a> - Toutes contributions sout les bienvenues</li><li>Site web hébergé par <a href="https://pages.cloudflare.com/">CloudFlare Pages</a></li><li>Copyright © 2022 <a href="https://github.com/yohann69/">Yohann</a></li></ul><p></p></details><details class="card" open=""><summary>Contact<button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" class="svelte-i0q990"><path fill="currentColor" d="M2.14645 4.64645C2.34171 4.45118 2.65829 4.45118 2.85355 4.64645L6 7.79289L9.14645 4.64645C9.34171 4.45118 9.65829 4.45118 9.85355 4.64645C10.0488 4.84171 10.0488 5.15829 9.85355 5.35355L6.35355 8.85355C6.15829 9.04882 5.84171 9.04882 5.64645 8.85355L2.14645 5.35355C1.95118 5.15829 1.95118 4.84171 2.14645 4.64645Z"></path></svg></button></summary><p></p><ul><li>Mail: <a href="mailto:yohann@chavanel.eu.org">yohann@chavanel.eu.org</a></li><li>Discord: <code>NΞОИ#1723</code></li></ul></details></section>`
 	if (window.innerWidth <= 1300) {
 		document.querySelector('.options').style.display = "none";
 		hamburgernb = 0
@@ -323,6 +323,7 @@ function addspaces(x, y) {
 
 /* Change Month In small Calendar */
 function nextmonth() {
+	document.querySelector('.tomaketheselectedweekwork').classList.add('selectedweek') 
 	if (monthact == 11) {
 		monthact = 0;
 		yearact++;
@@ -332,9 +333,16 @@ function nextmonth() {
 
 /* Change Month In small Calendar */
 function previousmonth() {
+	document.querySelector('.tomaketheselectedweekwork').classList.add('selectedweek')
 	if (monthact == 0) {
 		monthact = 11;
 		yearact = yearact - 1;
 	} else monthact = monthact - 1;
 	displaysmallcalendar(yearact, monthact)
+}
+
+
+function selectweek(weektoselect){
+	document.querySelector('.selectedweek').classList.remove('selectedweek')
+	document.querySelector(`.${weektoselect}`).classList.add('selectedweek')
 }
