@@ -7,11 +7,7 @@
 
 
 ## 📜 To do:
-🏁 Started (almost finished) - Display all courses of the week in the calendar<br />
 🏁 Started - Add colors for the different lessons<br />
-🏁 Started -  Correct all language errors<br />
-⬛ Add the possibility to change the displayed week to another one<br />
-⬛ Create a desktop/mobile app (only if I have time)<br />
 ⬛ ...
 <br />
 
@@ -26,6 +22,9 @@
 ✅ Decipher the ICS file to be able to interpret it and display it in the calendar<br />
 ✅ Make the website responsive<br />
 ✅ Create a nice UI (with the w11 design codes) for the calendar page<br />
+✅ Display all courses of the week in the calendar<br />
+✅ Add the possibility to change the displayed week to another one<br />
+✅  Correct all language errors<br />
 ✅ ...
 <br />
 
