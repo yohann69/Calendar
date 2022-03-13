@@ -2,16 +2,16 @@
 <!--Add a screenshot-->
 
 
-![v0.13 Render](https://i.imgur.com/NGZ1QbW.png)
+![v1 Render](https://ade.pages.dev/Ressources/img/Calendar_Preview.jpeg)
 
 
 
 ## 📜 To do:
-🏁 Started - Display all courses of the week in the calendar<br />
+🏁 Started (almost finished) - Display all courses of the week in the calendar<br />
+🏁 Started - Add colors for the different lessons<br />
+🏁 Started -  Correct all language errors<br />
 ⬛ Add the possibility to change the displayed week to another one<br />
-⬛ Automatically add colors for the different lessons<br />
-⬛ Correct all language errors<br />
-⬛ Create a desktop/mobile app<br />
+⬛ Create a desktop/mobile app (only if I have time)<br />
 ⬛ ...
 <br />
 

@@ -4,39 +4,10 @@
 }
 
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--white: #ffffffba;
-		--red:#f32f2fba;
-		--orange: #ff9933ba; /*#ff8c005c;*/
-		--yellowpipi:#ffff99ba;
-		--blue:#00ffffba;
-		--green:#33ff33ba;
-		--greensapin:#a4ffc7db;
-	}
-}
-@media (prefers-color-scheme: dark) {
-	:root {
-		--white: #ffffff4d;
-		--red:#ff000040;
-		--orange: #ff8c004d; /*#ff8c005c;*/
-		--yellowpipi:#fade416e;
-		--blue:#00ffff66;
-		--green:#32cd326e;
-		--greensapin:#00ffa75c;
-
-
-		--violet:#e776ff63;
-		--applegreen:#7fcd326e;
-		--pink:#ff56b159;
-		--yellow:#ffda006e;
-	}
-}
-
 
 
 *{
-
+	transition: ease-in-out 100ms !important;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -267,7 +238,7 @@ article {
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours,.threehours{
+.onehour,.onehourandhalf,.halfhour,.twohours,.threehours,.fourhours{
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
@@ -292,7 +263,9 @@ article {
 .threehours{
 	height: calc(100% / 3.66);
 }
-
+.fourhours {
+    height: calc(100% / 2.75 );
+}
 
 .halfhour section {
 	font-size: 120%;
@@ -304,12 +277,12 @@ article * {
 	font-size: 75%;
 }
 .nomprof {
-	font-size: 50%;
+	font-size: 65%;
 }
 article h4 { /* Location */
 	color: var(--text-secondary);
 	margin: 0;
-	font-size: 70%;
+	font-size: 75%;
 	font-weight: 600;
 }
 article p { /* Horaires */
@@ -319,7 +292,7 @@ article p { /* Horaires */
 article h3 { /* Title*/
 	color: var(--default-color);
 	font-weight: 500;
-	font-size: 65%;
+	font-size: 75%;
 }
 
 
@@ -405,42 +378,9 @@ h4 {
 .hamburger *{
 	stroke: var(--svg-color);
 }
+.daysheader button {
+    margin: 2px;
+}
 
 
 
-
-
-/* Events color */
-.white{
-	background-color: var(--white);
-}
-.red{
-	background-color: var(--red);
-}
-.orange{
-	background-color: var(--orange);
-}
-.yellow{
-	background-color: var(--yellow);
-}
-.blue{
-	background-color: var(--blue);
-}
-.green{
-	background-color: var(--green);
-}
-.pink{
-	background-color: var(--pink);
-}
-.yellowpipi{
-	background-color: var(--yellowpipi);
-}
-.greensapin{
-	background-color: var(--greensapin);
-}
-.violet{
-	background-color: var(--violet);
-}
-.applegreen{
-	background-color: var(--applegreen);
-}
