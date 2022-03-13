@@ -35,7 +35,6 @@ function createEventTable(fechtedICS) {
 		i++;
 	}
 	eventlist.sort(); // Sort the main array in the chronological order
-	console.log(eventlist)
 
 	let day = 0; // The 2nd Table number where the events pbjects will go
 	let event = 0; // Details of the event
@@ -88,8 +87,7 @@ function createEventTable(fechtedICS) {
 			searchevent++;
 		}
 	});
-	console.log(eventlist3d)
-	showcalendar();
+	showcalendar(d.getWeek()-1);
 }
 
 
@@ -104,9 +102,12 @@ function displaysmallcalendar(yearact, monthact) {
 		mnb++
 	}
 	let getprev = 0;
-	let weeknb = 0;
 
-	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}"></tr>`
+	let weenknbstart = new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-01T00:00:00Z`)
+	let displayweek = weenknbstart.getWeek()
+
+	let weeknb = 0;
+	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek})"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
 	let addweekspace = 0;
 	let executed = 0;
@@ -135,7 +136,8 @@ function displaysmallcalendar(yearact, monthact) {
 
 			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
-				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"></tr>`
+				displayweek++;
+				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek})"></tr>`
 			}
 		}
 		getprev++;
@@ -195,11 +197,11 @@ function MonthInformation(year, oneBasedMonth) {
 								   ~ Navbar Functions ~
 ----------------------------------------------------------------------------------*/
 
-function showcalendar() {
+function showcalendar(weektodysplay) {
 	document.querySelector('.toc-active').classList.remove('toc-active');
 	document.querySelector('.calendarmenu').classList.add('toc-active');
 	document.querySelector('.calendar').innerHTML = `<section class="daytitles"><section class="empty"></section><section class="daysheader"><button onclick="previousday();">&lt;</button><section class="Lun">Lundi</section><section class="Mar">Mardi</section><section class="Mer">Mercredi</section><section class="Jeu">Jeudi</section><section class="Ven">Vendredi</section><section class="Sam">Samedi</section><button onclick="nextday();">&gt;</button></section></section><section class="calendarcontent"><section class="hours"><p>8h00</p><p>8h30</p><p>9h00</p><p>9h30</p><p>10h00</p><p>10h30</p><p>11h00</p><p>11h30</p><p>12h00</p><p>12h30</p><p>13h00</p><p>13h30</p><p>14h00</p><p>14h30</p><p>15h00</p><p>15h30</p><p>16h00</p><p>16h30</p><p>17h00</p><p>17h30</p><p>18h00</p><p>18h30</p><p>19h00</p>   </section><section class="days"><section class="Mon Lun"></section><section class="Tue Mar"></section><section class="Wed Mer"></section><section class="Thu Jeu"></section><section class="Fri Ven"></section><section class="Sat Sam"></section></section></section>`;
-	displayweek();
+	displayweek(weektodysplay);
 	if (window.innerWidth <= 1300) {
 		document.querySelector('.options').style.display = "none";
 		hamburgernb = 0
@@ -225,16 +227,11 @@ function showcredits() {
 
 
 function displayweek(weektodysplay) {
-	let i = 0
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i ++
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i ++
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i ++
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
-	i ++
-	displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+	for(let i=0; i<eventlist3d.length; i++){
+		if(eventlist3d[i][0].start.getWeek() == weektodysplay){
+			displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
+		}
+	}
 }
 
 
@@ -252,7 +249,6 @@ function displayday(dateoftheday, eventlist3dIndex) {
 	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
-
 		let nomprof
 		if(element.description.split("\\n")[1].includes('(Exporté le:'))	nomprof = ""
 		else nomprof = element.description.split("\\n")[1]
