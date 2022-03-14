@@ -88,7 +88,7 @@ function createEventTable(fechtedICS) {
 			searchevent++;
 		}
 	});
-	showcalendar(d.getWeek()-1);
+	showcalendar(d.getWeek());
 }
 
 
