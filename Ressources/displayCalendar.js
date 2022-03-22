@@ -267,7 +267,7 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		if(executed){
 
 		} else {
-			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${element.start.getMonth()}/${element.start.getFullYear()}</p>`
+			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth()+1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
 			executed = true
 		}
 
