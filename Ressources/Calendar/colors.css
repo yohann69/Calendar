@@ -12,6 +12,13 @@
 		--darkblue: #518bffbb;
 		--lightblue: #7dffffbd;
 		--applegreen:#a0ffa0b2;
+		--lightpink: #ff8197cc;
+		--yellow:#ffda0094;
+		--deepviolet: #cd1aff94;
+		--salmon: #fa8072db;
+		--lightorange: #ffa500b0;
+
+		--pink:#ff56b09d;
 	}
 }
 @media (prefers-color-scheme: dark) {
