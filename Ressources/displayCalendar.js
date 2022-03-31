@@ -248,7 +248,7 @@ function displayweek(weektodysplay) {
  */
 function displayday(dateoftheday, eventlist3dIndex) {
 
-	let previousevent = new Date(`${dateoftheday}T06:00:00Z`)
+	let previousevent = new Date(`${dateoftheday}T06:00:00Z`)   // change the 6 in 7 when changing the timezone and vice versa
 	let executed = false
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
@@ -313,7 +313,6 @@ function displayday(dateoftheday, eventlist3dIndex) {
  * @param {string} y the day of the week where the space will be added
  */
 function addspaces(x, y) {
-	console.log("x: " + x + " y:" + y)
 	if (x === 1800000) document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
 	else if (x === 3600000) document.querySelector(`.${y}`).innerHTML += `<article class="onehour"><article>`;
 	else if (x === 5400000) document.querySelector(`.${y}`).innerHTML += `<article class="onehourandhalf"><article>`;
