@@ -248,7 +248,7 @@ function displayweek(weektodysplay) {
  */
 function displayday(dateoftheday, eventlist3dIndex) {
 
-	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)
+	let previousevent = new Date(`${dateoftheday}T06:00:00Z`)
 	let executed = false
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
@@ -270,7 +270,6 @@ function displayday(dateoftheday, eventlist3dIndex) {
 			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth()+1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
 			executed = true
 		}
-
 		addspaces(Math.abs(previousevent - element.start), dayName)
 		setColors(element.summary) // Get the event color based on the event name
 
@@ -314,6 +313,7 @@ function displayday(dateoftheday, eventlist3dIndex) {
  * @param {string} y the day of the week where the space will be added
  */
 function addspaces(x, y) {
+	console.log("x: " + x + " y:" + y)
 	if (x === 1800000) document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
 	else if (x === 3600000) document.querySelector(`.${y}`).innerHTML += `<article class="onehour"><article>`;
 	else if (x === 5400000) document.querySelector(`.${y}`).innerHTML += `<article class="onehourandhalf"><article>`;
