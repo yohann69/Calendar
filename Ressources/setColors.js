@@ -30,6 +30,9 @@ function setColors (eventname){
 	else if (eventname.includes("Méthodes numériques")) 	colorevent = "applegreen";
 	else if (eventname.includes("Anglais")) 				colorevent = "darkblue";
 	else if (eventname.includes("PPP")) 					colorevent = "deepviolet";
+	else if (eventname.includes("Communication")) 			colorevent = "lightpink";
+	else if (eventname.includes("Services réseaux")) 		colorevent = "lightorange";
+	else if (eventname.includes("Qualité")) 				colorevent = "salmon";
 
 
 	else colorevent = "defaultcolor"

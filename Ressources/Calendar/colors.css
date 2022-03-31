@@ -18,7 +18,7 @@
 	:root {
 		--white: #ffffff4d;
 		--red:#ff000040;
-		--orange: #ff8c004d; /*#ff8c005c;*/
+		--orange: #ff7f0078; /*#ff8c004d; #ff8c005c;*/
 		--yellowpipi:#fade416e;
 		--blue:#00beff66;
 		--green:#32cd326e;
@@ -29,6 +29,9 @@
 		--deepviolet: #cd1aff73;
 		--applegreen:#7fcd326e;
 		
+		--salmon: #fa8072a1;
+		--lightpink: #ff81976b;
+		--lightorange: #ffa5007a;
 		--pink:#ff56b159;
 		--yellow:#ffda006e;
 	}
@@ -78,4 +81,13 @@
 }
 .deepviolet{
 	background-color: var(--deepviolet);
+}
+.lightpink{
+	background-color: var(--lightpink);
+}
+.lightorange{
+	background-color: var(--lightorange);
+}
+.salmon{
+	background-color: var(--salmon);
 }
