@@ -381,6 +381,6 @@ document.addEventListener('mousemove', (e) => {
 	const y = e.clientY; 
 	for (let i = 0; i < mouseFollow.length; i++) {
 		mouseFollow[i].style.setProperty("top", `${y - 50}px`, "important");
-		mouseFollow[i].style.setProperty("left", `${x - 50}px`, "important");
+		mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x}px))`, "important");
 	}
 })
