@@ -162,6 +162,7 @@ summary button {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+    overflow: hidden;
 }
 .days>section {
 	border-right: 1px solid var(--border-color);
@@ -399,3 +400,28 @@ code {
     user-select: text;
 }
 
+
+.mousemove{
+	display: none !important;
+	position: absolute;
+	z-index: 10000;
+	max-width: 200px;
+}
+.event:hover + .mousemove{
+	display: block !important;
+}
+
+.mousemove.halfhour{
+	flex-direction: column;
+	justify-content:center;
+}
+.mousemove.halfhour h3, .mousemove.halfhour section {
+    width: 100%;
+}
+.mousemove *{
+	font-size: 13px
+}
+.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours{
+	height:auto;
+	backdrop-filter: blur(100px) saturate(125%) !important;
+}

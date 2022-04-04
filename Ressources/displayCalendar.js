@@ -289,6 +289,12 @@ function displayday(dateoftheday, eventlist3dIndex) {
 																		<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
 																	</section>
 																</article>`
+			document.querySelector(`.${dayName}`).innerHTML += `<article class="mousemove halfhour ${colorevent}">
+																	<h3>${element.summary}</h3>
+																	<h4>${emplacement}</h4>
+																	<p class="nomprof">${nomprof}</p>
+																	<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
+		 														</article>`
 		} else {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event ${lessonduration} ${colorevent}">
 													 				<h3>${element.summary}</h3>
@@ -296,6 +302,12 @@ function displayday(dateoftheday, eventlist3dIndex) {
 													 				<p class="nomprof">${nomprof}</p>
 													 				<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
 													 			</article>`
+			document.querySelector(`.${dayName}`).innerHTML += `<article class="mousemove ${lessonduration} ${colorevent}">
+																	<h3>${element.summary}</h3>
+																	<h4>${emplacement}</h4>
+																 	<p class="nomprof">${nomprof}</p>
+																 	<p>${element.start.getHours()}h${String(element.start.getMinutes()).padStart(2, '0')} - ${element.end.getHours()}h${String(element.end.getMinutes()).padStart(2, '0')}</p>
+															 	</article>`
 		}
 		previousevent = element.end;
 	})
@@ -354,3 +366,21 @@ function selectweek(weektoselect){
 	document.querySelector('.selectedweek').classList.remove('selectedweek')
 	document.querySelector(`.${weektoselect}`).classList.add('selectedweek')
 }
+
+
+
+
+
+
+
+
+document.addEventListener('mousemove', (e) => {
+
+	const mouseFollow = document.querySelectorAll('.mousemove');
+	const x = e.clientX; //-25 to center div over mouse
+	const y = e.clientY; 
+	for (let i = 0; i < mouseFollow.length; i++) {
+		mouseFollow[i].style.setProperty("top", `${y - 50}px`, "important");
+		mouseFollow[i].style.setProperty("left", `${x - 50}px`, "important");
+	}
+})
