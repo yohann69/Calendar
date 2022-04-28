@@ -274,11 +274,13 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
+		console.log(eventduration)
 		let lessonduration = "onehour"
 		if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
+		if (eventduration === 39600000) lessonduration = "completeday";
 
 		if (eventduration === 1800000) {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event halfhour ${colorevent}">
@@ -375,7 +377,6 @@ function selectweek(weektoselect){
 
 
 document.addEventListener('mousemove', (e) => {
-
 	const mouseFollow = document.querySelectorAll('.mousemove');
 	const x = e.clientX; //-25 to center div over mouse
 	const y = e.clientY; 
