@@ -408,6 +408,8 @@ code {
 	position: absolute;
 	z-index: 10000;
 	max-width: 200px;
+    border: 1px solid;
+    box-shadow: 4px 10px 47px -12px;
 }
 .event:hover + .mousemove{
 	display: block !important;

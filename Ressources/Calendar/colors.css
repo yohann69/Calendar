@@ -23,9 +23,29 @@
 }
 @media (prefers-color-scheme: dark) {
 	:root {
-		--white: #ffffff4d;
+		--white: #82838b;
+		--red:#7e2f33;
+		--orange: #95581e; /*#ff8c004d; #ff8c005c;*/
+		--yellowpipi:#897f3f;
+		--blue:#1f6d8b;
+		--green:#337839;
+		--greensapin:#00ffa75c;
+		--violet:#664f86;
+		--darkblue:#455d9b;
+		--lightblue: #3afffb66;
+		--deepviolet: #cd1aff73;
+		--applegreen:#7fcd326e;
+		
+		--salmon: #b1655f;
+		--lightpink: #8a5660;
+		--lightorange: #976c20;
+		--pink:#ff56b159;
+		--yellow:#8d7e21;
+
+		
+/* 		--white: #ffffff4d;
 		--red:#ff000040;
-		--orange: #ff7f0078; /*#ff8c004d; #ff8c005c;*/
+		--orange: #ff7f0078; 
 		--yellowpipi:#fade416e;
 		--blue:#00beff66;
 		--green:#32cd326e;
@@ -40,7 +60,7 @@
 		--lightpink: #ff81976b;
 		--lightorange: #ffa5007a;
 		--pink:#ff56b159;
-		--yellow:#ffda006e;
+		--yellow:#ffda006e; */
 	}
 }
 
