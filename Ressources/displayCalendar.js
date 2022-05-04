@@ -381,7 +381,11 @@ document.addEventListener('mousemove', (e) => {
 	const x = e.clientX; //-25 to center div over mouse
 	const y = e.clientY; 
 	for (let i = 0; i < mouseFollow.length; i++) {
-		mouseFollow[i].style.setProperty("top", `${y - 50}px`, "important");
-		mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x}px))`, "important");
+		mouseFollow[i].style.setProperty("top", `${y - 75}px`, "important");
+		if(hamburgernb == 0) {
+			mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x}px))`, "important");
+		}else{
+			mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x - 240}px))`, "important");
+		}
 	}
 })

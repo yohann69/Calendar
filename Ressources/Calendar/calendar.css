@@ -52,7 +52,7 @@
 	justify-content: space-evenly;
 }
 .options { 
-	min-width: 220px;
+	width: 230px;
 	padding: 12px;
 	display: flex;
 	border: 1px solid #00000000;

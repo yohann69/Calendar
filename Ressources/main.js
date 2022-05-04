@@ -48,10 +48,15 @@ document.addEventListener('keydown', function (e) {
 /*------------------------------------------------------------
 		~ Automatically login to the website via url ~
 ------------------------------------------------------------*/
+let inputnumber = document.getElementById("input-noressource");
 if (window.location.href.includes("ressource=")) {
-	let inputnumber = document.getElementById("input-noressource");
 	if (inputnumber) {
 		inputnumber.value = `${((window.location.href).split("="))[1]}`;
+		document.getElementById("loginbtn").click();
+	}
+}else{
+	if(document.cookie.includes("ressource=")){
+		inputnumber.value = `${document.cookie.split("=")[1]}`;
 		document.getElementById("loginbtn").click();
 	}
 }
@@ -86,7 +91,9 @@ async function calendarlogin() {
 	------------------------------------------------------------*/
 	/*		~ If valid ~		*/
 	if (testcalendar[0].includes("BEGIN:VCALENDAR")) {
-		window.history.pushState({}, '', `?ressource=${noressource}`); // Add the ressource number in the url without reloading
+		//window.history.pushState({}, '', `?ressource=${noressource}`); // Add the ressource number in the url without reloading
+		document.cookie = `ressource=${noressource}; expires=Fri, 31 Dec 9999 23:59:59 GMT`; // Add the ressource number in a cookie
+
 
 		// Edit the webpage (remove the login and switch to the calendar)
 		document.querySelector('.logincenter').classList.add('timetable');
@@ -489,6 +496,7 @@ function showoptions() {
 					~ Other small scripts ~
 ------------------------------------------------------------*/
 function deconnexion() {
+	document.cookie = "ressource=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 	window.location.replace(`/`);	// Modifie l'url en rechargant la page
 }
 /* Display/Hide Errors */
