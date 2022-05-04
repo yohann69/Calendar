@@ -254,6 +254,7 @@ li {
 
 		.btn-hyperlink {
 		    /* TODO */
+			text-decoration: none;
 		}
 
 

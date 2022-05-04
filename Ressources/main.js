@@ -93,7 +93,7 @@ async function calendarlogin() {
 	if (testcalendar[0].includes("BEGIN:VCALENDAR")) {
 		//window.history.pushState({}, '', `?ressource=${noressource}`); // Add the ressource number in the url without reloading
 		document.cookie = `ressource=${noressource}; expires=Fri, 31 Dec 9999 23:59:59 GMT`; // Add the ressource number in a cookie
-		window.history.pushState('/')
+		window.history.pushState({}, '', '/')
 
 		// Edit the webpage (remove the login and switch to the calendar)
 		document.querySelector('.logincenter').classList.add('timetable');

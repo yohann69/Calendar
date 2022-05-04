@@ -428,4 +428,5 @@ code {
 .mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours{
 	height:auto;
 	backdrop-filter: blur(100px) saturate(125%) !important;
+	-webkit-backdrop-filter: blur(100px) saturate(125%) !important;	
 }
