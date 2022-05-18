@@ -93,7 +93,7 @@ function createEventTable(fechtedICS) {
 
 
 
-
+// Some stuff regarding the weeks numbers are not working. I"ll try to fix this ASAP
 function displaysmallcalendar(yearact, monthact) {
 	let detailmonth = []
 	const myMonth = new MonthInformation(yearact, monthact)
@@ -106,12 +106,14 @@ function displaysmallcalendar(yearact, monthact) {
 
 	let weenknbstart = new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-01T00:00:00Z`)
 	let displayweek = weenknbstart.getWeek()
-
+	let displayweekbackup = displayweek;
 	let weeknb = 0;
 	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
+	
 	let addweekspace = 0;
 	let executed = 0;
+
 	while (detailmonth.length > getprev) {
 		if (detailmonth[getprev].slice(4, 7) === monthlist[monthact]) {
 			if (detailmonth[getprev].slice(0, 3) != "Mon" && executed == 0) {
@@ -134,10 +136,11 @@ function displaysmallcalendar(yearact, monthact) {
 			} else {
 				document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
 			}
-
+			
 			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
-				displayweek++;
+				/* displayweek ++; */
+				displayweek = (new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-${parseInt(detailmonth[getprev].slice(8, 10))+1}T00:00:00Z`)).getWeek();
 				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 			}
 		}
@@ -274,7 +277,7 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
-		console.log(eventduration)
+		
 		let lessonduration = "onehour"
 		if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
