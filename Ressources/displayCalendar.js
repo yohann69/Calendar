@@ -279,10 +279,12 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
 		
 		let lessonduration = "onehour"
+		console.log(eventduration)
 		if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
+		if (eventduration === 16200000) lessonduration = "fourhoursandhalf";
 		if (eventduration === 39600000) lessonduration = "completeday";
 
 		if (eventduration === 1800000) {
@@ -336,6 +338,7 @@ function addspaces(x, y) {
 	else if (x === 7200000) document.querySelector(`.${y}`).innerHTML += `<article class="twohours"><article>`;
 	else if (x === 10800000) document.querySelector(`.${y}`).innerHTML += `<article class="threehours"><article>`;
 	else if (x === 14400000) document.querySelector(`.${y}`).innerHTML += `<article class="fourhours"><article>`;
+	else if (x === 21600000) document.querySelector(`.${y}`).innerHTML += `<article class="fourhoursandhalf"><article>`;
 	else while (x > 0) {
 		x -= 1800000;
 		document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
