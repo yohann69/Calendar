@@ -82,7 +82,7 @@ async function calendarlogin() {
 
 	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
 	let testcalendar = (await result.text()).split('\n');
-
+	
 
 	/*------------------------------------------------------------
 		~ Check whether the ressource number is valid or not ~
