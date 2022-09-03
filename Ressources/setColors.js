@@ -38,7 +38,7 @@ function setColors (eventname){
 	else if (eventname.includes("IHM")) 					colorevent = "violet";
 	else if (eventname.includes("Développement web")) 		colorevent = "violet";
 	else if (eventname.includes("MARKETING")) 				colorevent = "violet";
-	else if (eventname.includes("Programmation système")) 				colorevent = "applegreen";
+	else if (eventname.includes("Programmation système")) 	colorevent = "applegreen";
 	else if (eventname.includes("Allemand")) 				colorevent = "applegreen";
 	else if (eventname.includes("Méthodes numériques")) 	colorevent = "applegreen";
 	else if (eventname.includes("Maths")) 					colorevent = "applegreen";
@@ -46,7 +46,7 @@ function setColors (eventname){
 	else if (eventname.includes("ACHAT")) 					colorevent = "darkblue";
 	else if (eventname.includes("PPP")) 					colorevent = "deepviolet";
 	else if (eventname.includes("Communication")) 			colorevent = "lightpink";
-	else if (eventname.includes("réseaux")) 		colorevent = "lightorange";
+	else if (eventname.includes("réseaux")) 				colorevent = "lightorange";
 	else if (eventname.includes("Qualité")) 				colorevent = "salmon";
 
 

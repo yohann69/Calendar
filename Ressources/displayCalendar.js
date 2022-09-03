@@ -141,13 +141,19 @@ function displaysmallcalendar(yearact, monthact) {
 				weeknb++;
 				/* displayweek ++; */
 				displayweek = (new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-${parseInt(detailmonth[getprev].slice(8, 10))+1}T00:00:00Z`)).getWeek();
-				document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
+				if(weeknb == 1){
+
+					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweekbackup + 1}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
+					
+				}else{
+					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
+				}
 			}
+			
 		}
 		getprev++;
 	}
 }
-
 
 
 
@@ -279,8 +285,8 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
 		
 		let lessonduration = "onehour"
-		console.log(eventduration)
-		if (eventduration === 5400000) lessonduration = "onehourandhalf";
+
+			if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
