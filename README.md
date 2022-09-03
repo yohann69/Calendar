@@ -33,11 +33,16 @@
 <br />
 
 ## ℹ️ Infos & Credits :
+
 <br/>
 
-![Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=yohann69&repo=Calendar&layout=compact&theme=radical)
+- URL to the website: [ade.pages.dev](https://ade.pages.dev/)<br/>
 
-- Hosted thanks to [Cloudflare pages](https://www.pages.dev)<br/>
+
+- Hosted thanks to [Cloudflare pages](https://pages.cloudflare.com/)<br/>
+<br />
+
+![Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=yohann69&repo=Calendar&layout=compact&theme=radical)
 <br />
 <br />
 <br />
