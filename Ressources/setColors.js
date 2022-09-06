@@ -23,8 +23,10 @@ function setColors (eventname){
 	else if (eventname.includes("DROIT"))        		   	colorevent = "orange";
 	else if (eventname.includes("Cryptographie"))          	colorevent = "orange";
 	else if (eventname.includes("Gestion de projet")) 		colorevent = "yellowpipi";
+	else if (eventname.includes("économie")) 				colorevent = "yellowpipi";
 	else if (eventname.includes("Management")) 				colorevent = "yellowpipi";
 	else if (eventname.includes("Droit des contrats")) 		colorevent = "yellow";
+	else if (eventname.includes("organisations")) 			colorevent = "yellow";
 	else if (eventname.includes("POO")) 					colorevent = "blue";
 	else if (eventname.includes("efficace")) 				colorevent = "blue";
 	else if (eventname.includes("COO")) 					colorevent = "lightblue";
@@ -36,7 +38,7 @@ function setColors (eventname){
 	else if (eventname.includes("INTERNATIONAL")) 			colorevent = "greensapin";
 	else if (eventname.includes("Probabilités")) 			colorevent = "greensapin";
 	else if (eventname.includes("IHM")) 					colorevent = "violet";
-	else if (eventname.includes("Développement web")) 		colorevent = "violet";
+	else if (eventname.includes("web")) 					colorevent = "violet";
 	else if (eventname.includes("MARKETING")) 				colorevent = "violet";
 	else if (eventname.includes("Programmation système")) 	colorevent = "applegreen";
 	else if (eventname.includes("Allemand")) 				colorevent = "applegreen";
