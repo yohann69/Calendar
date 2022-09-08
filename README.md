@@ -30,9 +30,24 @@
 ✅ Works as well on phones as on computers
 ```
 
+
+<br />
+
+### 🚩 Known Issues :
+
+- Days without events doesn't have the detailed date (ex: 04/10/2022 is missing under the dayname)
+- On mobile when you select antoher week, it will display the actual day instead of monday (ex: you are tuesday, if you select another week it will diaplay the tuesday day of the selected week instead of monday)
+- The responsive part of the code is a complete mess (as well as some other parts)
+
+<br />
+
+### 📜 Tout Doux :
+- Add a settings option to allow the user to choose what information it want's to display on the events (Teacher name or not, schedules or not...)
+
 <br />
 
 ## ℹ️ Infos & Credits :
+
 
 <br/>
 
