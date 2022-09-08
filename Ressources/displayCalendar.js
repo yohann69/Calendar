@@ -104,13 +104,13 @@ function displaysmallcalendar(yearact, monthact) {
 	}
 	let getprev = 0;
 
-	let weenknbstart = new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-01T00:00:00Z`)
+	let weenknbstart = new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-01T00:00:00Z`)
 	let displayweek = weenknbstart.getWeek()
 	let displayweekbackup = displayweek;
 	let weeknb = 0;
 	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
-	
+
 	let addweekspace = 0;
 	let executed = 0;
 
@@ -136,20 +136,20 @@ function displaysmallcalendar(yearact, monthact) {
 			} else {
 				document.querySelector(`.weeknb${weeknb}`).innerHTML += `<td>${detailmonth[getprev].slice(8, 10)}</td>`
 			}
-			
+
 			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
 				/* displayweek ++; */
-				displayweek = (new Date(`${yearact}-${String(monthact+1).padStart(2, '0')}-${parseInt(detailmonth[getprev].slice(8, 10))+1}T00:00:00Z`)).getWeek();
-				if(weeknb == 1){
+				displayweek = (new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${parseInt(detailmonth[getprev].slice(8, 10)) + 1}T00:00:00Z`)).getWeek();
+				if (weeknb == 1) {
 
 					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweekbackup + 1}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
-					
-				}else{
+
+				} else {
 					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 				}
 			}
-			
+
 		}
 		getprev++;
 	}
@@ -238,14 +238,50 @@ function showcredits() {
 
 
 function displayweek(weektodysplay) {
-	for(let i=0; i<eventlist3d.length; i++){
-		if(eventlist3d[i][0].start.getWeek() == weektodysplay){
+	let count = 0;
+	let days = [];
+	for (let i = 0; i < eventlist3d.length; i++) {
+		if (eventlist3d[i][0].start.getWeek() == weektodysplay) {
+			count++;
+			days.push(eventlist3d[i][0].start.toLocaleString('default', { weekday: 'long' }))
 			displayday(`${eventlist3d[i][0].start.getFullYear()}-${String(eventlist3d[i][0].start.getMonth() + 1).padStart(2, '0')}-${String(eventlist3d[i][0].start.getDate()).padStart(2, '0')}`, i); // .padStart(2, '0') add 0 to a the beginnig of the string when it has a length of 2
 		}
 	}
+	if (count < 5) {
+		let future = true;
+		let today = new Date();
+		if (weektodysplay <= today.getWeek()) future = false;
+
+		if (days.indexOf("Monday") == -1) {
+			emptyday("Mon", future)
+		} if (days.indexOf("Tuesday") == -1) {
+			emptyday("Tue", future)
+		} if (days.indexOf("Wednesday") == -1) {
+			emptyday("Wed", future)
+		} if (days.indexOf("Thursday") == -1) {
+			emptyday("Thu", future)
+		} if (days.indexOf("Friday") == -1) {
+			emptyday("Fri", future)
+		}
+	}
+
 }
 
+function emptyday(daytoempty, future) {
+	if (future) {
+		document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
+														<h3>Rien à afficher.</h3>
+														<h4>Mais cela ne veut pas dire que tu n'as pas cours!</h4>
+														 <p class="nomprof">L'api utilisée ne possède qu'un mois d'edt</p>
+													 </article>`
+	} else {
+		document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
+														<a href="https://youtu.be/wQP9XZc2Y_c?t=178" style="color: var(--default-color); text-decoration: none; cursor: default; font-size: 105%; margin-bottom:5px"><i>"Le passé est passé"</i></a>
+														 <p class="nomprof">En effet, l'api utilisée ne permets pas de voir dans le passé</p>
+													 </article>`
 
+	}
+}
 
 
 
@@ -262,31 +298,31 @@ function displayday(dateoftheday, eventlist3dIndex) {
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
 		let nomprof
-		if(element.description.split("\\n")[1].includes('(Exporté le:'))	nomprof = ""
+		if (element.description.split("\\n")[1].includes('(Exporté le:')) nomprof = ""
 		else nomprof = element.description.split("\\n")[1]
 
 		let emplacement = ""
-		if(String(element.location).split("\\,")[1]){
-			for(let i=0; i<(String(element.location).split("\\,")).length; i++){
+		if (String(element.location).split("\\,")[1]) {
+			for (let i = 0; i < (String(element.location).split("\\,")).length; i++) {
 				emplacement += `${String(element.location).split("\\,")[i]}<br/>`
 			}
-		}else emplacement=element.location
-		
+		} else emplacement = element.location
+
 		let dayName = weeklist[element.start.getDay() - 1]
-		if(executed){
+		if (executed) {
 
 		} else {
-			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth()+1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
+			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth() + 1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
 			executed = true
 		}
 		addspaces(Math.abs(previousevent - element.start), dayName)
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
-		
+
 		let lessonduration = "onehour"
 
-			if (eventduration === 5400000) lessonduration = "onehourandhalf";
+		if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
@@ -357,7 +393,7 @@ function addspaces(x, y) {
 
 /* Change Month In small Calendar */
 function nextmonth() {
-	document.querySelector('.tomaketheselectedweekwork').classList.add('selectedweek') 
+	document.querySelector('.tomaketheselectedweekwork').classList.add('selectedweek')
 	if (monthact == 11) {
 		monthact = 0;
 		yearact++;
@@ -376,7 +412,7 @@ function previousmonth() {
 }
 
 
-function selectweek(weektoselect){
+function selectweek(weektoselect) {
 	document.querySelector('.selectedweek').classList.remove('selectedweek')
 	document.querySelector(`.${weektoselect}`).classList.add('selectedweek')
 }
@@ -391,12 +427,12 @@ function selectweek(weektoselect){
 document.addEventListener('mousemove', (e) => {
 	const mouseFollow = document.querySelectorAll('.mousemove');
 	const x = e.clientX; //-25 to center div over mouse
-	const y = e.clientY; 
+	const y = e.clientY;
 	for (let i = 0; i < mouseFollow.length; i++) {
 		mouseFollow[i].style.setProperty("top", `${y - 75}px`, "important");
-		if(hamburgernb == 0) {
+		if (hamburgernb == 0) {
 			mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x}px))`, "important");
-		}else{
+		} else {
 			mouseFollow[i].style.setProperty("left", `calc(100% - (100% - ${x - 240}px))`, "important");
 		}
 	}
