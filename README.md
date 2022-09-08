@@ -35,8 +35,8 @@
 
 ### 🚩 Known Issues :
 
-- Days without events doesn't have the detailed date (ex: 04/10/2022 is missing under the dayname)
-- On mobile when you select antoher week, it will display the actual day instead of monday (ex: you are tuesday, if you select another week it will diaplay the tuesday day of the selected week instead of monday)
+- Days without events don't have the detailed date (ex: 04/10/2022 is missing under the dayname)
+- On mobile when you select another week, it will display the actual day instead of Monday (ex: you are Tuesday, if you select another week it will display the Tuesday day of the selected week instead of Monday)
 - The responsive part of the code is a complete mess (as well as some other parts)
 
 <br />
