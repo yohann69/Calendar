@@ -275,10 +275,10 @@ function emptyday(daytoempty, future) {
 														 <p class="nomprof">L'api utilisée ne possède qu'un mois d'edt</p>
 													 </article>`
 	} else {
-		document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
-														<a href="https://youtu.be/wQP9XZc2Y_c?t=178" style="color: var(--default-color); text-decoration: none; cursor: default; font-size: 105%; margin-bottom:5px"><i>"Le passé est passé"</i></a>
-														 <p class="nomprof">En effet, l'api utilisée ne permets pas de voir dans le passé</p>
-													 </article>`
+		//document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
+		//												<a href="https://youtu.be/wQP9XZc2Y_c?t=178" style="color: var(--default-color); text-decoration: none; cursor: default; font-size: 105%; margin-bottom:5px"><i>"Le passé est passé"</i></a>
+		//												 <p class="nomprof">En effet, l'api utilisée ne permets pas de voir dans le passé</p>
+		//											 </article>`
 
 	}
 }
