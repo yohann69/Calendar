@@ -52,8 +52,8 @@ if (window.location.href.includes("ressource=")) {
 		inputnumber.value = `${((window.location.href).split("="))[1]}`;
 		document.getElementById("loginbtn").click();
 	}
-}else{
-	if(document.cookie.includes("ressource=")){
+} else {
+	if (document.cookie.includes("ressource=")) {
 		inputnumber.value = `${document.cookie.split("=")[1]}`;
 		document.getElementById("loginbtn").click();
 	}
@@ -80,9 +80,11 @@ async function calendarlogin() {
 
 	const noressource = document.getElementById("input-noressource").value;
 
-	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
-	let testcalendar = (await result.text()).split('\n');
-	
+	const result = await fetch(`https://ade-iut-valence-ro.grenet.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?data=6cf579d89e4f06d9cd8049985952718a5840a7de0ae5784a3906a8bb92aceb4e3bb235c4718a416d681b9534e8ed06a05a1f23897ca348e807a5067a12fbebcb,1&projectId=2&nbWeeks=10&resources=${noressource}`, { mode: "no-cors" });
+	let testcalendar = (await result.text());
+	console.log(testcalendar);
+
+
 
 	/*------------------------------------------------------------
 		~ Check whether the ressource number is valid or not ~
