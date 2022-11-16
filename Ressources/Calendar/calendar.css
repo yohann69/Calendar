@@ -425,6 +425,7 @@ code {
 }
 .event:hover + .mousemove{
 	display: block !important;
+	padding: 10px 15px !important;
 }
 
 .mousemove.halfhour{
@@ -435,10 +436,13 @@ code {
     width: 100%;
 }
 .mousemove *{
-	font-size: 13px
+	font-size: 13px;
+
 }
 .mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf{
 	height:auto;
 	backdrop-filter: blur(100px) saturate(125%) !important;
 	-webkit-backdrop-filter: blur(100px) saturate(125%) !important;	
 }
+
+
