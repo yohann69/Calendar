@@ -93,7 +93,6 @@ function createEventTable(fechtedICS) {
 
 
 
-// Some stuff regarding the weeks numbers are not working. I"ll try to fix this ASAP
 function displaysmallcalendar(yearact, monthact) {
 	let detailmonth = []
 	const myMonth = new MonthInformation(yearact, monthact)
@@ -374,7 +373,6 @@ function displayday(dateoftheday, eventlist3dIndex) {
  * @param {string} y the day of the week where the space will be added
  */
 function addspaces(x, y) {
-	console.log(x, y)
 	if (x === 1800000) document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
 	else if (x === 3600000) document.querySelector(`.${y}`).innerHTML += `<article class="onehour"><article>`;
 	else if (x === 5400000) document.querySelector(`.${y}`).innerHTML += `<article class="onehourandhalf"><article>`;
