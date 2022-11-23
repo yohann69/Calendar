@@ -283,6 +283,9 @@ article {
 .fourhoursandhalf {
     height: calc(100% / 2.3 );
 }
+.sixhours{
+	height: calc(100% / 1.83);
+}
 .completeday{
 	height: 100%
 }
