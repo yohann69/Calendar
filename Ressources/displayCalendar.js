@@ -314,7 +314,11 @@ function displayday(dateoftheday, eventlist3dIndex) {
 			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth() + 1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
 			executed = true
 		}
-		addspaces(Math.abs(previousevent - element.start), dayName)
+		if(element.start.getHours() === 7 && element.start.getMinutes() === 30) {
+
+		}else{
+			addspaces(Math.abs(previousevent - element.start), dayName)
+		}
 		setColors(element.summary) // Get the event color based on the event name
 
 		let eventduration = Math.abs(element.end - element.start) // Diff between 2 dates in ms
@@ -326,8 +330,9 @@ function displayday(dateoftheday, eventlist3dIndex) {
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
 		if (eventduration === 16200000) lessonduration = "fourhoursandhalf";
+		if (eventduration === 27000000) lessonduration = "sevenhoursandhalf";
+		if (eventduration === 27000000 && element.start.getHours() === 7 && element.start.getMinutes() === 30) lessonduration = "sevenhours";
 		if (eventduration === 39600000) lessonduration = "completeday";
-
 		if (eventduration === 1800000) {
 			document.querySelector(`.${dayName}`).innerHTML += `<article class="event halfhour ${colorevent}">
 																	<h3>${element.summary}</h3>

@@ -252,7 +252,7 @@ article {
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours,.threehours,.fourhours,.completeday,.fourhoursandhalf{
+.onehour,.onehourandhalf,.halfhour,.twohours,.threehours,.fourhours,.completeday,.fourhoursandhalf,.sevenhours{
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
@@ -291,6 +291,9 @@ article {
 }
 .halfhour section {
 	font-size: 120%;
+}
+.sevenhours {
+	height: calc(100% / 1.57);
 }
 
 /* Events Elements*/
@@ -442,7 +445,7 @@ code {
 	font-size: 13px;
 
 }
-.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf{
+.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf,.mousemove.sevenhours{
 	height:auto;
 	backdrop-filter: blur(100px) saturate(125%) !important;
 	-webkit-backdrop-filter: blur(100px) saturate(125%) !important;	
