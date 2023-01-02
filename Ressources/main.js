@@ -7,13 +7,13 @@
 
 console.log("Bienvenue sur Fluent ADE");
 console.log("Le code source est accessible publiquement ici: https://github.com/yohann69/Calendar");
-console.log("Toutes contributions sont les bienvenues. Enjoy!");
+console.log("Toutes contributions sont les bienvenues. N'hésitez pas à faire des pull requests :)");
 console.log("Le code n'est pas peaufiné. Il y a des trucs pas beaux, pas optimisés, incorrects... mais il a prour première vocation d'être fonctionnel. Au cours des MAJ, je ferais en sorte que le code soit le meilleur possible :)");
 console.log("-------------------------------------------------------------------------------------------------------------------------------------");
 
 
 /*------------------------------------------------------------
-							~ Global Variables ~
+					~ Global Variables ~
 ------------------------------------------------------------*/
 const d = new Date(); // Used to get the today date
 let monthact = d.getMonth(); //Get month number (ex: March = 2)

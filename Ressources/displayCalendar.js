@@ -106,6 +106,11 @@ function displaysmallcalendar(yearact, monthact) {
 	let weenknbstart = new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-01T00:00:00Z`)
 	let displayweek = weenknbstart.getWeek()
 	let displayweekbackup = displayweek;
+	console.log(yearact, monthact)
+	if(monthact == 0 && yearact == 2023) {
+		displayweek = 0;
+		displayweekbackup = 0;
+	}
 	let weeknb = 0;
 	document.querySelector('.scweeks').innerHTML = `<tr class="weeknb${weeknb}" onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 	document.querySelector('.scmonth').innerHTML = `${monthlistfr[monthact]} ${yearact}`
@@ -141,9 +146,7 @@ function displaysmallcalendar(yearact, monthact) {
 				/* displayweek ++; */
 				displayweek = (new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`)).getWeek();
 
-				console.log(displayweek)
-				console.log(new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`))
-				console.log(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`)
+
 				if (weeknb == 1) {
 					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweekbackup + 1}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 				} else {
