@@ -139,11 +139,13 @@ function displaysmallcalendar(yearact, monthact) {
 			if (detailmonth[getprev].slice(0, 3) == "Sun") {
 				weeknb++;
 				/* displayweek ++; */
-				displayweek = (new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${parseInt(detailmonth[getprev].slice(8, 10)) + 1}T00:00:00Z`)).getWeek();
+				displayweek = (new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`)).getWeek();
+
+				console.log(displayweek)
+				console.log(new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`))
+				console.log(`${yearact}-${String(monthact + 1).padStart(2, '0')}-${String(parseInt(detailmonth[getprev].slice(8, 10)) + 1).padStart(2,'0')}T00:00:00Z`)
 				if (weeknb == 1) {
-
 					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweekbackup + 1}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
-
 				} else {
 					document.querySelector('.scweeks').innerHTML += `<tr class="weeknb${weeknb}"  onclick="showcalendar(${displayweek}); selectweek(&quot;weeknb${weeknb}&quot;)"></tr>`
 				}
@@ -314,9 +316,9 @@ function displayday(dateoftheday, eventlist3dIndex) {
 			document.querySelectorAll(`.${weeklistfr[element.start.getDay() - 1]}`)[0].innerHTML += `<p>${element.start.getDate()}/${String(element.start.getMonth() + 1).padStart(2, '0')}/${element.start.getFullYear()}</p>`
 			executed = true
 		}
-		if(element.start.getHours() === 7 && element.start.getMinutes() === 30) {
+		if (element.start.getHours() === 7 && element.start.getMinutes() === 30) {
 
-		}else{
+		} else {
 			addspaces(Math.abs(previousevent - element.start), dayName)
 		}
 		setColors(element.summary) // Get the event color based on the event name
