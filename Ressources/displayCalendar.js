@@ -106,7 +106,6 @@ function displaysmallcalendar(yearact, monthact) {
 	let weenknbstart = new Date(`${yearact}-${String(monthact + 1).padStart(2, '0')}-01T00:00:00Z`)
 	let displayweek = weenknbstart.getWeek()
 	let displayweekbackup = displayweek;
-	console.log(yearact, monthact)
 	if(monthact == 0 && yearact == 2023) {
 		displayweek = 0;
 		displayweekbackup = 0;
