@@ -35,6 +35,7 @@ function setColors (eventname){
 	else if (eventname.includes("efficace")) 					colorevent = "blue";
 	else if (eventname.includes("COO")) 						colorevent = "lightblue";
 	else if (eventname.includes("Analyse")) 					colorevent = "lightblue";
+	else if (eventname.includes("objet")) 						colorevent = "lightblue";
 	else if (eventname.includes("Initiation au développement")) colorevent = "lightblue";
 	else if (eventname.includes("Virtualisation")) 				colorevent = "lightblue";
 	else if (eventname.includes("MANAGEMENT")) 					colorevent = "lightblue";
@@ -43,6 +44,7 @@ function setColors (eventname){
 	else if (eventname.includes("SQL")) 						colorevent = "red";
 	else if (eventname.includes("Vue")) 						colorevent = "red";
 	else if (eventname.includes("Stat. descr.")) 				colorevent = "greensapin";
+	else if (eventname.includes("statistiques")) 				colorevent = "greensapin";
 	else if (eventname.includes("INTERNATIONAL")) 				colorevent = "greensapin";
 	else if (eventname.includes("Probabilités")) 				colorevent = "greensapin";
 	else if (eventname.includes("discrètes")) 					colorevent = "greensapin";
