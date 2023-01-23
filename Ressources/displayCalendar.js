@@ -272,11 +272,11 @@ function displayweek(weektodysplay) {
 
 function emptyday(daytoempty, future) {
 	if (future) {
-		document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
-														<h3>Rien à afficher.</h3>
-														<h4>Mais cela ne veut pas dire que tu n'as pas cours!</h4>
-														 <p class="nomprof">L'api utilisée ne possède qu'un mois d'edt</p>
-													 </article>`
+		// document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
+		// 												<h3>Rien à afficher.</h3>
+		// 												<h4>Mais cela ne veut pas dire que tu n'as pas cours!</h4>
+		// 												 <p class="nomprof">L'api utilisée ne possède qu'un mois d'edt</p>
+		// 											 </article>`
 	} else {
 		//document.querySelector(`.${daytoempty}`).innerHTML = `<article class="event2 completeday">
 		//												<a href="https://youtu.be/wQP9XZc2Y_c?t=178" style="color: var(--default-color); text-decoration: none; cursor: default; font-size: 105%; margin-bottom:5px"><i>"Le passé est passé"</i></a>
