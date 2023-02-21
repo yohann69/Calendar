@@ -252,7 +252,7 @@ article {
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours,.threehours,.fourhours,.completeday,.fourhoursandhalf,.sevenhours{
+.onehour,.onehourandhalf,.halfhour,.twohours,.twohoursandhalf,.threehours,.fourhours,.completeday,.fourhoursandhalf,.sevenhours{
 	border-radius: 5px;
 	display: flex;
 	justify-content: center;
@@ -273,6 +273,9 @@ article {
 }
 .twohours {
 	height: calc(100% / 5.5);
+}
+.twohoursandhalf {
+	height: calc(100% / 4.34);
 }
 .threehours{
 	height: calc(100% / 3.66);
@@ -446,7 +449,7 @@ code {
 	font-size: 13px;
 
 }
-.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf,.mousemove.sevenhours{
+.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.twohoursandhalf,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf,.mousemove.sevenhours{
 	height:auto;
 	backdrop-filter: blur(100px) saturate(125%) !important;
 	-webkit-backdrop-filter: blur(100px) saturate(125%) !important;	

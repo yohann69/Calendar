@@ -331,6 +331,7 @@ function displayday(dateoftheday, eventlist3dIndex) {
 
 		if (eventduration === 5400000) lessonduration = "onehourandhalf";
 		if (eventduration === 7200000) lessonduration = "twohours";
+		if (eventduration === 9000000) lessonduration = "twohoursandhalf";
 		if (eventduration === 10800000) lessonduration = "threehours";
 		if (eventduration === 14400000) lessonduration = "fourhours";
 		if (eventduration === 16200000) lessonduration = "fourhoursandhalf";
