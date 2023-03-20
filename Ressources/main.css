@@ -29,7 +29,7 @@
 		
 		/* Colors */
 		--bg-color: white;
-		--bg-picture: url(img/bloom-mica-light.png);
+		--bg-picture: url(img/bg.png);
 		
 		
 		--default-border-color: #00000011;
@@ -65,7 +65,7 @@
 		
 		/* Colors */
 		--bg-color:#212121;
-		--bg-picture: url(img/bloom-mica-dark.png);
+		--bg-picture: url(img/bg.png);
 		
 		
 		--default-border-color: #00000087;

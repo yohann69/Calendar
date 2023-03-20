@@ -52,8 +52,8 @@ if (window.location.href.includes("ressource=")) {
 		inputnumber.value = `${((window.location.href).split("="))[1]}`;
 		document.getElementById("loginbtn").click();
 	}
-}else{
-	if(document.cookie.includes("ressource=")){
+} else {
+	if (document.cookie.includes("ressource=")) {
 		inputnumber.value = `${document.cookie.split("=")[1]}`;
 		document.getElementById("loginbtn").click();
 	}
@@ -80,9 +80,12 @@ async function calendarlogin() {
 
 	const noressource = document.getElementById("input-noressource").value;
 
-	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
+
+
+	// const result = await fetch(`https://handballgg.eu.org/api/v1/match/ics`, { mode: 'no-cors' });
+	const result = await fetch(`https://handballgg.eu.org/api/v1/match/ics`);
 	let testcalendar = (await result.text()).split('\n');
-	
+
 
 	/*------------------------------------------------------------
 		~ Check whether the ressource number is valid or not ~
