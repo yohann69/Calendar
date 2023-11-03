@@ -296,7 +296,7 @@ function emptyday(daytoempty, future) {
  */
 function displayday(dateoftheday, eventlist3dIndex) {
 
-	let previousevent = new Date(`${dateoftheday}T06:00:00Z`)   // change the 6 in 7 when changing the timezone and vice versa
+	let previousevent = new Date(`${dateoftheday}T07:00:00Z`)   // change the 6 in 7 when changing the timezone and vice versa
 	let executed = false
 
 	eventlist3d[eventlist3dIndex].forEach(element => {
