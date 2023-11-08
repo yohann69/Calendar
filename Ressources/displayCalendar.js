@@ -231,6 +231,15 @@ function showcredits() {
 	}
 }
 
+function showsettings() {
+	document.querySelector('.toc-active').classList.remove('toc-active');
+	document.querySelector('.settings').classList.add('toc-active');
+	document.querySelector('.calendar').innerHTML = `<p>Cette fonctionnalité arrive prochainement 👀<p>` // TODO: Implement settings
+	if (window.innerWidth <= 1300) {
+		document.querySelector('.options').style.display = "none";
+		hamburgernb = 0
+	}
+}
 
 
 
