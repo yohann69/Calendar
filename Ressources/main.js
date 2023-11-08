@@ -80,7 +80,7 @@ async function calendarlogin() {
 
 	const noressource = document.getElementById("input-noressource").value;
 
-	const result = await fetch(`https://intranet.iut-valence.fr/ICS_ADE/${noressource}.ics`);
+	const result = await fetch(`https://calendar-backend-production-c04d.up.railway.app/?q=${noressource}`);
 	let testcalendar = (await result.text()).split('\n');
 	
 

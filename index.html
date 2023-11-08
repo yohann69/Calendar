@@ -18,7 +18,7 @@
     <meta name="description" content="Alternative au calendrier ADE adaptée à un usage sur mobile." />
 </head>
 
-<body id="body" onresize="responsive()">
+<body id="body" onresize="responsive()" onload="godMode()">
 
 
 
@@ -89,7 +89,7 @@
                     <img src="Ressources/img/calendaricon.png" alt="Icone Calendrier">
                     <h2 class="titlelogin">Veuillez entrer votre numéro de ressource</h2>
                 </section>
-                <section>
+                <section class="ddlist">
                     <input type="number" id="input-noressource" step="1" min="0" placeholder="N° de ressource" value=""
                         selected list="list-noressource">
                     <datalist id="list-noressource">
@@ -120,6 +120,7 @@
 
     <section class="hidden selectedweek tomaketheselectedweekwork"></section>
 
+    <script src="/Ressources/godMode.js"></script>
     <script src="/Ressources/setColors.js"></script>
     <script src="/Ressources/displayCalendar.js"></script>
     <script src="/Ressources/main.js"></script>
