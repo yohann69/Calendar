@@ -15,7 +15,7 @@ async function godMode() {
         data.forEach(teacher => {
             let option = document.createElement("option")
             option.value = teacher.resourceNumber
-            option.innerHTML = teacher.teacherName
+            option.innerHTML = teacher.name
             whereToAdd.appendChild(option)
         })
     }
