@@ -1,5 +1,5 @@
 async function godMode() {
-    if (window.location.href.includes("godMode=true") && !window.location.href.includes("ressource=") && !document.cookie.includes("ressource=")) {
+    if (window.location.href.includes("godMode=true") && !window.location.href.includes("ressource=") && !document.cookie.includes("ressource=") || document.cookie.includes("godMode=")) {
 
         console.log("GodMode Activated")
 
@@ -18,5 +18,8 @@ async function godMode() {
             option.innerHTML = teacher.name
             whereToAdd.appendChild(option)
         })
+
+        // Add godMode=true in the cookies
+        document.cookie += `godMode=true; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     }
 }
