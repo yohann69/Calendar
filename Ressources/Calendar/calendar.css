@@ -1,105 +1,110 @@
-:root{
-	--border-color: #00000096;
-	--border-radius: 6px;
+:root {
+    --border-color: #00000096;
+    --border-radius: 6px;
 }
+
 @media (prefers-color-scheme: light) {
-	:root {
-		--selectedweek-color: #688a9554;
-	}
+    :root {
+        --selectedweek-color: #688a9554;
+    }
 }
+
 @media (prefers-color-scheme: dark) {
-	:root {
-		--selectedweek-color: #d1f4ff3d; 
-	}
+    :root {
+        --selectedweek-color: #d1f4ff3d;
+    }
 }
 
 
-*{
-	transition: ease-in-out 100ms !important;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-.timetable{
-	display: flex;
-	align-items: flex-end;
-	height: 100%;
+* {
+    transition: ease-in-out 100ms !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.timetable>section{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	width: 100%;
-	height: 93%;
+.timetable {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.timetable > section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 93%;
 }
 
 
-
-
-
-.toc{
-	min-width: 220px;
+.toc {
+    min-width: 220px;
 }
 
 .calendar {
-	width: 100%;
-	display: flex;
-	border-radius: 0 !important;
-	border-top-left-radius: 9px !important;
-	align-items: center;
-	justify-content: space-evenly;
-}
-.options { 
-	width: 230px;
-	padding: 12px;
-	display: flex;
-	border: 1px solid #00000000;
-	flex-direction: column;
-	justify-content: space-between;
-}
-.center{
-	display: flex;
-	justify-content: center;
-}
-.timetable header{
-	position: absolute;
-	top: 0;
-	display: flex;
-	justify-content: space-between;
-	width: 90%;
-	margin: 0 5% 0 5%;
-	height: 7%;
-	align-items: center;
+    width: 100%;
+    display: flex;
+    border-radius: 0 !important;
+    border-top-left-radius: 9px !important;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
+.options {
+    width: 230px;
+    padding: 12px;
+    display: flex;
+    border: 1px solid #00000000;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.timetable header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    height: 7%;
+    align-items: center;
+}
 
 
 /*          INFOS        */
-details{
-	width: 90%;
-	max-width: 800px;
-	margin-bottom: 15px;
+details {
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 15px;
 }
-details p{
-	margin: 24px 0 0 0;
+
+details p {
+    margin: 24px 0 0 0;
 }
-summary{
-	margin: -12px;
-	padding: 7px;
-	border-radius: 8px;
-	color: var(--default-color);
-	background-color: var(--hover-bg-color);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-inline-start: 15px;
+
+summary {
+    margin: -12px;
+    padding: 7px;
+    border-radius: 8px;
+    color: var(--default-color);
+    background-color: var(--hover-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline-start: 15px;
 }
-summary::marker{
-	content: "";
+
+summary::marker {
+    content: "";
 }
+
 /* summary::after{
 	content: "˅"; 
 	width: 25px;
@@ -112,347 +117,388 @@ details[open] summary::after{
 	content: "˄";
 } */
 .headcredits {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 200px;
 }
+
 .appnametitle {
-	font-size: 150%;
+    font-size: 150%;
 }
+
 .headcredits section * {
-	margin: 0;
-	display: flex;
-	justify-content: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
+
 .expanders {
-	width: 90%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}   
-summary button {
-	height: 32px;
-	width: 32px;
-	padding: 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
+summary button {
+    height: 32px;
+    width: 32px;
+    padding: 0;
+}
 
 
 /* Inside the calendar */
 .calendar .days {
-	width: 100%;
-	background-color: var(--third-bg-color);
-	height: 100%;
-	display: flex;
-	overflow: hidden;
-}
-.hours {
-	align-items: center;
-	width: 60px;  
-	backdrop-filter: blur(60px) saturate(125%);
-	-webkit-backdrop-filter: blur(60px) saturate(125%);
-	background-color: #ffffff0d;
-	height: 100%;
-	border-right: solid 1px var(--border-color);
-	border-top-left-radius: var(--border-radius);
-	border-bottom-left-radius: var(--border-radius);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+    width: 100%;
+    background-color: var(--third-bg-color);
+    height: 100%;
+    display: flex;
     overflow: hidden;
 }
-.days>section {
-	border-right: 1px solid var(--border-color);
-	width: 100%;    
-	display: flex;
-	flex-direction: column;
+
+.hours {
+    align-items: center;
+    width: 60px;
+    backdrop-filter: blur(60px) saturate(125%);
+    -webkit-backdrop-filter: blur(60px) saturate(125%);
+    background-color: #ffffff0d;
+    height: 100%;
+    border-right: solid 1px var(--border-color);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 }
-.daytitles {
-	height: 5%;
-	width: 100%;
-	display: flex;
-}
-.daytitles .daysheader section {
-	border-right: 1px solid var(--border-color);
-	color: var(--default-color);
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
+
+.days > section {
+    border-right: 1px solid var(--border-color);
+    width: 100%;
+    display: flex;
     flex-direction: column;
 }
-.daytitles .daysheader section p{
-	margin: 0;
-	font-size: 60%;
+
+.daytitles {
+    height: 5%;
+    width: 100%;
+    display: flex;
 }
+
+.daytitles .daysheader section {
+    border-right: 1px solid var(--border-color);
+    color: var(--default-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.daytitles .daysheader section p {
+    margin: 0;
+    font-size: 60%;
+}
+
 .empty {
-	width: 60px;
+    width: 60px;
 }
+
 .calendarcontent {
-	width: 100%;
-	height: 95%;
-	display: flex;
-	border: 1px solid var(--border-color);
-	border-top-left-radius: var(--border-radius);
-	border-bottom-left-radius: var(--border-radius);
-	border-bottom-right-radius: var(--border-radius);
+    width: 100%;
+    height: 95%;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
 }
+
 .calendar .days section:last-child {
-	border-bottom-right-radius: var(--border-radius);
-	border-right: 0;
+    border-bottom-right-radius: var(--border-radius);
+    border-right: 0;
 }
 
 .daytitles .days {
-	border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
 }
+
 .daytitles .daysheader section:last-child {
-	border-top-right-radius: var(--border-radius);
-	border-right: 0;
+    border-top-right-radius: var(--border-radius);
+    border-right: 0;
 }
+
 .daytitles .daysheader section:first-child {
-	border-top-left-radius: var(--border-radius);
-	/*margin-left: -1px; /* Else the table header has a 1px offset due to the left margin*/
+    border-top-left-radius: var(--border-radius);
+    /*margin-left: -1px; /* Else the table header has a 1px offset due to the left margin*/
 }
 
 
 .hours p {
-	margin: 0;
+    margin: 0;
 }
 
 .daysheader {
-	border: 1px solid var(--border-color);
-	border-bottom: 0;
-	margin-right: -1px; /* Due to some weird border reasons, there were an offset of 1px */
-	display: flex;
-	justify-content: space-around;
-	width: 100%;
-	backdrop-filter: blur(60px) saturate(125%);
-	-webkit-backdrop-filter: blur(60px) saturate(125%);
-	background-color: #ffffff0d;
-	border-top-left-radius: var(--border-radius);
-	border-top-right-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    border-bottom: 0;
+    margin-right: -1px; /* Due to some weird border reasons, there were an offset of 1px */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    backdrop-filter: blur(60px) saturate(125%);
+    -webkit-backdrop-filter: blur(60px) saturate(125%);
+    background-color: #ffffff0d;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }
-
-
 
 
 /* Lesson display*/
 article {
-	padding: 5px !important;
-	padding-top: 0px !important;
-	display: flex;
-	padding-bottom: 0px !important;
-	align-items: center;
-	overflow: hidden;
-	text-align: center;
+    padding: 5px !important;
+    padding-top: 0px !important;
+    display: flex;
+    padding-bottom: 0px !important;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
 }
 
 
-.onehour,.onehourandhalf,.halfhour,.twohours,.twohoursandhalf,.threehours,.fourhours,.completeday,.fourhoursandhalf,.sevenhours{
-	border-radius: 5px;
-	display: flex;
-	justify-content: center;
-	overflow: hidden;
+.onehour, .onehourandhalf, .halfhour, .twohours, .twohoursandhalf, .threehours, .fourhours, .completeday, .fourhoursandhalf, .sevenhours {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
+
 .onehour {
-	height: calc(100% / 11);
+    height: calc(100% / 11);
 }
+
 .onehourandhalf {
-	height: calc(100%/7.33);
+    height: calc(100% / 7.33);
 }
+
 .halfhour {
-	height: calc(100% / 22);    
-	font-size: 70%;
-	
-	display: flex !important;
-	flex-direction: row !important;
+    height: calc(100% / 22);
+    font-size: 70%;
+
+    display: flex !important;
+    flex-direction: row !important;
 }
+
 .twohours {
-	height: calc(100% / 5.5);
+    height: calc(100% / 5.5);
 }
+
 .twohoursandhalf {
-	height: calc(100% / 4.34);
+    height: calc(100% / 4.34);
 }
-.threehours{
-	height: calc(100% / 3.66);
+
+.threehours {
+    height: calc(100% / 3.66);
 }
+
 .fourhours {
-    height: calc(100% / 2.75 );
+    height: calc(100% / 2.75);
 }
+
 .fourhoursandhalf {
-    height: calc(100% / 2.3 );
+    height: calc(100% / 2.3);
 }
-.sixhours{
-	height: calc(100% / 1.83);
+
+.sixhours {
+    height: calc(100% / 1.83);
 }
-.completeday{
-	height: 100%
+
+.completeday {
+    height: 100%
 }
+
 .halfhour section {
-	font-size: 120%;
+    font-size: 120%;
 }
+
 .sevenhours {
-	height: calc(100% / 1.57);
+    height: calc(100% / 1.57);
 }
 
 /* Events Elements*/
 article * {
-	margin: 0;
-	font-size: 75%;
+    margin: 0;
+    font-size: 75%;
 }
+
 .nomprof {
-	font-size: 65%;
+    font-size: 65%;
 }
+
 article h4 { /* Location */
-	color: var(--text-secondary);
-	margin: 0;
-	font-size: 75%;
-	font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 75%;
+    font-weight: 600;
 }
+
 article p { /* Horaires */
-	color: var(--text-four);
-	font-size: 60%;
+    color: var(--text-four);
+    font-size: 60%;
 }
+
 article h3 { /* Title*/
-	color: var(--default-color);
-	font-weight: 500;
-	font-size: 75%;
+    color: var(--default-color);
+    font-weight: 500;
+    font-size: 75%;
 }
 
 
 .event {
-	display: flex;
-	flex-direction: column;
-	backdrop-filter: blur(60px) saturate(125%);
-	-webkit-backdrop-filter: blur(60px) saturate(125%);
-	background-color: #ffffff0d;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	border: 1px solid #00000099;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(60px) saturate(125%);
+    -webkit-backdrop-filter: blur(60px) saturate(125%);
+    background-color: #ffffff0d;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00000099;
 }
 
 .event2 {
-	display: flex;
-	flex-direction: column;
-	background-color: #ffffff0b;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	border: 1px solid #00000099;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff0b;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #00000099;
 }
 
 table td {
-	margin: 0;
-	text-align: center;
-    	width: 30px !important;
-    	height: 24px !important;
-	border-radius: 100px;
-	font-size: 90%;
-	color: var(--text-secondary);
+    margin: 0;
+    text-align: center;
+    width: 30px !important;
+    height: 24px !important;
+    border-radius: 100px;
+    font-size: 90%;
+    color: var(--text-secondary);
 }
-table td:hover,.today {
-	background-color: #d1f4ff3d;
-	border: 1px solid var(--accent-color);
+
+table td:hover, .today {
+    background-color: #d1f4ff3d;
+    border: 1px solid var(--accent-color);
 }
+
 table td:active {
-	background-color: #a2bec73d;
-	border: 1px solid var(--accent-active);
+    background-color: #a2bec73d;
+    border: 1px solid var(--accent-active);
 }
-table td:hover,table td:active,.today{
-	transition: ease-in-out 100ms;
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+
+table td:hover, table td:active, .today {
+    transition: ease-in-out 100ms;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
+
 .selectedweek {
-	background-color: var(--selectedweek-color);
-	border: 1px solid var(--accent-color);
+    background-color: var(--selectedweek-color);
+    border: 1px solid var(--accent-color);
 }
-.empty:hover{
-	background-color: inherit;
-	border: none;
+
+.empty:hover {
+    background-color: inherit;
+    border: none;
 }
+
 th {
-	width: 30px;
-	font-size: 12px;
-	color: var(--default-color);
-	font-weight: 400;
+    width: 30px;
+    font-size: 12px;
+    color: var(--default-color);
+    font-weight: 400;
 }
+
 h4 {
-	margin: 0;
-	color: var(--default-color);
-	font-weight: 100;
-	margin-top: 10px;
-	margin-bottom: 5px;
+    margin: 0;
+    color: var(--default-color);
+    font-weight: 100;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
+
 .smallcalendar {
-	background-color: var(--second-bg-color);
-	padding: 7px;
-	border-radius: 7px;
-	margin: auto 5px;
+    background-color: var(--second-bg-color);
+    padding: 7px;
+    border-radius: 7px;
+    margin: auto 5px;
 }
+
 .smallcalendar button {
-	padding: 3px 15px;
+    padding: 3px 15px;
 }
-.smallcalendar>section {
-	display: flex;
-	height: 30px;
-	justify-content: space-between;
-	align-items: center;
+
+.smallcalendar > section {
+    display: flex;
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
 }
-.halfhour h3,.halfhour section {
-	width: 50%;
+
+.halfhour h3, .halfhour section {
+    width: 50%;
 }
 
 
-
-
-.hamburger *{
-	stroke: var(--svg-color);
+.hamburger * {
+    stroke: var(--svg-color);
 }
+
 .daysheader button {
     margin: 2px;
 }
+
 code {
     font-size: 130%;
-	-webkit-user-select: text;
+    -webkit-user-select: text;
     user-select: text;
 }
 
 
-.mousemove{
-	display: none !important;
-	position: absolute;
-	z-index: 10000;
-	max-width: 200px;
+.mousemove {
+    display: none !important;
+    position: absolute;
+    z-index: 10000;
+    max-width: 200px;
     border: 1px solid;
     box-shadow: 4px 10px 47px -12px;
 }
-.event:hover + .mousemove{
-	display: block !important;
-	padding: 10px 15px !important;
+
+.event:hover + .mousemove {
+    display: block !important;
+    padding: 10px 15px !important;
 }
 
-.mousemove.halfhour{
-	flex-direction: column;
-	justify-content:center;
+.mousemove.halfhour {
+    flex-direction: column;
+    justify-content: center;
 }
+
 .mousemove.halfhour h3, .mousemove.halfhour section {
     width: 100%;
 }
-.mousemove *{
-	font-size: 13px;
+
+.mousemove * {
+    font-size: 13px;
 
 }
-.mousemove.onehour,.mousemove.onehourandhalf,.mousemove.halfhour,.mousemove.twohours,.mousemove.twohoursandhalf,.mousemove.threehours,.mousemove.fourhours,.mousemove.fourhoursandhalf,.mousemove.sevenhours{
-	height:auto;
-	backdrop-filter: blur(100px) saturate(125%) !important;
-	-webkit-backdrop-filter: blur(100px) saturate(125%) !important;	
+
+.mousemove.onehour, .mousemove.onehourandhalf, .mousemove.halfhour, .mousemove.twohours, .mousemove.twohoursandhalf, .mousemove.threehours, .mousemove.fourhours, .mousemove.fourhoursandhalf, .mousemove.sevenhours {
+    height: auto;
+    backdrop-filter: blur(100px) saturate(125%) !important;
+    -webkit-backdrop-filter: blur(100px) saturate(125%) !important;
 }
 
 

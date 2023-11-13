@@ -5,15 +5,15 @@
     width: 80%;
 }
 
-.login>section>section:first-child {
+.login > section > section:first-child {
     margin-top: 40px;
 }
 
-.login>section>section:last-child {
+.login > section > section:last-child {
     margin-bottom: 35px;
 }
 
-.login>section {
+.login > section {
     text-align: center;
     height: 100%;
     display: flex;
@@ -40,11 +40,11 @@
     max-width: 115px;
 }
 
-.login>p:hover {
+.login > p:hover {
     color: var(--text-tertiary-hover);
 }
 
-.login>p {
+.login > p {
     margin: 0%;
     color: var(--text-tertiary);
     font-size: 90%;
@@ -65,29 +65,33 @@
     max-width: 90%;
 }
 
-.help-ressource-nb>section {
+.help-ressource-nb > section {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2em;
 }
-.help-ressource-nb ol{
+
+.help-ressource-nb ol {
     max-width: 40em;
     margin-bottom: 2em;
 }
-.close-help{
+
+.close-help {
     position: absolute;
     right: 7px;
 }
+
 .help-ressource-nb h2 {
     margin-top: 1.4em;
 }
+
 .help-ressource-nb img {
     border-radius: 4px;
 }
 
-.logincenter{
+.logincenter {
     width: 100%;
     height: 100%;
     display: flex;

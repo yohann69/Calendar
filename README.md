@@ -4,7 +4,8 @@
   ADE Calendrier
 </h1>
 
-> A modern calendar for the [IUT of Valence](https://www.iut-valence.fr/) that uses the Windows 11 design codes and works for both computers and phones.
+> A modern calendar for the [IUT of Valence](https://www.iut-valence.fr/) that uses the Windows 11 design codes and
+> works for both computers and phones.
 
 
 <br/>
@@ -16,8 +17,8 @@
 <br/>
 <br/>
 
-
 ## 🤖 Features
+
 ```
 ✅ Easy login access whtough the student ressource number
 ✅ Auto login with the direct URL (ex: ade.pages.dev/?ressource=70 is the direct link to access the ressource n°70)
@@ -30,24 +31,25 @@
 ✅ Works as well on phones as on computers
 ```
 
-
 <br />
 
 ### 🚩 Known Issues :
 
 - Days without events don't have the detailed date (ex: 04/10/2022 is missing under the dayname)
-- On mobile when you select another week, it will display the actual day instead of Monday (ex: you are Tuesday, if you select another week it will display the Tuesday day of the selected week instead of Monday)
+- On mobile when you select another week, it will display the actual day instead of Monday (ex: you are Tuesday, if you
+  select another week it will display the Tuesday day of the selected week instead of Monday)
 - The responsive part of the code is a complete mess (as well as some other parts)
 
 <br />
 
 ### 📜 Tout Doux :
-- Add a settings option to allow the user to choose what information it want's to display on the events (Teacher name or not, schedules or not...)
+
+- Add a settings option to allow the user to choose what information it want's to display on the events (Teacher name or
+  not, schedules or not...)
 
 <br />
 
 ## ℹ️ Infos & Credits :
-
 
 <br/>
 
@@ -55,7 +57,7 @@
 
 
 - Hosted thanks to [Cloudflare pages](https://pages.cloudflare.com/)<br/>
-<br />
+  <br />
 
 ![Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=yohann69&repo=Calendar&layout=compact&theme=radical)
 <br />
