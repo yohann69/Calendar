@@ -1,7 +1,7 @@
 "use strict";
 /*------------------------------------------------
-					ADE Calendar
-			  ~ Written By @Yohann69 ~
+                    ADE Calendar
+              ~ Written By @Yohann69 ~
 -----------------------v0.1---------------------*/
 
 let colorevent = "defaultcolor"
@@ -71,6 +71,8 @@ const colorMap = {
     "réseaux": "lightorange",
     "Qualité": "salmon",
     "Programmation avancée": "salmon",
+    "Modélisation": "applegreen",
+    "Suivi SAE S5": "orange",
 };
 
 function setColors(eventname) {

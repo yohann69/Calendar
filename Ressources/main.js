@@ -1,7 +1,7 @@
 "use strict";
 /*------------------------------------------------
-					ADE Calendar
-			  ~ Written By @Yohann69 ~
+                    ADE Calendar
+              ~ Written By @Yohann69 ~
 -----------------------v1.0---------------------*/
 
 
@@ -13,7 +13,7 @@ console.log("-------------------------------------------------------------------
 
 
 /*------------------------------------------------------------
-					~ Global Variables ~
+                    ~ Global Variables ~
 ------------------------------------------------------------*/
 const d = new Date(); // Used to get the today date
 let monthact = d.getMonth(); //Get month number (ex: March = 2)
@@ -59,7 +59,7 @@ Date.prototype.getWeek = function (dowOffset) {
 };
 
 /*------------------------------------------------------------
-		   ~ Automatically select the input at login ~
+           ~ Automatically select the input at login ~
 ------------------------------------------------------------*/
 var input = document.getElementById('input-noressource');
 /*	Automatically select the Imput Ressource Number field in the login page */
@@ -67,8 +67,8 @@ input.focus();
 input.select();
 
 /* 	Wait for the enter key to be pressed (due to my weird code, pressing enter wasn't 
-	working to login to the website after putting the ressource number so I created 
-	this small function)  */
+    working to login to the website after putting the ressource number so I created 
+    this small function)  */
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         calendarlogin();
@@ -77,7 +77,7 @@ document.addEventListener('keydown', function (e) {
 
 
 /*------------------------------------------------------------
-		~ Automatically login to the website via url ~
+        ~ Automatically login to the website via url ~
 ------------------------------------------------------------*/
 let inputnumber = document.getElementById("input-noressource");
 if (window.location.href.includes("ressource=")) {
@@ -94,7 +94,7 @@ if (window.location.href.includes("ressource=")) {
 
 
 /*------------------------------------------------------------
-						  ~ Login ~
+                          ~ Login ~
 ------------------------------------------------------------*/
 
 /**
@@ -108,33 +108,33 @@ if (window.location.href.includes("ressource=")) {
 async function calendarlogin() {
     document.querySelector('.titlelogin').innerHTML = "Connexion... <br/>Veuillez patienter";
 
-    if (localStorage.getItem('events') != null && document.cookie.includes("ressource=") && parseInt(localStorage.getItem('savedDate')) + 4 * 60 * 60 * 1000 > parseInt(Date.now())) {
-        console.log("Fetching events from the local storage");
-        noressource = document.cookie.split("=")[1];
-        // Get the events from the local storage and parse them
-        let tempEventArray = JSON.parse(localStorage.getItem('events'));
-        if (Object.keys(tempEventArray[d.getWeek()]).length > 0) {
-            eventArray = tempEventArray;
-        } else {
-            // Remove the events from the local storage
-            localStorage.clear();
-            // Reload the page to fetch the events from the API
-            window.location.reload();
-        }
-    } else {
-        console.log("Fetching events from the API");
-        noressource = document.getElementById("input-noressource").value;
+    // if ((localStorage.getItem('events') != null && localStorage.getItem('events').trim() != '' && localStorage.getItem('events').trim() != undefined) && document.cookie.includes("ressource=") && parseInt(localStorage.getItem('savedDate')) + 4 * 60 * 60 * 1000 > parseInt(Date.now())) {
+    //     console.log("Fetching events from the local storage");
+    //     noressource = document.cookie.split("=")[1];
+    //     // Get the events from the local storage and parse them
+    //     let tempEventArray = JSON.parse(localStorage.getItem('events'));
+    //     if (Object.keys(tempEventArray[d.getWeek()]).length > 0) {
+    //         eventArray = tempEventArray;
+    //     } else {
+    //         // Remove the events from the local storage
+    //         localStorage.clear();
+    //         // Reload the page to fetch the events from the API
+    //         window.location.reload();
+    //     }
+    // } else {
+    console.log("Fetching events from the API");
+    noressource = document.getElementById("input-noressource").value;
 
-        /* To be isolated in a new function because it will be reused when clicking on another week :) */
-        const result = await fetch(`https://apiade.chavanel.eu.org/?q=${noressource}&json=true&limit=1&weekNumber=${d.getWeek()}&groupBy=day`);
-        eventArray = {
-            [d.getWeek()]: await result.json()
-        };
+    /* To be isolated in a new function because it will be reused when clicking on another week :) */
+    const result = await fetch(`https://apiade.chavanel.eu.org/?q=${noressource}&json=true&limit=1&weekNumber=${d.getWeek()}&groupBy=day`);
+    eventArray = {
+        [d.getWeek()]: await result.json()
+    };
 
-        // Save the events in the local storage
-        localStorage.setItem('events', JSON.stringify(eventArray));
-        localStorage.setItem('savedDate', parseInt(Date.now()));
-    }
+    // Save the events in the local storage
+    localStorage.setItem('events', JSON.stringify(eventArray));
+    localStorage.setItem('savedDate', parseInt(Date.now()));
+    // }
 
 
     /*------------------------------------------------------------
@@ -177,7 +177,7 @@ async function getCalendarName(noressource) {
 }
 
 /*------------------------------------------------------------
-						~ Responsive ~
+                        ~ Responsive ~
 ------------------------------------------------------------*/
 // Before you say anything, I KNOW THIS IS TERRIBLE!
 // I'll improve this later (it works btw)
@@ -521,7 +521,7 @@ function previousday() {
 
 
 /*------------------------------------------------------------
-					 ~ HamburgerButton ~
+                     ~ HamburgerButton ~
 ------------------------------------------------------------*/
 let hamburgernb = 0;
 if (window.innerWidth > 1300) {
@@ -540,7 +540,7 @@ function showoptions() {
 
 
 /*------------------------------------------------------------
-					~ Other small scripts ~
+                    ~ Other small scripts ~
 ------------------------------------------------------------*/
 function deconnexion() {
     document.cookie = "ressource=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
