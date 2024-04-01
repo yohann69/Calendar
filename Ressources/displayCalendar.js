@@ -1,7 +1,7 @@
 "use strict";
 /*------------------------------------------------
-					ADE Calendar
-			  ~ Written By @Yohann69 ~
+                    ADE Calendar
+              ~ Written By @Yohann69 ~
 -----------------------v1.0---------------------*/
 
 
@@ -79,7 +79,7 @@ function displaysmallcalendar(yearact, monthact) {
 
 
 /*------------------------------------------------------------
-					~ Small Calendar ~
+                    ~ Small Calendar ~
 ------------------------------------------------------------*/
 
 /* Get the month dates*/
@@ -122,7 +122,7 @@ function MonthInformation(year, oneBasedMonth) {
 
 
 /*----------------------------------------------------------------------------------
-								   ~ Navbar Functions ~
+                                   ~ Navbar Functions ~
 ----------------------------------------------------------------------------------*/
 
 async function showcalendar(weekToDisplay) {
@@ -170,7 +170,7 @@ function showsettings() {
 
 
 /*----------------------------------------------------------------------------------
-				 ~ Display calendar events (is called by showcalendar) ~
+                 ~ Display calendar events (is called by showcalendar) ~
 ----------------------------------------------------------------------------------*/
 
 
@@ -200,7 +200,7 @@ function displayweek(weekToDisplay) {
  * @param {string} dateoftheday the date of the day to display
  */
 function displayday(weekToDisplay, dateoftheday) {
-    let previousevent = new Date(`${dateoftheday}T07:00:00Z`)   // change the 6 in 7 when changing the timezone and vice versa
+    let previousevent = new Date(`${dateoftheday}T06:00:00Z`)   // change the 6 in 7 when changing the timezone and vice versa
     let executed = false
 
     eventArray[weekToDisplay][dateoftheday].events.forEach(element => {
@@ -300,9 +300,9 @@ function addspaces(x, y) {
     else if (x === 14400000) document.querySelector(`.${y}`).innerHTML += `<article class="fourhours"><article>`;
     else if (x === 21600000) document.querySelector(`.${y}`).innerHTML += `<article class="sixhours"><article>`;
     else while (x > 0) {
-            x -= 1800000;
-            document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
-        }
+        x -= 1800000;
+        document.querySelector(`.${y}`).innerHTML += `<article class="halfhour"><article>`;
+    }
 }
 
 
