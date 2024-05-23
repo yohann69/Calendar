@@ -1,7 +1,7 @@
 "use strict";
 /*------------------------------------------------
-					ADE Calendar
-			  ~ Written By @Yohann69 ~
+                    ADE Calendar
+              ~ Written By @Yohann69 ~
 -----------------------v0.1---------------------*/
 
 let colorevent = "defaultcolor"
@@ -15,64 +15,78 @@ let colorevent = "defaultcolor"
  *         add more lessons names during the updates.
  */
 
+
+const colorMap = {
+    "DS": "white",
+    "Graphes": "green",
+    "bas niveau": "orange",
+    "DROIT": "orange",
+    "Cryptographie": "orange",
+    "logicielle": "orange",
+    "architecture": "orange",
+    "décision": "orange",
+    "économie": "yellowpipi",
+    "Management": "yellowpipi",
+    "management": "yellowpipi",
+    "Droit des contrats": "yellow",
+    "Economie durable et numérique": "yellow",
+    "GSI": "yellow",
+    "organisations": "yellow",
+    "POO": "blue",
+    "mobiles": "blue",
+    "efficace": "blue",
+    "COO": "lightblue",
+    "Analyse": "lightblue",
+    "objet": "lightblue",
+    "Développement avancé": "lightblue",
+    "Initiation au développement": "lightblue",
+    "Virtualisation": "lightblue",
+    "MANAGEMENT": "lightblue",
+    "base de données": "red",
+    "Programmation multimédia": "red",
+    "BDD": "red",
+    "Nouvelles BD": "red",
+    "SQL": "red",
+    "Vue": "red",
+    "Stat. descr.": "greensapin",
+    "statistiques": "greensapin",
+    "INTERNATIONAL": "greensapin",
+    "Probabilités": "greensapin",
+    "discrètes": "greensapin",
+    "Automates": "greensapin",
+    "Automatisation": "greensapin",
+    "web": "lightpink",
+    "Entrepreneuriat": "red",
+    "Programmation système": "applegreen",
+    "optimisation": "applegreen",
+    "Allemand": "applegreen",
+    "Méthodes numériques": "applegreen",
+    "Maintenance": "applegreen",
+    "fondamentaux": "applegreen",
+    "Maths": "applegreen",
+    "Anglais": "darkblue",
+    "ACHAT": "darkblue",
+    "PPP": "deepviolet",
+    "MARKETING": "violet",
+    "IHM": "violet",
+    "Communication": "violet",
+    "communication": "violet",
+    "réseaux": "lightorange",
+    "Qualité": "salmon",
+    "Programmation avancée": "salmon",
+    "Modélisation": "applegreen",
+    "Suivi SAE S5": "orange",
+};
+
 function setColors(eventname) {
+    const normalizedEventName = eventname.toLowerCase();
 
-    if (eventname.includes("DS")) colorevent = "white";
-    else if (eventname.includes("Graphes")) colorevent = "green";
-    else if (eventname.includes("bas niveau")) colorevent = "orange";
-    else if (eventname.includes("DROIT")) colorevent = "orange";
-    else if (eventname.includes("Cryptographie")) colorevent = "orange";
-    else if (eventname.includes("logicielle")) colorevent = "orange";
-    else if (eventname.includes("Cryptographie")) colorevent = "orange";
-    else if (eventname.includes("architecture")) colorevent = "orange";
-    else if (eventname.includes("décision")) colorevent = "orange";
-    else if (eventname.includes("économie")) colorevent = "yellowpipi";
-    else if (eventname.includes("Management")) colorevent = "yellowpipi";
-    else if (eventname.includes("management")) colorevent = "yellowpipi";
-    else if (eventname.includes("Droit des contrats")) colorevent = "yellow";
-    else if (eventname.includes("Economie durable et numérique")) colorevent = "yellow";
-    else if (eventname.includes("GSI")) colorevent = "yellow";
-    else if (eventname.includes("organisations")) colorevent = "yellow";
-    else if (eventname.includes("POO")) colorevent = "blue";
-    else if (eventname.includes("mobiles")) colorevent = "blue";
-    else if (eventname.includes("efficace")) colorevent = "blue";
-    else if (eventname.includes("COO")) colorevent = "lightblue";
-    else if (eventname.includes("Analyse")) colorevent = "lightblue";
-    else if (eventname.includes("objet")) colorevent = "lightblue";
-    else if (eventname.includes("Initiation au développement")) colorevent = "lightblue";
-    else if (eventname.includes("Virtualisation")) colorevent = "lightblue";
-    else if (eventname.includes("MANAGEMENT")) colorevent = "lightblue";
-    else if (eventname.includes("base de données")) colorevent = "red";
-    else if (eventname.includes("Programmation multimédia")) colorevent = "red";
-    else if (eventname.includes("BDD")) colorevent = "red";
-    else if (eventname.includes("Nouvelles BD")) colorevent = "red";
-    else if (eventname.includes("SQL")) colorevent = "red";
-    else if (eventname.includes("Vue")) colorevent = "red";
-    else if (eventname.includes("Stat. descr.")) colorevent = "greensapin";
-    else if (eventname.includes("statistiques")) colorevent = "greensapin";
-    else if (eventname.includes("INTERNATIONAL")) colorevent = "greensapin";
-    else if (eventname.includes("Probabilités")) colorevent = "greensapin";
-    else if (eventname.includes("discrètes")) colorevent = "greensapin";
-    else if (eventname.includes("Automates")) colorevent = "greensapin";
-    else if (eventname.includes("Automatisation")) colorevent = "greensapin";
-    else if (eventname.includes("web")) colorevent = "lightpink";
-    else if (eventname.includes("Programmation système")) colorevent = "applegreen";
-    else if (eventname.includes("optimisation")) colorevent = "applegreen";
-    else if (eventname.includes("Allemand")) colorevent = "applegreen";
-    else if (eventname.includes("Méthodes numériques")) colorevent = "applegreen";
-    else if (eventname.includes("fondamentaux")) colorevent = "applegreen";
-    else if (eventname.includes("Maths")) colorevent = "applegreen";
-    else if (eventname.includes("Anglais")) colorevent = "darkblue";
-    else if (eventname.includes("ACHAT")) colorevent = "darkblue";
-    else if (eventname.includes("PPP")) colorevent = "deepviolet";
-    else if (eventname.includes("MARKETING")) colorevent = "violet";
-    else if (eventname.includes("IHM")) colorevent = "violet";
-    else if (eventname.includes("Communication")) colorevent = "violet";
-    else if (eventname.includes("communication")) colorevent = "violet";
-    else if (eventname.includes("réseaux")) colorevent = "lightorange";
-    else if (eventname.includes("Qualité")) colorevent = "salmon";
-    else if (eventname.includes("Programmation avancée")) colorevent = "salmon";
+    for (const key in colorMap) {
+        if (normalizedEventName.includes(key.toLowerCase())) {
+            colorevent = colorMap[key];
+            return;
+        }
+    }
 
-
-    else colorevent = "defaultcolor"
+    colorevent = "defaultcolor";
 }
