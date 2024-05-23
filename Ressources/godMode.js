@@ -3,7 +3,7 @@ async function godMode() {
 
         console.log("GodMode Activated")
 
-        let res = await fetch(`https://apiade.chavanel.eu.org/listTeachers`)
+        let res = await fetch(`https://calendar-backend-production-c04d.up.railway.app/listTeachers`)
         let data = await res.json()
 
         let whereToAdd = document.querySelector(".ddlist>datalist")
